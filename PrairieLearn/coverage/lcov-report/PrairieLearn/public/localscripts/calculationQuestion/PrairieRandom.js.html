@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/public/localscripts/calculationQuestion/PrairieRandom.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">PrairieLearn/public/localscripts/calculationQuestion</a> PrairieRandom.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.34% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>76/235</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.17% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>17/120</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.09% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>75/220</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">188x</span>
+<span class="cline-any cline-yes">188x</span>
+<span class="cline-any cline-yes">188x</span>
+<span class="cline-any cline-yes">188x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">188x</span>
+<span class="cline-any cline-yes">188x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+define(["mersenne", "underscore", "PrairieGeom"], function(mersenne, _, PrairieGeom) {
+&nbsp;
+    /** RandomGenerator constructor.
+&nbsp;
+        @param {String} seed (Optional, default uses current time) Seed value for the generator, must be in base 36.
+    */
+    function RandomGenerator(seed) {
+        seed = (seed === undefined) ? <span class="branch-0 cbranch-no" title="branch not covered" >Date.now() </span>: parseInt(seed, 36);
+        this._mersenne = new mersenne.MersenneTwister19937();
+        /* jshint camelcase: false */
+        this._mersenne.init_genrand(seed);
+    }
+&nbsp;
+    /** Return a random real between min and max (exclusive).
+&nbsp;
+        @param {Number} min (Optional, default 0) The minimum possible value.
+        @param {Number} max (Optional, default 1) The maximum possible value.
+        @return {Number} A randomly, uniformly selected real number between min and max.
+    */
+    RandomGenerator.prototype.randReal = <span class="fstat-no" title="function not covered" >fu</span>nction(min, max) {
+<span class="cstat-no" title="statement not covered" >        min = (min === undefined) ? 0 : min;</span>
+<span class="cstat-no" title="statement not covered" >        max = (max === undefined) ? 1 : max;</span>
+        /* jshint camelcase: false */
+<span class="cstat-no" title="statement not covered" >        return min + this._mersenne.genrand_real2() * (max - min);</span>
+    };
+&nbsp;
+    /** Return a random integer between min and max (inclusive).
+&nbsp;
+        @param {Number} min (Optional, default 0) The minimum possible value.
+        @param {Number} max (Optional, default 10) The maximum possible value.
+        @param {Number} step (Optional, default 1) The step incrememnt for possible values.
+        @return {Number} A randomly, uniformly selected integer between min and max with given step.
+    */
+    RandomGenerator.prototype.randInt = function(min, max, step) {
+        min = (min === undefined) ? <span class="branch-0 cbranch-no" title="branch not covered" >0 </span>: min;
+        max = (max === undefined) ? <span class="branch-0 cbranch-no" title="branch not covered" >10 </span>: max;
+        step = (step === undefined) ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >step;</span>
+        var n = (max - min) / step + 1;
+        /* jshint camelcase: false */
+        var i = Math.floor(this._mersenne.genrand_real2() * n);
+        return min + i * step;
+    };
+&nbsp;
+    /** Return a non-zero random integer between min and max (inclusive).
+&nbsp;
+        @param {Number} min (Optional, default 1) The minimum possible value.
+        @param {Number} max (Optional, default 10) The maximum possible value.
+        @param {Number} step (Optional, default 1) The step incrememnt for possible values.
+        @return {Number} A randomly, uniformly selected non-zero integer between min and max with given step.
+    */
+    RandomGenerator.prototype.randIntNonZero = <span class="fstat-no" title="function not covered" >fu</span>nction(min, max, step) {
+<span class="cstat-no" title="statement not covered" >        min = (min === undefined) ? 0 : min;</span>
+<span class="cstat-no" title="statement not covered" >        max = (max === undefined) ? 10 : max;</span>
+<span class="cstat-no" title="statement not covered" >        step = (step === undefined) ? 1 : step;</span>
+        var n = <span class="cstat-no" title="statement not covered" >(max - min) / step + 1;</span>
+        var i, r;
+<span class="cstat-no" title="statement not covered" >        do {</span>
+            /* jshint camelcase: false */
+<span class="cstat-no" title="statement not covered" >            i = Math.floor(this._mersenne.genrand_real2() * n);</span>
+<span class="cstat-no" title="statement not covered" >            r = min + i * step;</span>
+        } while (r === 0);
+<span class="cstat-no" title="statement not covered" >        return r;</span>
+    };
+&nbsp;
+    /** Return a random boolean.
+&nbsp;
+        @param {Number} trueProb (Optional, default 0.5) The probability of returning true.
+        @return {Number} A randomly selected Boolean value (true or false).
+    */
+    RandomGenerator.prototype.randBool = <span class="fstat-no" title="function not covered" >fu</span>nction(trueProb) {
+<span class="cstat-no" title="statement not covered" >        trueProb = (trueProb === undefined) ? 0.5: trueProb;</span>
+        /* jshint camelcase: false */
+<span class="cstat-no" title="statement not covered" >        if (this._mersenne.genrand_real2() &lt; trueProb)</span>
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+    };
+&nbsp;
+    /** Return a random sign (-1 or 1).
+&nbsp;
+        @param {Number} posProb (Optional, default 0.5) The probability of returning 1.
+        @return {Number} A randomly selected sign value (-1 or 1).
+    */
+    RandomGenerator.prototype.randSign = <span class="fstat-no" title="function not covered" >fu</span>nction(posProb) {
+<span class="cstat-no" title="statement not covered" >        posProb = (posProb === undefined) ? 0.5: posProb;</span>
+        /* jshint camelcase: false */
+<span class="cstat-no" title="statement not covered" >        if (this._mersenne.genrand_real2() &lt; posProb)</span>
+<span class="cstat-no" title="statement not covered" >            return 1;</span>
+<span class="cstat-no" title="statement not covered" >        return -1;</span>
+    };
+&nbsp;
+    /** Return a random array with real elements between min and max (exclusive).
+&nbsp;
+        @param {Number} n (Optional, default 3) The length of the array.
+        @param {Number} min (Optional, default 0) The minimum possible value.
+        @param {Number} max (Optional, default 1) The maximum possible value.
+        @return {Number} An array of random numbers.
+    */
+    RandomGenerator.prototype.randArrayReal = <span class="fstat-no" title="function not covered" >fu</span>nction(n, min, max) {
+<span class="cstat-no" title="statement not covered" >        n = (n === undefined) ? 3 : n;</span>
+        var a = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            a.push(this.randReal(min, max));</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return a;</span>
+    };
+&nbsp;
+    /** Return a random array with integer elements between min and max (inclusive).
+&nbsp;
+        @param {Number} n (Optional, default 3) The length of the array.
+        @param {Number} min (Optional, default 0) The minimum possible value.
+        @param {Number} max (Optional, default 10) The maximum possible value.
+        @param {Number} step (Optional, default 1) The step incrememnt for possible values.
+        @return {Number} An array of random numbers.
+    */
+    RandomGenerator.prototype.randArrayInt = <span class="fstat-no" title="function not covered" >fu</span>nction(n, min, max, step) {
+<span class="cstat-no" title="statement not covered" >        n = (n === undefined) ? 3 : n;</span>
+        var a = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            a.push(this.randInt(min, max, step));</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return a;</span>
+    };
+&nbsp;
+    /** Return a non-zero random array with integer elements between min and max (inclusive).
+&nbsp;
+        @param {Number} n (Optional, default 3) The length of the array.
+        @param {Number} min (Optional, default 1) The minimum possible value.
+        @param {Number} max (Optional, default 10) The maximum possible value.
+        @param {Number} step (Optional, default 1) The step incrememnt for possible values.
+        @return {Number} An array of random numbers, not all zero.
+    */
+    RandomGenerator.prototype.randArrayIntNonZero = <span class="fstat-no" title="function not covered" >fu</span>nction(n, min, max, step) {
+<span class="cstat-no" title="statement not covered" >        n = (n === undefined) ? 3 : n;</span>
+        var a, allZero, i, e;
+<span class="cstat-no" title="statement not covered" >        do {</span>
+<span class="cstat-no" title="statement not covered" >            allZero = true;</span>
+<span class="cstat-no" title="statement not covered" >            a = [];</span>
+<span class="cstat-no" title="statement not covered" >            for (i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                e = this.randInt(min, max, step);</span>
+<span class="cstat-no" title="statement not covered" >                a.push(e);</span>
+<span class="cstat-no" title="statement not covered" >                if (e !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    allZero = false;</span>
+                }
+            }
+        } while (allZero);
+<span class="cstat-no" title="statement not covered" >        return a;</span>
+    };
+&nbsp;
+    /** Return a random array with unique integer elements between min and max (inclusive).
+&nbsp;
+        @param {Number} n (Optional, default 3) The length of the array.
+        @param {Number} min (Optional, default 0) The minimum possible value.
+        @param {Number} max (Optional, default 10) The maximum possible value.
+        @param {Number} step (Optional, default 1) The step incrememnt for possible values.
+        @return {Number} An array of unique random numbers.
+    */
+    RandomGenerator.prototype.randArrayUniqueInt = <span class="fstat-no" title="function not covered" >fu</span>nction(n, min, max, step) {
+<span class="cstat-no" title="statement not covered" >        n = (n === undefined) ? 3 : n;</span>
+        var a = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        while (a.length &lt; n) {</span>
+            var e = <span class="cstat-no" title="statement not covered" >this.randInt(min, max, step);</span>
+            var duplicate = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                if (a[i] == e) {</span>
+<span class="cstat-no" title="statement not covered" >                    duplicate = true;</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            if (!duplicate) {</span>
+<span class="cstat-no" title="statement not covered" >                a.push(e);</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        return a;</span>
+    };
+&nbsp;
+    /** Return a random element from an array.
+&nbsp;
+        @param {Array} arr The array of options.
+        @param {Array} probs (Optional, default equal) The probabilities of each element.
+        @return One of the elements of the array, chosen randomly and uniformly.
+    */
+    RandomGenerator.prototype.randElem = <span class="fstat-no" title="function not covered" >fu</span>nction(arr, probs) {
+        var n = <span class="cstat-no" title="statement not covered" >arr.length;</span>
+        var i;
+<span class="cstat-no" title="statement not covered" >        if (probs) {</span>
+            var tot = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >            for (i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                tot += probs[i];</span>
+            }
+            var p = <span class="cstat-no" title="statement not covered" >this.randReal();</span>
+            var sum = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >            for (i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                sum += probs[i] / tot;</span>
+<span class="cstat-no" title="statement not covered" >                if (p &lt; sum) {</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            i = Math.min(i, n - 1);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            i = this.randInt(0, n - 1);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return arr[i];</span>
+    };
+&nbsp;
+    /** Return an array consisting of n copies of the given element.
+&nbsp;
+        @param {Number} n The number of times to repeat the element.
+        @param {Object} elem The element to repeat.
+        @return {Array} An array with n elements [elem, elem, ..., elem].
+    */
+    RandomGenerator.prototype.repeat = <span class="fstat-no" title="function not covered" >fu</span>nction(n, elem) {
+        var arr = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            arr.push(elem);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return arr;</span>
+    };
+&nbsp;
+    /** Return n random elements from an array without repetition.
+&nbsp;
+        @param {Number} n The number of elements required.
+        @param {Array} arr The array of options.
+        @param {Array} probs (Optional) An array of element probabilities.
+        @return A subset of the array, chosen randomly and uniformly.
+    */
+    RandomGenerator.prototype.randNElem = function(n, arr, probs) {
+        var length = arr.length;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (n &gt; length)
+<span class="cstat-no" title="statement not covered" >            return arr;</span>
+        var returnArr = [];
+        var avail = arr.slice(), iElem, ind;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (probs)
+            var p = <span class="cstat-no" title="statement not covered" >probs.slice();</span>
+        for (iElem = 0; iElem &lt; n; iElem++) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (probs) {
+<span class="cstat-no" title="statement not covered" >                ind = this.randElem(_.range(avail.length), p);</span>
+<span class="cstat-no" title="statement not covered" >                p.splice(ind, 1);</span>
+            } else {
+                ind = this.randInt(0, avail.length - 1);
+            }
+            returnArr.push(avail[ind]);
+            avail.splice(ind, 1);
+        }
+        return returnArr;
+    };
+&nbsp;
+    /** Return a random permutation of 0,...,(n-1).
+&nbsp;
+        @param {Number} n The number of elements in the permutation.
+        @return {Array} A permutation of 0,...,(n-1).
+    */
+    RandomGenerator.prototype.randPerm = function(n) {
+        var a = [], i, j, tmp;
+        for (i = 0; i &lt; n; i++) {
+            a.push(i);
+        }
+        for (i = 0; i &lt; n - 1; i++) {
+            j = this.randInt(i, n - 1);
+            tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+        }
+        return a;
+    };
+&nbsp;
+    /** Permute an array in place with the given permutation.
+&nbsp;
+        @param {Array} perm The permutation.
+        @param {Array} arr The array.
+    */
+    RandomGenerator.prototype.permuteArray = function(perm, arr) {
+        var save = [], i;
+        for (i = 0; i &lt; arr.length; i++) {
+            save.push(arr[i]);
+        }
+        for (i = 0; i &lt; arr.length; i++) {
+            arr[i] = save[perm[i]];
+        }
+    };
+&nbsp;
+    /** Permute the arrays in place with the given permutation.
+&nbsp;
+        @param {Array} perm The permutation.
+        @param {Array} a (Optional) Arrays.
+    */
+    RandomGenerator.prototype.permute = function(perm, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (a0) this.permuteArray(perm, a0);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a1) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a1);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a2) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a2);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a3) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a3);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a4) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a4);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a5) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a5);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a6) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a6);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a7) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a7);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a8) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a8);</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (a9) <span class="cstat-no" title="statement not covered" >this.permuteArray(perm, a9);</span>
+    };
+&nbsp;
+    /** Randomly shuffle the given arrays in place with the same permutation.
+&nbsp;
+        @param {Array} a (Optional) Arrays.
+        @return {Array} the permutation used to shuffle.
+    */
+    RandomGenerator.prototype.shuffle = function(a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
+        var perm = this.randPerm(a0.length);
+        this.permute(perm, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9);
+        return perm;
+    };
+&nbsp;
+    /** Make nSel near-uniform selections from nCat categories, returning the number of selections per category.
+&nbsp;
+        @param {Number} nSel The number of selections.
+        @param {Object} cats Either a Number (the number of categories) or an array of category weights.
+        @return {Array} A length-nCat array giving the number of selections per category.
+    */
+    RandomGenerator.prototype.randCategoryChoices = <span class="fstat-no" title="function not covered" >fu</span>nction(nSel, cats) {
+        var catWeights = <span class="cstat-no" title="statement not covered" >_.isArray(cats) ? cats : _.times(cats, _.constant(1));</span>
+        var nCat = <span class="cstat-no" title="statement not covered" >catWeights.length;</span>
+        var totWeight = <span class="cstat-no" title="statement not covered" >numeric.sum(catWeights);</span>
+        var nSelIdeals = <span class="cstat-no" title="statement not covered" >numeric.mul(catWeights, nSel / totWeight);</span>
+        var sels = <span class="cstat-no" title="statement not covered" >numeric.floor(nSelIdeals);</span>
+        var excessProbs = <span class="cstat-no" title="statement not covered" >numeric.sub(nSelIdeals, sels);</span>
+        var extras = <span class="cstat-no" title="statement not covered" >this.randNElem(nSel - numeric.sum(sels), _.range(nCat), excessProbs);</span>
+<span class="cstat-no" title="statement not covered" >        _(extras).each(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {<span class="cstat-no" title="statement not covered" >sels[i]++;}</span>);</span>
+<span class="cstat-no" title="statement not covered" >        return sels;</span>
+    };
+&nbsp;
+    /** Return a random polynomial.
+&nbsp;
+        @param {Number} degree (Optional, default 2) The degree of the polynomial.
+        @param {Number} maxCoeff (Optional, default 3) The maximum coefficient value.
+        @param {Number} zeroProb (Optional, default 0.5) The additional probability to zero lower-degree coefficients.
+        @param {Number} negCoeffs (Optional, default true) Whether negative coefficients are allowed.
+        @return {Array} The polynomial coefficients [a_0, a_1, ..., a_n].
+    */
+    RandomGenerator.prototype.randPoly = <span class="fstat-no" title="function not covered" >fu</span>nction(degree, maxCoeff, zeroProb, negCoeffs) {
+<span class="cstat-no" title="statement not covered" >        degree = (degree === undefined) ? 2 : degree;</span>
+<span class="cstat-no" title="statement not covered" >        maxCoeff = (maxCoeff === undefined) ? 3 : maxCoeff;</span>
+<span class="cstat-no" title="statement not covered" >        zeroProb = (zeroProb === undefined) ? 0.5 : zeroProb;</span>
+<span class="cstat-no" title="statement not covered" >        negCoeffs = (negCoeffs === undefined) ? true : negCoeffs;</span>
+        var minCoeff = <span class="cstat-no" title="statement not covered" >negCoeffs ? (-maxCoeff) : 0;</span>
+        var i, p = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for (i = 0; i &lt;= degree; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            if (i &lt; degree) {</span>
+<span class="cstat-no" title="statement not covered" >                if (this.randReal() &lt; zeroProb) {</span>
+<span class="cstat-no" title="statement not covered" >                    p.push(0);</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    p.push(this.randInt(minCoeff, maxCoeff));</span>
+                }
+            } else {
+<span class="cstat-no" title="statement not covered" >                p.push(this.randIntNonZero(minCoeff, maxCoeff));</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        return p;</span>
+    };
+&nbsp;
+    /** Return a random exponential.
+&nbsp;
+        @param {Number} maxCoeff (Optional, default 3) The maximum coefficient value.
+        @param {Number} maxExp (Optional, default 3) The maximum exponent value.
+        @return {Object} The exponential object.
+    */
+    RandomGenerator.prototype.randExp = <span class="fstat-no" title="function not covered" >fu</span>nction(maxCoeff, maxExp) {
+<span class="cstat-no" title="statement not covered" >        maxCoeff = (maxCoeff === undefined) ? 3 : maxCoeff;</span>
+<span class="cstat-no" title="statement not covered" >        maxExp = (maxExp === undefined) ? 3 : maxExp;</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+            coeff: this.randIntNonZero(-maxCoeff, maxCoeff),
+            exp: this.randIntNonZero(-maxExp, maxExp)
+        };
+    };
+&nbsp;
+    /** Return a random trig function.
+&nbsp;
+        @param {Number} maxCoeff (Optional, default 3) The maximum coefficient value.
+        @param {Number} maxFreq (Optional, default 3) The maximum frequency value.
+        @return {Object} The trig function object.
+    */
+    RandomGenerator.prototype.randTrig = <span class="fstat-no" title="function not covered" >fu</span>nction(maxCoeff, maxFreq) {
+<span class="cstat-no" title="statement not covered" >        maxCoeff = (maxCoeff === undefined) ? 3 : maxCoeff;</span>
+<span class="cstat-no" title="statement not covered" >        maxFreq = (maxFreq === undefined) ? 3 : maxFreq;</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+            coeff: this.randIntNonZero(-maxCoeff, maxCoeff),
+            fcn: this.randElem(["sin", "cos"]),
+            freq: this.randIntNonZero(-maxFreq, maxFreq)
+        };
+    };
+&nbsp;
+    /** Return a random function.
+&nbsp;
+        @return {Object} The function object.
+    */
+    RandomGenerator.prototype.randFunc = <span class="fstat-no" title="function not covered" >fu</span>nction() {
+        /* jshint indent: false */
+<span class="cstat-no" title="statement not covered" >        switch (this.randInt(1,3)) {</span>
+        case 1: <span class="cstat-no" title="statement not covered" >return {fcn: "poly", data: this.randPoly()};</span>
+        case 2: <span class="cstat-no" title="statement not covered" >return {fcn: "exp", data: this.randExp()};</span>
+        case 3: <span class="cstat-no" title="statement not covered" >return {fcn: "trig", data: this.randTrig()};</span>
+        }
+    };
+&nbsp;
+    /** Return an array of random functions.
+&nbsp;
+        @param {Number} n (Optional, default 3) The length of the array to return.
+        @return {Array} The array of function objects.
+    */
+    RandomGenerator.prototype.randArrayFunc = <span class="fstat-no" title="function not covered" >fu</span>nction(n) {
+<span class="cstat-no" title="statement not covered" >        n = (n === undefined) ? 3 : n;</span>
+        var a = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; n; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            a.push(this.randFunc());</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return a;</span>
+    };
+&nbsp;
+    /** Determine how difficult it is to solve for an answer variablem given certain other variables.
+&nbsp;
+        @param {Number} answerInd The index of the answer variable to find.
+        @param {Array} givenInds A list of indexes that are given.
+        @param {Array} lhs The left-hand-side of the system.
+        @return {Number} Difficulty level (1 = single eqn, 2 = 2 sequential eqns, 3 = 2 simultaneous eqns, 4 = harder)
+    */
+    RandomGenerator.prototype.solveDifficulty = <span class="fstat-no" title="function not covered" >fu</span>nction(answerInd, givenInds, lhs) {
+        var unknownInds = <span class="cstat-no" title="statement not covered" >_.chain(_.range(0, lhs[0].length)).difference(givenInds).without(answerInd).value();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_(lhs).some(<span class="fstat-no" title="function not covered" >fu</span>nction(row) {</span>
+<span class="cstat-no" title="statement not covered" >            return row[answerInd] !== 0 &amp;&amp; _(unknownInds).every(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {<span class="cstat-no" title="statement not covered" >return row[i] === 0;}</span>);</span>
+        })) {
+<span class="cstat-no" title="statement not covered" >            return 1;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_(unknownInds).some(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {</span>
+            var extraUnknownInds = <span class="cstat-no" title="statement not covered" >_(unknownInds).without(i);</span>
+<span class="cstat-no" title="statement not covered" >            return _(lhs).some(<span class="fstat-no" title="function not covered" >fu</span>nction(row) {</span>
+<span class="cstat-no" title="statement not covered" >                return row[answerInd] !== 0 &amp;&amp; row[i] !== 0 &amp;&amp; _(extraUnknownInds).every(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {<span class="cstat-no" title="statement not covered" >return row[i] === 0;}</span>);</span>
+            }) &amp;&amp; _(lhs).some(<span class="fstat-no" title="function not covered" >fu</span>nction(row) {
+<span class="cstat-no" title="statement not covered" >                return row[answerInd] === 0 &amp;&amp; row[i] !== 0 &amp;&amp; _(extraUnknownInds).every(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {<span class="cstat-no" title="statement not covered" >return row[i] === 0;}</span>);</span>
+            });
+        })) {
+<span class="cstat-no" title="statement not covered" >            return 2;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_(unknownInds).some(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {</span>
+            var extraUnknownInds = <span class="cstat-no" title="statement not covered" >_(unknownInds).without(i);</span>
+            var usefulRows = <span class="cstat-no" title="statement not covered" >_(lhs).filter(<span class="fstat-no" title="function not covered" >fu</span>nction(row) {</span>
+<span class="cstat-no" title="statement not covered" >                return row[answerInd] !== 0 &amp;&amp; row[i] !== 0 &amp;&amp; _(extraUnknownInds).every(<span class="fstat-no" title="function not covered" >fu</span>nction(i) {<span class="cstat-no" title="statement not covered" >return row[i] === 0;}</span>);</span>
+            });
+<span class="cstat-no" title="statement not covered" >            return (usefulRows.length &gt;= 2);</span>
+        })) {
+<span class="cstat-no" title="statement not covered" >            return 3;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return 4;</span>
+    };
+&nbsp;
+    /** Determine the maximum solution difficulty over a range of answer variables.
+&nbsp;
+        @param {Array} answerInds The indexes of the answer variables to find.
+        @param {Array} givenInds A list of indexes that are given.
+        @param {Array} lhs The left-hand-side of the system.
+        @return {Number} Maximum difficulty level over the answerInds (see solveDifficulty()).
+    */
+    RandomGenerator.prototype.maxSolveDifficulty = <span class="fstat-no" title="function not covered" >fu</span>nction(answerInds, givenInds, lhs) {
+        var that = <span class="cstat-no" title="statement not covered" >this;</span>
+<span class="cstat-no" title="statement not covered" >        return _.chain(answerInds).map(<span class="fstat-no" title="function not covered" >fu</span>nction(answerInd) {</span>
+<span class="cstat-no" title="statement not covered" >            return that.solveDifficulty(answerInd, givenInds, lhs);</span>
+        }).max().value();
+    };
+&nbsp;
+    /** Choose variables to specify so that the answer is easy to find.
+&nbsp;
+        @param {Number} difficulty A scalar measure of difficulty (see solveDifficulty()).
+        @param {Array} varGroups An array of groups, each being an array of variable indices.
+        @param {Number} answerGroup Which group is the desired answer.
+        @param {Array} lhs The left-hand-side of the equation system.
+        @return {Array} List of groups to specify, or null if no solution could be found.
+    */
+    RandomGenerator.prototype.chooseGiven = <span class="fstat-no" title="function not covered" >fu</span>nction(difficulty, varGroups, answerGroup, lhs) {
+        var givenGroups, givenInds, maxDifficulty, g;
+        var nTrials = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >        do {</span>
+<span class="cstat-no" title="statement not covered" >            givenGroups = [];</span>
+<span class="cstat-no" title="statement not covered" >            remainingGroups = _(_.range(0, varGroups.length)).without(answerGroup);</span>
+<span class="cstat-no" title="statement not covered" >            givenInds = [];</span>
+<span class="cstat-no" title="statement not covered" >            maxDifficulty = this.maxSolveDifficulty(varGroups[answerGroup], givenInds, lhs);</span>
+<span class="cstat-no" title="statement not covered" >            while (maxDifficulty &gt; difficulty) {</span>
+<span class="cstat-no" title="statement not covered" >                if (nTrials++ &gt; 1000)</span>
+<span class="cstat-no" title="statement not covered" >                    return null; </span>// failure
+<span class="cstat-no" title="statement not covered" >                g = this.randElem(remainingGroups);</span>
+<span class="cstat-no" title="statement not covered" >                givenGroups.push(g);</span>
+<span class="cstat-no" title="statement not covered" >                remainingGroups = _(remainingGroups).without(g);</span>
+<span class="cstat-no" title="statement not covered" >                givenInds = givenInds.concat(varGroups[g]);</span>
+<span class="cstat-no" title="statement not covered" >                maxDifficulty = this.maxSolveDifficulty(varGroups[answerGroup], givenInds, lhs);</span>
+            }
+        } while (maxDifficulty !== difficulty);
+<span class="cstat-no" title="statement not covered" >        return givenGroups;</span>
+    };
+&nbsp;
+    return {
+        RandomGenerator: RandomGenerator
+    };
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

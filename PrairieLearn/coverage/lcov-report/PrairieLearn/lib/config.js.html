@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/config.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> config.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.74% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>35/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.74% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>35/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _ = require('lodash');
+var fs = require('fs');
+var logger = require('./logger');
+var jsonLoad = require('./json-load');
+&nbsp;
+var config = module.exports;
+&nbsp;
+// defaults - can be overridden in config.json
+config.startServer = true;
+config.dbAddress = 'mongodb://localhost:27017/data';
+config.postgresqlUser = 'postgres';
+config.postgresqlPassword = null;
+config.postgresqlDatabase = 'postgres';
+config.postgresqlHost = 'localhost';
+config.amqpAddress = null;
+config.amqpResultQueue = 'result';
+config.amqpStartQueue = 'start';
+config.logFilename = 'server.log';
+config.authType = 'none';
+config.serverType = 'http';
+config.serverPort = '3000';
+config.cronIntervalAutoFinishExamsSec = 10 * 60;
+config.cronIntervalErrorAbandonedJobsSec = 10 * 60;
+config.cronIntervalExternalGraderLoadSec = 8;
+config.cronDailySec = 8 * 60 * 60;
+config.autoFinishAgeMins = 6 * 60;
+config.questionDefaultsDir = 'question-servers/default-calculation';
+config.secretKey = 'THIS_IS_THE_SECRET_KEY'; // override in config.json
+config.secretSlackOpsBotEndpoint = null; // override in config.json
+config.externalGradingUseAws = false;
+config.externalGradingSqsQueueName = 'grading';
+config.externalGradingS3Bucket = 'prairielearn.dev.grading';
+config.externalGradingWebhookUrl = null;
+config.externalGradingDefaultTimeout = 30; // in seconds
+config.externalGradingLoadAverageIntervalSec = 30;
+&nbsp;
+const azure = {
+    // Required
+    azureIdentityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration',
+    // azureIdentityMetadata: 'https://login.microsoftonline.com/&lt;tenant_name&gt;.onmicrosoft.com/.well-known/openid-configuration',
+    // or equivalently: 'https://login.microsoftonline.com/&lt;tenant_guid&gt;/.well-known/openid-configuration'
+    //
+    // or you can use the common endpoint
+    // 'https://login.microsoftonline.com/common/.well-known/openid-configuration'
+    // To use the common endpoint, you have to either set `validateIssuer` to false, or provide the `issuer` value.
+&nbsp;
+    // Required, the client ID of your app in AAD
+    azureClientID: '&lt;your_client_id&gt;',
+&nbsp;
+    // Required, must be 'code', 'code id_token', 'id_token code' or 'id_token'
+    azureResponseType: 'code id_token',
+&nbsp;
+    // Required
+    azureResponseMode: 'form_post',
+&nbsp;
+    // Required, the reply URL registered in AAD for your app
+    azureRedirectUrl: 'http://localhost:3000/auth/openid/return',
+&nbsp;
+    // Required if we use http for redirectUrl
+    azureAllowHttpForRedirectUrl: false,
+&nbsp;
+    // Required if `responseType` is 'code', 'id_token code' or 'code id_token'.
+    // If app key contains '\', replace it with '\\'.
+    azureClientSecret: '&lt;your_client_secret&gt;',
+&nbsp;
+    // Required to set to false if you don't want to validate issuer
+    azureValidateIssuer: false,
+&nbsp;
+    // Required if you want to provide the issuer(s) you want to validate instead of using the issuer from metadata
+    azureIssuer: null,
+&nbsp;
+    // Required to set to true if the `verify` function has 'req' as the first parameter
+    azurePassReqToCallback: false,
+&nbsp;
+    // Recommended to set to true. By default we save state in express session, if this option is set to true, then
+    // we encrypt state and save it in cookie instead. This option together with { session: false } allows your app
+    // to be completely express session free.
+    azureUseCookieInsteadOfSession: true,
+&nbsp;
+    // Required if `useCookieInsteadOfSession` is set to true. You can provide multiple set of key/iv pairs for key
+    // rollover purpose. We always use the first set of key/iv pair to encrypt cookie, but we will try every set of
+    // key/iv pair to decrypt cookie. Key can be any string of length 32, and iv can be any string of length 12.
+    azureCookieEncryptionKeys: [
+        { 'key': '12345678901234567890123456789012', 'iv': '123456789012' },
+        { 'key': 'abcdefghijklmnopqrstuvwxyzabcdef', 'iv': 'abcdefghijkl' },
+    ],
+&nbsp;
+    // Optional. The additional scope you want besides 'openid', for example: ['email', 'profile'].
+    azureScope: null,
+&nbsp;
+    // Optional, 'error', 'warn' or 'info'
+    azureLoggingLevel: 'warn',
+&nbsp;
+    // Optional. The lifetime of nonce in session or cookie, the default value is 3600 (seconds).
+    azureNonceLifetime: null,
+&nbsp;
+    // Optional. The max amount of nonce saved in session or cookie, the default value is 10.
+    azureNonceMaxAmount: 5,
+&nbsp;
+    // Optional. The clock skew allowed in token validation, the default value is 300 seconds.
+    azureClockSkew: null,
+&nbsp;
+    // Optional.
+    // If you want to get access_token for a specific resource, you can provide the resource here; otherwise,
+    // set the value to null.
+    // Note that in order to get access_token, the responseType must be 'code', 'code id_token' or 'id_token code'.
+    azureResourceURL: 'https://graph.windows.net',
+&nbsp;
+    // The url you need to go to destroy the session with AAD
+    azureDestroySessionUrl: 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http://localhost:3000',
+};
+&nbsp;
+_.assign(config, azure);
+&nbsp;
+config.loadConfig = <span class="fstat-no" title="function not covered" >fu</span>nction(file) {
+<span class="cstat-no" title="statement not covered" >    if (fs.existsSync(file)) {</span>
+        let fileConfig = <span class="cstat-no" title="statement not covered" >jsonLoad.readJSONSyncOrDie(file, 'schemas/serverConfig.json');</span>
+<span class="cstat-no" title="statement not covered" >        _.assign(config, fileConfig);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >        logger.warn(file + ' not found, using default configuration');</span>
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/externalGrader.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> externalGrader.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.86% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>16/64</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ERR = require('async-stacktrace');
+const async = require('async');
+const AWS = require('aws-sdk');
+const fs = require('fs-extra');
+&nbsp;
+const config = require('./config');
+const logger = require('./logger');
+const sqldb = require('./sqldb');
+const sqlLoader = require('./sql-loader');
+const externalGradingSocket = require('./external-grading-socket');
+const ExternalGraderSqs = require('./externalGraderSqs');
+const ExternalGraderLocal = require('./externalGraderLocal');
+&nbsp;
+const sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+module.exports.init = <span class="fstat-no" title="function not covered" >fu</span>nction(assessment, callback) {
+<span class="cstat-no" title="statement not covered" >    module.exports.assessment = assessment;</span>
+<span class="cstat-no" title="statement not covered" >    if (config.externalGradingUseAws) {</span>
+        // So, this is terrible, but AWS will look relative to the Node working
+        // directory, not the current directory. So aws-config.json should be
+        // in the project root.
+<span class="cstat-no" title="statement not covered" >        if (fs.existsSync('./aws-config.json')) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.info('Loading AWS credentials for external grading.');</span>
+<span class="cstat-no" title="statement not covered" >            AWS.config.loadFromPath('./aws-config.json');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            logger.info('Missing \'aws-config.json\' in project root; this should only matter for local development.');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        AWS.config.update({region: 'us-east-2'});</span>
+<span class="cstat-no" title="statement not covered" >        module.exports.grader = new ExternalGraderSqs();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        callback(null);</span>
+    } else {
+        // local dev mode
+<span class="cstat-no" title="statement not covered" >        logger.info('Not loading AWS credentials; external grader running locally.');</span>
+<span class="cstat-no" title="statement not covered" >        module.exports.grader = new ExternalGraderLocal();</span>
+<span class="cstat-no" title="statement not covered" >        callback(null);</span>
+    }
+};
+&nbsp;
+module.exports.beginGradingJob = <span class="fstat-no" title="function not covered" >fu</span>nction(grading_job_id, callback) {
+    const params = <span class="cstat-no" title="statement not covered" >{</span>
+        grading_job_id,
+    };
+<span class="cstat-no" title="statement not covered" >    sqldb.queryOneRow(sql.select_grading_job_info, params, <span class="fstat-no" title="function not covered" >(e</span>rr, result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+        const {
+            grading_job,
+            submission,
+            variant,
+            question,
+            course,
+        } = <span class="cstat-no" title="statement not covered" >result.rows[0];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        module.exports._beginGradingJob(grading_job, submission, variant, question, course);</span>
+<span class="cstat-no" title="statement not covered" >        callback(null);</span>
+    });
+};
+&nbsp;
+module.exports.beginGradingJobs = <span class="fstat-no" title="function not covered" >fu</span>nction(grading_job_ids, callback) {
+<span class="cstat-no" title="statement not covered" >    async.each(grading_job_ids, <span class="fstat-no" title="function not covered" >(g</span>rading_job_id, callback) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        module.exports.beginGradingJob(grading_job_id, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            callback(null);</span>
+        });
+    }, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(null);</span>
+    });
+};
+&nbsp;
+module.exports._beginGradingJob = <span class="fstat-no" title="function not covered" >fu</span>nction(grading_job, submission, variant, question, course) {
+<span class="cstat-no" title="statement not covered" >    if (!question.external_grading_enabled) {</span>
+<span class="cstat-no" title="statement not covered" >        logger.info('External grading disabled for job id: ' + grading_job.id);</span>
+&nbsp;
+        // Make the grade 0
+        let ret = <span class="cstat-no" title="statement not covered" >{</span>
+            gradingId: grading_job.id,
+            grading: {
+                score: 0,
+                feedback: {
+                    succeeded: true,
+                    message: 'External grading is not enabled :(',
+                },
+            },
+        };
+&nbsp;
+        // Send the grade out for processing and display
+<span class="cstat-no" title="statement not covered" >        module.exports.assessment.processGradingResult(ret);</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    logger.info(`Submitting external grading job ${grading_job.id}.`);</span>
+&nbsp;
+    const gradeRequest = <span class="cstat-no" title="statement not covered" >module.exports.grader.handleGradingRequest(grading_job, submission, variant, question, course);</span>
+<span class="cstat-no" title="statement not covered" >    gradeRequest.on('submit', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        updateJobSubmissionTime(grading_job.id, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >logger.error(err))</span>) <span class="cstat-no" title="statement not covered" >return;</span></span>
+        });
+    });
+<span class="cstat-no" title="statement not covered" >    gradeRequest.on('results', <span class="fstat-no" title="function not covered" >(g</span>radingResult) =&gt; {</span>
+        // This event will only be fired when running locally; in production,
+        // external grader results wil be delivered via webhook.
+<span class="cstat-no" title="statement not covered" >        module.exports.assessment.processGradingResult(gradingResult);</span>
+<span class="cstat-no" title="statement not covered" >        logger.info(`Successfully processed grading job ${grading_job.id}`);</span>
+    });
+<span class="cstat-no" title="statement not covered" >    gradeRequest.on('error', <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        handleGraderError(grading_job.id, err);</span>
+    });
+};
+&nbsp;
+function <span class="fstat-no" title="function not covered" >handleGraderError(</span>jobId, err) {
+<span class="cstat-no" title="statement not covered" >    logger.error(`Error processing external grading job ${jobId}`);</span>
+<span class="cstat-no" title="statement not covered" >    logger.error(err);</span>
+    const gradingResult = <span class="cstat-no" title="statement not covered" >{</span>
+        gradingId: jobId,
+        grading: {
+            score: 0,
+            startTime: null,
+            endTime: null,
+            feedback: {
+                succeeded: false,
+                message: err.toString(),
+            },
+        },
+    };
+<span class="cstat-no" title="statement not covered" >    module.exports.assessment.processGradingResult(gradingResult);</span>
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >updateJobSubmissionTime(</span>grading_job_id, callback) {
+    var params = <span class="cstat-no" title="statement not covered" >{</span>
+        grading_job_id: grading_job_id,
+        grading_submitted_at: new Date().toISOString(),
+    };
+<span class="cstat-no" title="statement not covered" >    sqldb.query(sql.update_grading_submitted_time, params, <span class="fstat-no" title="function not covered" >(e</span>rr, _result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        externalGradingSocket.gradingLogStatusUpdated(grading_job_id);</span>
+<span class="cstat-no" title="statement not covered" >        callback(null);</span>
+    });
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

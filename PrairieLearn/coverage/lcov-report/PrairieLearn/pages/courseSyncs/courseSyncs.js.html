@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/pages/courseSyncs/courseSyncs.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">PrairieLearn/pages/courseSyncs</a> courseSyncs.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/86</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/80</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var fs = require('fs');
+var express = require('express');
+var router = express.Router();
+&nbsp;
+var error = require('../../lib/error');
+var logger = require('../../lib/logger');
+var serverJobs = require('../../lib/server-jobs');
+var syncFromDisk = require('../../sync/syncFromDisk');
+var requireFrontend = require('../../lib/require-frontend');
+var sqldb = require('../../lib/sqldb');
+var sqlLoader = require('../../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+router.get('/', <span class="fstat-no" title="function not covered" >fu</span>nction(req, res, next) {
+    var params = <span class="cstat-no" title="statement not covered" >{course_id: res.locals.course.id};</span>
+<span class="cstat-no" title="statement not covered" >    sqldb.query(sql.select_sync_job_sequences, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        res.locals.job_sequences = result.rows;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        res.render(__filename.replace(/\.js$/, '.ejs'), res.locals);</span>
+    });
+});
+&nbsp;
+var pullAndUpdate = <span class="fstat-no" title="function not covered" >fu</span>nction(locals, callback) {
+    var options = <span class="cstat-no" title="statement not covered" >{</span>
+        course_id: locals.course.id,
+        user_id: locals.user.user_id,
+        authn_user_id: locals.authz_data.authn_user.user_id,
+        type: 'sync',
+        description: 'Pull from remote git repository',
+    };
+<span class="cstat-no" title="statement not covered" >    serverJobs.createJobSequence(options, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job_sequence_id) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(null, job_sequence_id);</span>
+&nbsp;
+        // We've now triggered the callback to our caller, but we
+        // continue executing below to launch the jobs themselves.
+&nbsp;
+        // First define the jobs.
+&nbsp;
+        // We will use either 1A or 1B below.
+&nbsp;
+        var syncStage1A = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+            var jobOptions = <span class="cstat-no" title="statement not covered" >{</span>
+                course_id: locals.course.id,
+                user_id: locals.user.user_id,
+                authn_user_id: locals.authz_data.authn_user.user_id,
+                job_sequence_id: job_sequence_id,
+                type: 'clone_from_git',
+                description: 'Clone from remote git repository',
+                command: 'git',
+                arguments: ['clone', locals.course.repository, locals.course.path],
+                on_success: syncStage2,
+            };
+<span class="cstat-no" title="statement not covered" >            serverJobs.spawnJob(jobOptions);</span>
+        };
+&nbsp;
+        var syncStage1B = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+            var jobOptions = <span class="cstat-no" title="statement not covered" >{</span>
+                course_id: locals.course.id,
+                user_id: locals.user.user_id,
+                authn_user_id: locals.authz_data.authn_user.user_id,
+                job_sequence_id: job_sequence_id,
+                type: 'pull_from_git',
+                description: 'Pull from remote git repository',
+                command: 'git',
+                arguments: ['pull', '--force'],
+                working_directory: locals.course.path,
+                on_success: syncStage2,
+            };
+<span class="cstat-no" title="statement not covered" >            serverJobs.spawnJob(jobOptions);</span>
+        };
+&nbsp;
+        var syncStage2 = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+            var jobOptions = <span class="cstat-no" title="statement not covered" >{</span>
+                course_id: locals.course.id,
+                user_id: locals.user.user_id,
+                authn_user_id: locals.authz_data.authn_user.user_id,
+                type: 'sync_from_disk',
+                description: 'Sync git repository to database',
+                job_sequence_id: job_sequence_id,
+                on_success: syncStage3,
+            };
+<span class="cstat-no" title="statement not covered" >            serverJobs.createJob(jobOptions, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job) {</span>
+<span class="cstat-no" title="statement not covered" >                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                    logger.error('Error in createJob()', err);</span>
+<span class="cstat-no" title="statement not covered" >                    serverJobs.failJobSequence(job_sequence_id);</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                syncFromDisk.syncDiskToSql(locals.course.path, locals.course.id, job, <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        job.fail(err);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        job.succeed();</span>
+                    }
+                });
+            });
+        };
+&nbsp;
+        var syncStage3 = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+            var jobOptions = <span class="cstat-no" title="statement not covered" >{</span>
+                course_id: locals.course.id,
+                user_id: locals.user.user_id,
+                authn_user_id: locals.authz_data.authn_user.user_id,
+                type: 'reload_question_servers',
+                description: 'Reload question server.js code',
+                job_sequence_id: job_sequence_id,
+                last_in_sequence: true,
+            };
+<span class="cstat-no" title="statement not covered" >            serverJobs.createJob(jobOptions, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job) {</span>
+<span class="cstat-no" title="statement not covered" >                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                    logger.error('Error in createJob()', err);</span>
+<span class="cstat-no" title="statement not covered" >                    serverJobs.failJobSequence(job_sequence_id);</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+                var coursePath = <span class="cstat-no" title="statement not covered" >locals.course.path;</span>
+<span class="cstat-no" title="statement not covered" >                requireFrontend.undefQuestionServers(coursePath, job, <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        job.fail(err);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        job.succeed();</span>
+                    }
+                });
+            });
+        };
+&nbsp;
+        // Start the first job.
+<span class="cstat-no" title="statement not covered" >        fs.access(locals.course.path, <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >            if (err) {</span>
+                // path does not exist, start with 'git clone'
+<span class="cstat-no" title="statement not covered" >                syncStage1A();</span>
+            } else {
+                // path exists, start with 'git pull'
+<span class="cstat-no" title="statement not covered" >                syncStage1B();</span>
+            }
+        });
+    });
+};
+&nbsp;
+var gitStatus = <span class="fstat-no" title="function not covered" >fu</span>nction(locals, callback) {
+    var options = <span class="cstat-no" title="statement not covered" >{</span>
+        course_id: locals.course.id,
+        user_id: locals.user.user_id,
+        authn_user_id: locals.authz_data.authn_user.user_id,
+        type: 'git_status',
+        description: 'Show server git status',
+    };
+<span class="cstat-no" title="statement not covered" >    serverJobs.createJobSequence(options, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job_sequence_id) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(null, job_sequence_id);</span>
+&nbsp;
+        // We've now triggered the callback to our caller, but we
+        // continue executing below to launch the jobs themselves.
+&nbsp;
+        // First define the jobs.
+&nbsp;
+        var statusStage1 = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+            var jobOptions = <span class="cstat-no" title="statement not covered" >{</span>
+                course_id: locals.course.id,
+                user_id: locals.user.user_id,
+                authn_user_id: locals.authz_data.authn_user.user_id,
+                job_sequence_id: job_sequence_id,
+                type: 'describe_git',
+                description: 'Describe current git HEAD',
+                command: 'git',
+                arguments: ['show', '--format=fuller', '--quiet', 'HEAD'],
+                working_directory: locals.course.path,
+                on_success: statusStage2,
+            };
+<span class="cstat-no" title="statement not covered" >            serverJobs.spawnJob(jobOptions);</span>
+        };
+&nbsp;
+        var statusStage2 = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+            var jobOptions = <span class="cstat-no" title="statement not covered" >{</span>
+                course_id: locals.course.id,
+                user_id: locals.user.user_id,
+                authn_user_id: locals.authz_data.authn_user.user_id,
+                type: 'git_history',
+                description: 'List git history',
+                job_sequence_id: job_sequence_id,
+                command: 'git',
+                arguments: ['log', '--all', '--graph', '--date=short', '--format=format:%h %cd%d %cn %s'],
+                working_directory: locals.course.path,
+                last_in_sequence: true,
+            };
+<span class="cstat-no" title="statement not covered" >            serverJobs.spawnJob(jobOptions);</span>
+        };
+&nbsp;
+        // Start the first job.
+<span class="cstat-no" title="statement not covered" >        statusStage1();</span>
+    });
+};
+&nbsp;
+router.post('/', <span class="fstat-no" title="function not covered" >fu</span>nction(req, res, next) {
+<span class="cstat-no" title="statement not covered" >    if (!res.locals.authz_data.has_course_permission_edit) <span class="cstat-no" title="statement not covered" >return next(new Error('Access denied'));</span></span>
+<span class="cstat-no" title="statement not covered" >    if (req.body.__action == 'pull') {</span>
+<span class="cstat-no" title="statement not covered" >        pullAndUpdate(res.locals, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job_sequence_id) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            res.redirect(res.locals.urlPrefix + '/jobSequence/' + job_sequence_id);</span>
+        });
+    } else <span class="cstat-no" title="statement not covered" >if (req.body.__action == 'status') {</span>
+<span class="cstat-no" title="statement not covered" >        gitStatus(res.locals, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job_sequence_id) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            res.redirect(res.locals.urlPrefix + '/jobSequence/' + job_sequence_id);</span>
+        });
+    } else {
+<span class="cstat-no" title="statement not covered" >        return next(error.make(400, 'unknown __action', {locals: res.locals, body: req.body}));</span>
+    }
+});
+&nbsp;
+module.exports = router;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

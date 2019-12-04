@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/json-load.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> json-load.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.57% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.88% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/64</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1022x</span>
+<span class="cline-any cline-yes">1022x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1022x</span>
+<span class="cline-any cline-yes">1022x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1022x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">776x</span>
+<span class="cline-any cline-yes">776x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">776x</span>
+<span class="cline-any cline-yes">776x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">776x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">486x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">468x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var fs = require('fs');
+var _ = require('lodash');
+var jju = require('jju');
+var validator = require('is-my-json-valid');
+var path = require('path');
+&nbsp;
+var logger = require('./logger');
+&nbsp;
+module.exports.readJSON = function(jsonFilename, callback) {
+    var json;
+    fs.readFile(jsonFilename, {encoding: 'utf8'}, function(err, data) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >            return callback('Error reading JSON file: ' + jsonFilename + ': ' + err);</span>
+        }
+        try {
+            json = jju.parse(data, {mode: 'json'});
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >            return callback('Error in JSON file format: ' + jsonFilename + ' (line ' + e.row + ', column ' + e.column + ')\n'</span>
+                            + e.name + ': ' + e.message);
+        }
+        callback(null, json);
+    });
+};
+&nbsp;
+module.exports.validateJSON = function(json, schema, callback) {
+    var configValidate;
+    try {
+        configValidate = validator(schema, {verbose: true, greedy: true});
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >        return callback(e);</span>
+    }
+    configValidate(json);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (configValidate.errors) {
+<span class="cstat-no" title="statement not covered" >        return callback('Error in JSON file specification: '</span>
+                        + _(configValidate.errors).map(<span class="fstat-no" title="function not covered" >fu</span>nction(e) {
+<span class="cstat-no" title="statement not covered" >                            return 'Error in field "' + e.field + '": ' + e.message</span>
+                                + (_(e).has('value') ? (' (value: ' + jju.stringify(e.value) + ')') : '');
+                        }).join('; '));
+    }
+    callback(null, json);
+};
+&nbsp;
+module.exports.readJSONSyncOrDie = <span class="fstat-no" title="function not covered" >fu</span>nction(jsonFilename, schemaFilename) {
+<span class="cstat-no" title="statement not covered" >    try {</span>
+        var data = <span class="cstat-no" title="statement not covered" >fs.readFileSync(jsonFilename, {encoding: 'utf8'});</span>
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >        logger.error('Error reading JSON file: ' + jsonFilename, e);</span>
+<span class="cstat-no" title="statement not covered" >        process.exit(1);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    try {</span>
+        var json = <span class="cstat-no" title="statement not covered" >jju.parse(data, {mode: 'json'});</span>
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >        logger.error('Error in JSON file format: ' + jsonFilename + ' (line ' + e.row + ', column ' + e.column + ')\n'</span>
+                     + e.name + ': ' + e.message);
+<span class="cstat-no" title="statement not covered" >        process.exit(1);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (schemaFilename) {</span>
+        var absSchemaFilename = <span class="cstat-no" title="statement not covered" >path.join(__dirname, '..', schemaFilename);</span>
+        var configValidate = <span class="cstat-no" title="statement not covered" >validator(fs.readFileSync(absSchemaFilename, {encoding: 'utf8'}),</span>
+                                   {verbose: true, greedy: true});
+<span class="cstat-no" title="statement not covered" >        configValidate(json);</span>
+<span class="cstat-no" title="statement not covered" >        if (configValidate.errors) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.error('Error in JSON file specification: ' + jsonFilename);</span>
+<span class="cstat-no" title="statement not covered" >            _(configValidate.errors).forEach(<span class="fstat-no" title="function not covered" >fu</span>nction(e) {</span>
+<span class="cstat-no" title="statement not covered" >                logger.error('Error in field "' + e.field + '": ' + e.message</span>
+                            + (_(e).has('value') ? (' (value: ' + e.value + ')') : ''));
+            });
+<span class="cstat-no" title="statement not covered" >            process.exit(1);</span>
+        }
+    }
+<span class="cstat-no" title="statement not covered" >    return json;</span>
+};
+&nbsp;
+module.exports.readInfoJSON = function(jsonFilename, schemaFilename, optionsSchemaPrefix, optionsSchemaSuffix, callback) {
+    var that = this;
+    that.readJSON(jsonFilename, function(err, json) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span>
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (schemaFilename) {
+            var absSchemaFilename = path.join(__dirname, '..', schemaFilename);
+            that.readJSON(absSchemaFilename, function(err, schema) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span>
+                that.validateJSON(json, schema, function(err, json) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback('Error validating file \'' + jsonFilename + '\' against \'' + schemaFilename + '\': ' + err);</span>
+                    json.jsonFilename = jsonFilename;
+                    if (optionsSchemaPrefix &amp;&amp; optionsSchemaSuffix &amp;&amp; _(json).has('type') &amp;&amp; _(json).has('options')) {
+                        var optionsSchemaFilename = optionsSchemaPrefix + json.type + optionsSchemaSuffix;
+                        var absOptionsSchemaFilename = path.join(__dirname, '..', optionsSchemaFilename);
+                        that.readJSON(absOptionsSchemaFilename, function(err, optionsSchema) {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span>
+                            that.validateJSON(json.options, optionsSchema, function(err) {
+                                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback('Error validating \'options\' field from \'' + jsonFilename + '\' against \'' + optionsSchemaFilename + '\': ' + err);</span>
+                                <span class="missing-if-branch" title="else path not taken" >E</span>if (json.uuid) json.uuid = json.uuid.toLowerCase();
+                                callback(null, json);
+                            });
+                        });
+                    } else {
+                        return callback(null, json);
+                    }
+                });
+            });
+        } else {
+<span class="cstat-no" title="statement not covered" >            return callback(null, json);</span>
+        }
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

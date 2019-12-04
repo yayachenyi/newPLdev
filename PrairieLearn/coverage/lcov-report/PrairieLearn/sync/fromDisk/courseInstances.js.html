@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/sync/fromDisk/courseInstances.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">PrairieLearn/sync/fromDisk</a> courseInstances.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.65% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>70/89</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">51.02% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>25/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.3% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>26/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.24% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>69/74</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+var path = require('path');
+var async = require('async');
+&nbsp;
+var logger = require('../../lib/logger');
+var config = require('../../lib/config');
+var sqldb = require('../../lib/sqldb');
+var sqlLoader = require('../../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+module.exports = {
+    sync: function(courseInfo, courseInstanceDB, callback) {
+        var that = module.exports;
+        var courseInstanceIds = [];
+        async.series([
+            function(callback) {
+                var err = null;
+                _(courseInstanceDB)
+                    .groupBy('uuid')
+                    .each(function(courseInstances, uuid) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (courseInstances.length &gt; 1) {
+<span class="cstat-no" title="statement not covered" >                            err = new Error('UUID ' + uuid + ' is used in multiple courseInstances: '</span>
+                                            + _.map(courseInstances, 'directory').join());
+<span class="cstat-no" title="statement not covered" >                            return false; </span>// terminate each()
+                        }
+                    });
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span>
+                callback(null);
+            },
+            function(callback) {
+                var err = null;
+                _(courseInstanceDB)
+                    .flatMap(ci =&gt; _.map(ci.assessmentDB || <span class="branch-1 cbranch-no" title="branch not covered" >[],</span> a =&gt; _.assign(a, {course_instance_directory: ci.directory})))
+                    .groupBy('uuid')
+                    .each(function(assessments, uuid) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (assessments.length &gt; 1) {
+<span class="cstat-no" title="statement not covered" >                            err = new Error('UUID ' + uuid + ' is used in multiple assessments: '</span>
+                                            + _.map(assessments, <span class="fstat-no" title="function not covered" >a </span>=&gt; <span class="cstat-no" title="statement not covered" >a.course_instance_directory + '/' + a.directory)</span>.join());
+<span class="cstat-no" title="statement not covered" >                            return false; </span>// terminate each()
+                        }
+                    });
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span>
+                callback(null);
+            },
+            function(callback) {
+                async.forEachOfSeries(courseInstanceDB, function(courseInstance, courseInstanceShortName, callback) {
+                    logger.debug('Checking uuid for ' + courseInstanceShortName);
+                    sqldb.call('course_instances_with_uuid_elsewhere', [courseInfo.courseId, courseInstance.uuid], function(err, result) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount &gt; 0) <span class="cstat-no" title="statement not covered" >return callback(new Error('UUID ' + courseInstance.uuid + ' from course instance ' + courseInstanceShortName + ' already in use in different course'));</span>
+                        callback(null);
+                    });
+                }, function(err) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    callback(null);
+                });
+            },
+            function(callback) {
+                async.forEachOfSeries(courseInstanceDB, function(courseInstance, courseInstanceShortName, callback) {
+                    logger.debug('Syncing ' + courseInstance.longName);
+                    var params = {
+                        course_id: courseInfo.courseId,
+                        uuid: courseInstance.uuid,
+                        short_name: courseInstanceShortName,
+                        long_name: courseInstance.longName,
+                        number: courseInstance.number,
+                        display_timezone: courseInstance.timezone || courseInfo.timezone || <span class="branch-2 cbranch-no" title="branch not covered" >'America/Chicago',</span>
+                    };
+                    sqldb.query(sql.insert_course_instance, params, function(err, result) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        var courseInstanceId = result.rows[0].id;
+                        courseInstanceIds.push(courseInstanceId);
+                        courseInstance.courseInstanceId = courseInstanceId;
+                        that.syncAccessRules(courseInstance, function(err) {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                            callback(null);
+                        });
+                    });
+                }, function(err) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    callback(null);
+                });
+            },
+            function(callback) {
+                // soft-delete courseInstances from the DB that aren't on disk
+                logger.debug('Soft-deleting unused course_instances');
+                var params = {
+                    course_id: courseInfo.courseId,
+                    keep_course_instance_ids: courseInstanceIds,
+                };
+                sqldb.query(sql.soft_delete_unused_course_instances, params, function(err, _result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    callback(null);
+                });
+            },
+            function(callback) {
+                // delete access rules from DB that don't correspond to assessments
+                logger.debug('Deleting unused course_instance_access_rules');
+                sqldb.query(sql.delete_unused_course_instance_access_rules, [], function(err, _result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    callback(null);
+                });
+            },
+        ], function(err) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            callback(null);
+        });
+    },
+&nbsp;
+    syncAccessRules: function(courseInstance, callback) {
+        var allowAccess = courseInstance.allowAccess || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+        async.forEachOfSeries(allowAccess, function(dbRule, i, callback) {
+            logger.debug('Syncing course instance access rule number ' + (i + 1));
+            var params = {
+                course_instance_id: courseInstance.courseInstanceId,
+                number: i + 1,
+                role: _(dbRule).has('role') ? <span class="branch-0 cbranch-no" title="branch not covered" >dbRule.role </span>: null,
+                uids: _(dbRule).has('uids') ? <span class="branch-0 cbranch-no" title="branch not covered" >dbRule.uids </span>: null,
+                start_date: _(dbRule).has('startDate') ? dbRule.startDate : <span class="branch-1 cbranch-no" title="branch not covered" >null,</span>
+                end_date: _(dbRule).has('endDate') ? dbRule.endDate : <span class="branch-1 cbranch-no" title="branch not covered" >null,</span>
+                institution: _(dbRule).has('institution') ? <span class="branch-0 cbranch-no" title="branch not covered" >dbRule.institution </span>: 'UIUC',
+            };
+            sqldb.query(sql.insert_course_instance_access_rule, params, function(err, _result) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null);
+            });
+        }, function(err) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+            // delete access rules from the DB that aren't on disk
+            logger.debug('Deleting excess course instance access rules for current assessment');
+            var params = {
+                course_instance_id: courseInstance.courseInstanceId,
+                last_number: allowAccess.length,
+            };
+            sqldb.query(sql.delete_excess_course_instance_access_rules, params, function(err, _result) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null);
+            });
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

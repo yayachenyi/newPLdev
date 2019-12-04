@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Academy Awards, 1927-2015 | Kaggle</title>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta name="theme-color" content="#008ABC" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" /><link rel="dns-prefetch" href="https://stats.g.doubleclick.net" /><link rel="dns-prefetch" href="https://js.intercomcdn.com" /><link rel="preload" href="https://az416426.vo.msecnd.net/scripts/a/ai.0.js" as=script /><link rel="dns-prefetch" href="https://kaggle2.blob.core.windows.net" />
+    <link href="/content/v/d420a040e581/kaggle/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="manifest" href="/static/json/manifest.json">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic" rel='stylesheet' type='text/css'>
+                <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=72f4ef2ebe4f"/>
+        <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=a4a608c46797"/>
+        <script>
+            
+            (function () {
+                var originalError = window.onerror;
+
+                window.onerror = function (message, url, lineNumber, columnNumber, error) {
+                    var handled = originalError && originalError(message, url, lineNumber, columnNumber, error);
+                    var blockedByCors = message && message.toLowerCase().indexOf("script error") >= 0;
+                    return handled || blockedByCors;
+                };
+            })();
+        </script>
+    <script>
+        var appInsights=window.appInsights||function(config){
+        function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+        }({
+            instrumentationKey:"5b3d6014-f021-4304-8366-3cf961d5b90f",
+            disableAjaxTracking: true
+        });
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
+    
+    
+    
+ 
+    
+    <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-12629138-1', 'auto');
+    ga('set', 'displayFeaturesTask', null);
+    ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+    
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq("set", "autoConfig", "false", "136809193586742");
+    fbq('init', '136809193586742'); 
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=136809193586742&ev=PageView&noscript=1"/>
+</noscript>
+
+    
+
+    <script>
+          window.intercomSettings = {
+            app_id: "koj6gxx6"
+          };
+    </script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/koj6gxx6';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets"/>
+    <meta name="twitter:creator" content="@TheAcademy" />
+    <meta name="og:url" content="https://www.kaggle.com/theacademy/academy-awards" />
+    <meta name="og:title" content="The Academy Awards, 1927-2015" />
+    <meta name="og:description" content="What actors and films have received the most Oscars?" />
+    <meta name="og:image" content="https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-card.jpg" />
+
+
+    
+    
+    <script type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"The Academy Awards, 1927-2015","description":"# Context \n\nEach January, the entertainment community and film fans around the world turn their attention to the Academy Awards. Interest and anticipation builds to a fevered pitch leading up to the Oscar telecast in February, when hundreds of millions of movie lovers tune in to watch the glamorous ceremony and learn who will receive the highest honors in filmmaking.\n\nAchievements in up to 25 regular categories will be honored on February 26, 2017, at the 89th Academy Awards presentation at the Dolby Theatre at Hollywood & Highland Center. \n\n\n# Content\n\nThe Academy Awards Database contains the official record of past Academy Award winners and nominees. The data is complete through the 2015 (88th) Academy Awards, presented on February 28, 2016.\n\n\n# Acknowledgements\n\nThe awards data was scraped from the Official Academy Awards Database; nominees were listed with their name first and film following in some categories, such as Best Actor/Actress, and in the reverse for others.\n\n\n# Inspiration\n\nDo the Academy Awards reflect the diversity of American films or are the #OscarsSoWhite? Which actor/actress has received the most awards overall or in a single year? Which film has received the most awards in a ceremony? Can you predict who will receive the 2016 awards?","url":"https://www.kaggle.comtheacademy/academy-awards","sameAs":"https://staging.kaggle.com/theacademy/academy-awards","version":1,"keywords":["culture and arts > performing arts > film","small","featured"],"license":{"@type":"CreativeWork","name":"Unknown","url":null},"identifier":"825","includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Organization","name":"Academy of Motion Picture Arts and Sciences","url":"https://www.kaggle.com//theacademy","image":"https://kaggle2.blob.core.windows.net/organizations/454/thumbnail.png%3Fr=253"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com//theacademy/academy-awards/downloads/academy-awards.zip","contentSize":"202789 bytes"},{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"csv","fileFormat":"csv","contentUrl":"https://www.kaggle.com//theacademy/academy-awards/downloads/database.csv","contentSize":"793916 bytes"}],"commentCount":2,"dateModified":"2017-02-13T17:30:48.947","discussionUrl":"https://www.kaggle.comtheacademy/academy-awards/discussion","alternateName":"What actors and films have received the most Oscars?","isAccessibleForFree":true,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-card.jpg","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":2},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":1420},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":9504},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":24}]}</script>
+
+
+    <script src="/static/assets/manifest.js?v=47a28ec84654"></script>
+<script src="/static/assets/vendor.js?v=5d45af4caad1"></script>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+<div class="site-layout">
+        <div class="site-layout__header">
+            <div data-component-name="SiteHeaderContainer"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({});performance && performance.mark && performance.mark("SiteHeaderContainer.componentCouldBootstrap");</script>
+        </div>
+
+    <div class="site-layout__main-content">
+        
+
+<div data-component-name="DatasetContainer"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"datasetId":825,"overview":"What actors and films have received the most Oscars?","description":"# Context \n\nEach January, the entertainment community and film fans around the world turn their attention to the Academy Awards. Interest and anticipation builds to a fevered pitch leading up to the Oscar telecast in February, when hundreds of millions of movie lovers tune in to watch the glamorous ceremony and learn who will receive the highest honors in filmmaking.\n\nAchievements in up to 25 regular categories will be honored on February 26, 2017, at the 89th Academy Awards presentation at the Dolby Theatre at Hollywood \u0026 Highland Center. \n\n\n# Content\n\nThe Academy Awards Database contains the official record of past Academy Award winners and nominees. The data is complete through the 2015 (88th) Academy Awards, presented on February 28, 2016.\n\n\n# Acknowledgements\n\nThe awards data was scraped from the Official Academy Awards Database; nominees were listed with their name first and film following in some categories, such as Best Actor/Actress, and in the reverse for others.\n\n\n# Inspiration\n\nDo the Academy Awards reflect the diversity of American films or are the #OscarsSoWhite? Which actor/actress has received the most awards overall or in a single year? Which film has received the most awards in a ceremony? Can you predict who will receive the 2016 awards?","isRemoved":false,"isVersionRemoved":false,"isFeatured":true,"isSuperFeatured":false,"scheduledToBeFeatured":null,"scheduledToBeUnFeatured":null,"scheduledToBeSuperFeatured":null,"scheduledToBeUnSuperFeatured":null,"privateGroupId":null,"datasetVersionId":1518,"datasetVersionNumber":1,"lastVersionNumber":1,"datasetUrl":"/theacademy/academy-awards","datasetExternalUrl":"https://www.kaggle.com/theacademy/academy-awards","originalImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-original.jpg","coverImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-cover.jpg","cardImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-card.jpg","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-thumbnail.jpg","license":{"id":4,"name":"Unknown","description":"Unknown","url":null,"displaySequence":null},"voteCount":24,"upVoteUrl":"/theacademy/academy-awards/vote","creatorUserId":797864,"creatorDisplayName":"Abigail Larion","ownerTwitter":"TheAcademy","lastUpdated":"2017-02-13T17:30:48.947Z","downloadUrl":"/theacademy/academy-awards/downloads/academy-awards.zip","downloadSize":202789,"newNotebookUrl":"/Scripts/NewNotebook?datasetVersionId=1518","newScriptUrl":"/Scripts/NewScriptAsync?datasetVersionId=1518","hasAlreadyVotedUp":false,"isOldDatasetVersion":false,"numberOfViews":9504,"numberOfDownloads":1420,"numberOfScripts":0,"numberOfTopics":2,"privateGroupMemberCount":0,"canEdit":false,"canEditSlug":false,"canEditPublishStatus":false,"canEditFeatureStatus":false,"canEditPrivateGroup":false,"canEditDescription":false,"hideVersionStatuses":true,"cardImageLeft":115,"cardImageTop":0,"cardImageWidth":1079,"cardImageHeight":1079,"coverImageLeft":0,"coverImageTop":253,"coverImageWidth":1916,"coverImageHeight":403,"datasetVersions":[{"id":1518,"slug":"academy-awards","name":"The Academy Awards, 1927-2015","creationDate":"2017-02-13T17:30:48.947Z","versionNumber":1,"versionNotes":"Initial release","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/825/1518/3503a93482e2de960bf4159f14e2fd9f/dataset-thumbnail.jpg","datasetVersionUrl":"/theacademy/academy-awards/version/1","status":"ready","isRemoved":false}],"scripts":[{"name":"Exploring The Academy Awards dataset in R","url":"/pranav84/exploring-the-academy-awards-dataset-in-r","lastRunDate":"2017-03-02T00:01:07.13Z","totalVotes":16},{"name":"Films, Actors and Actresses in lead role","url":"/pranav84/films-actors-and-actresses-in-lead-role","lastRunDate":"2017-03-02T14:52:25.437Z","totalVotes":10},{"name":"Category Viz and Preprocess","url":"/phaethonprime/category-viz-and-preprocess","lastRunDate":"2017-02-21T14:23:51.257Z","totalVotes":5}],"discussions":[{"title":"Exploring The Academy Awards dataset in R","url":"/pranav84/exploring-the-academy-awards-dataset-in-r/comments","lastPost":"2017-08-02T06:58:25.543Z","totalReplies":19},{"title":"Films, Actors and Actresses in lead role","url":"/pranav84/films-actors-and-actresses-in-lead-role/comments","lastPost":"2017-03-03T14:07:29Z","totalReplies":1}],"contributors":[{"userId":744730,"totalScriptVotes":26,"totalScripts":2,"totalForumMessages":9,"totalForumMessageVotes":0,"totalScore":37.0,"displayName":"Pranav Pandya","performanceTier":"Expert","userUrl":"/pranav84","rank":"1st","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/744730-kg.jpg"},{"userId":555400,"totalScriptVotes":6,"totalScripts":2,"totalForumMessages":0,"totalForumMessageVotes":0,"totalScore":8.0,"displayName":"James Arruda","performanceTier":"Novice","userUrl":"/phaethonprime","rank":"2nd","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/555400-kg.jpg"},{"userId":1106296,"totalScriptVotes":1,"totalScripts":1,"totalForumMessages":1,"totalForumMessageVotes":0,"totalScore":3.0,"displayName":"G S Deepak Kumar","performanceTier":"Novice","userUrl":"/gsdeepakkumar","rank":"3rd","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1106296-kg.jpg"}],"pageMessages":[],"feed":[{"activityType":"scriptRun","url":"/gsdeepakkumar/oscars-an-eda","userName":"gsdeepakkumar","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1106296-kg.jpg","date":"2017-10-27T08:22:26.813Z","userDisplayName":"G S Deepak Kumar","title":"Oscars-An EDA ","versionNumber":7,"userUrl":"/gsdeepakkumar"},{"activityType":"scriptComment","url":"/pranav84/exploring-the-academy-awards-dataset-in-r/comments","userName":"gsdeepakkumar","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1106296-kg.jpg","date":"2017-08-02T06:58:25.543Z","userDisplayName":"G S Deepak Kumar","title":"Exploring The Academy Awards dataset in R","versionNumber":0,"userUrl":"/gsdeepakkumar"},{"activityType":"scriptComment","url":"/pranav84/exploring-the-academy-awards-dataset-in-r/comments","userName":"antonaks","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/889905-kg.jpg","date":"2017-05-12T15:51:10.913Z","userDisplayName":"Anton Aksyonov","title":"Exploring The Academy Awards dataset in R","versionNumber":0,"userUrl":"/antonaks"},{"activityType":"scriptComment","url":"/pranav84/exploring-the-academy-awards-dataset-in-r/comments","userName":"angadsingh","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/951616-gp.jpg","date":"2017-04-12T16:42:57.697Z","userDisplayName":"angad","title":"Exploring The Academy Awards dataset in R","versionNumber":0,"userUrl":"/angadsingh"},{"activityType":"scriptRun","url":"/xsong135/best-picture-vs-best-acting","userName":"xsong135","userAvatarUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/575024-kg.jpg","date":"2017-03-31T19:36:40.753Z","userDisplayName":"Xiao","title":"Best Picture vs Best Acting","versionNumber":11,"userUrl":"/xsong135"}],"privateGroups":[{"id":0,"name":"Publicly Accessible"}],"suggestions":[{"entityType":"dataset","entityId":138,"title":"TMDB 5000 Movie Dataset","entityUrl":"/tmdb/tmdb-movie-metadata","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/138/287/229bfb5d3dd1a49cc5ac899c45ca2213/dataset-thumbnail.png","owner":{"id":1030,"imageUrl":"https://kaggle2.blob.core.windows.net/organizations/1030/thumbnail.png%3Fr=355","isOrganization":true,"name":"The Movie Database (TMDb)","profileUrl":"/tmdb","slug":"tmdb","maxFileSizeBytes":null}},{"entityType":"dataset","entityId":3405,"title":"The Movies Dataset","entityUrl":"/rounakbanik/the-movies-dataset","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/3405/5520/155700dd4800b6486f19dcab0e0b0cb8/dataset-thumbnail.jpg","owner":{"id":927562,"imageUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/927562-kg.jpg","isOrganization":false,"name":"Rounak Banik","profileUrl":"/rounakbanik","slug":"rounakbanik","maxFileSizeBytes":null}},{"entityType":"dataset","entityId":1636,"title":"Netflix Prize data","entityUrl":"/netflix-inc/netflix-prize-data","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/1636/2895/951a385afb0589539f95bb964f64f78d/dataset-thumbnail.jpg","owner":{"id":865,"imageUrl":"https://kaggle2.blob.core.windows.net/organizations/865/thumbnail.jpg%3Fr=254","isOrganization":true,"name":"Netflix","profileUrl":"/netflix-inc","slug":"netflix-inc","maxFileSizeBytes":null}},{"entityType":"dataset","entityId":571,"title":"Anime Recommendations Database","entityUrl":"/CooperUnion/anime-recommendations-database","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/571/1094/c633ae058ddaa59f43649caac1748cf4/dataset-thumbnail.png","owner":{"id":137,"imageUrl":"https://kaggle2.blob.core.windows.net/organizations/137/thumbnail.jpg%3Fr=714","isOrganization":true,"name":"CooperUnion","profileUrl":"/CooperUnion","slug":"CooperUnion","maxFileSizeBytes":null}},{"entityType":"dataset","entityId":339,"title":"MovieLens 20M Dataset","entityUrl":"/grouplens/movielens-20m-dataset","thumbnailImageUrl":"https://kaggle2.blob.core.windows.net/datasets-images/339/720/4decc13a089210dee60fd30831f304b4/dataset-thumbnail.jpeg","owner":{"id":190,"imageUrl":"https://kaggle2.blob.core.windows.net/organizations/190/thumbnail.PNG%3Fr=468","isOrganization":true,"name":"GroupLens","profileUrl":"/grouplens","slug":"grouplens","maxFileSizeBytes":null}}],"discussion":{"canDownvote":false,"dataUrl":"/forums/2612/topics.json","id":2612,"isRootLevel":false,"isSubscribed":false,"initialTopics":null,"paramValues":{"category":"all","kind":"all","page":1,"search":null,"group":"all","sortBy":"hot"}},"currentTab":"home","topicId":null,"isNewTopic":false,"newTopic":{"allowAttachments":false,"authorRanking":null,"authorTier":"novice","authorType":"topic","forumId":2612,"parentName":"The Academy Awards, 1927-2015","parentUrl":"/theacademy/academy-awards"},"canSeeCategories":true,"categories":{"categories":[{"id":2303,"name":"film","fullPath":"culture and arts \u003e performing arts \u003e film","listingUrl":"/datasets?sortBy=relevance\u0026group=all\u0026search=tag%3A%27film%27","description":null,"isInherited":false,"datasetCount":20,"competitionCount":1,"scriptCount":2,"totalCount":23},{"id":null,"name":"small","fullPath":null,"listingUrl":null,"description":"Dataset size: small (\u003c10MB)","isInherited":true,"datasetCount":0,"competitionCount":0,"scriptCount":0,"totalCount":0},{"id":null,"name":"featured","fullPath":null,"listingUrl":null,"description":"This dataset has been featured by the Kaggle team","isInherited":true,"datasetCount":0,"competitionCount":0,"scriptCount":0,"totalCount":0}],"type":"dataset"},"upvoteSuggestion":{"voteCount":24,"upVoteUrl":"/theacademy/academy-awards/vote","upvoters":[{"id":1280925,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1280925-gr.jpg","userName":"ruddfawcett","displayName":"Rudd Fawcett","profileUrl":"/ruddfawcett"},{"id":1294320,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/default-thumb.png","userName":"sdenter","displayName":"Stephen Duran","profileUrl":"/sdenter"},{"id":768336,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/768336-gp.jpg","userName":"johnruth","displayName":"John Ruth","profileUrl":"/johnruth"},{"id":1272299,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1272299-gp.jpg","userName":"sakshi10","displayName":"Sakshi Jain","profileUrl":"/sakshi10"},{"id":1205009,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/default-thumb.png","userName":"ekreyno","displayName":"ekrey","profileUrl":"/ekreyno"},{"id":1106296,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1106296-kg.jpg","userName":"gsdeepakkumar","displayName":"G S Deepak Kumar","profileUrl":"/gsdeepakkumar"},{"id":1187318,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1187318-gp.jpg","userName":"thaiandrade","displayName":"ThaisaAndrade","profileUrl":"/thaiandrade"},{"id":1083080,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1083080-kg.jpg","userName":"marvinford","displayName":"Marvin Ford","profileUrl":"/marvinford"},{"id":1070233,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1070233-gp.jpg","userName":"mariogamal","displayName":"mariogamal","profileUrl":"/mariogamal"},{"id":1062752,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1062752-fb.jpg","userName":"rachaelbyrne","displayName":"Rachael Byrne","profileUrl":"/rachaelbyrne"},{"id":906739,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/906739-gr.jpg","userName":"andywill","displayName":"Andy","profileUrl":"/andywill"},{"id":998861,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/998861-gp.jpg","userName":"gurumef","displayName":"GuruMef","profileUrl":"/gurumef"},{"id":988350,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/988350-gr.jpg","userName":"mavecafe","displayName":"AtsushiYahanashi","profileUrl":"/mavecafe"},{"id":981053,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/981053-gp.jpg","userName":"mlsj12","displayName":"Mario Scott","profileUrl":"/mlsj12"},{"id":109123,"thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/109123-gr.jpg","userName":"danofer","displayName":"Dan Ofer","profileUrl":"/danofer"}]},"useKernelsTabbedLayout":true,"canSeeNewDatasetsList":false,"licenseGroups":[{"id":1,"name":"Creative Commons","licenses":[{"id":1,"name":"CC0: Public Domain","description":"CC0: Public Domain \u003ca href=\u0022https://creativecommons.org/publicdomain/zero/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/publicdomain/zero/1.0/","displaySequence":1},{"id":3,"name":"CC BY-NC-SA 4.0","description":"CC BY-NC-SA 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-nc-sa/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-nc-sa/4.0/","displaySequence":2},{"id":8,"name":"CC BY-SA 4.0","description":"CC BY-SA 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-sa/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-sa/4.0/","displaySequence":3},{"id":10,"name":"CC BY-SA 3.0","description":"CC BY-SA 3.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-sa/3.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-sa/3.0/","displaySequence":4}],"displaySequence":1},{"id":2,"name":"GPL","licenses":[{"id":9,"name":"GPL 2","description":"GPL 2 \u003ca href=\u0022http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html","displaySequence":1}],"displaySequence":2},{"id":3,"name":"Open Database","licenses":[{"id":5,"name":"Database: Open Database, Contents: Database Contents","description":"Database: Open Database \u003ca href=\u0022http://opendatacommons.org/licenses/odbl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e, Contents: Database Contents \u003ca href=\u0022http://opendatacommons.org/licenses/dbcl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://opendatacommons.org/licenses/dbcl/1.0/","displaySequence":1},{"id":6,"name":"Database: Open Database, Contents: © Original Authors","description":"Database: Open Database \u003ca href=\u0022http://opendatacommons.org/licenses/odbl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e, Contents: © Original Authors","url":"http://opendatacommons.org/licenses/odbl/1.0/","displaySequence":2}],"displaySequence":3},{"id":4,"name":"Special Cases","licenses":[{"id":7,"name":"World Bank Dataset Terms of Use","description":"World Bank Dataset Terms of Use \u003ca href=\u0022http://web.worldbank.org/WBSITE/EXTERNAL/0,,contentMDK:22547097~pagePK:50016803~piPK:50016805~theSitePK:13,00.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://web.worldbank.org/WBSITE/EXTERNAL/0,,contentMDK:22547097~pagePK:50016803~piPK:50016805~theSitePK:13,00.html","displaySequence":1},{"id":2,"name":"Reddit API Terms","description":"Reddit API Terms \u003ca href=\u0022https://www.reddit.com/wiki/api\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://www.reddit.com/wiki/api","displaySequence":2}],"displaySequence":4},{"id":5,"name":"Other","licenses":[{"id":11,"name":"Data files © Original Authors","description":"Data files © Original Authors","url":null,"displaySequence":1},{"id":12,"name":"Other (specified in description)","description":"Other (specified in description)","url":null,"displaySequence":2},{"id":4,"name":"Unknown","description":"Unknown","url":null,"displaySequence":3}],"displaySequence":5}],"owners":[{"id":0,"imageUrl":"/image-fetch/0","isOrganization":false,"name":null,"profileUrl":"/","slug":null,"maxFileSizeBytes":null},{"id":454,"imageUrl":"https://kaggle2.blob.core.windows.net/organizations/454/thumbnail.png%3Fr=253","isOrganization":true,"name":"Academy of Motion Picture Arts and Sciences","profileUrl":"/theacademy","slug":"theacademy","maxFileSizeBytes":10737418240}],"maxCompressedFileBytesAllowed":10737418240,"maxUncompressedFileBytesAllowed":10737418240,"maxTopLevelFilesAllowed":50,"canSeeDatasetWorker":true,"referrer":null,"title":"The Academy Awards, 1927-2015","slug":"academy-awards","licenseId":4,"data":{"id":1518,"datasetId":825,"versionNumber":1,"zipBlobFileId":65972,"totalSize":793916,"name":null,"description":null,"type":"datasetVersion","children":[{"id":4452,"blobFileId":65971,"url":"/theacademy/academy-awards/downloads/database.csv","relativePath":"../input/database.csv","creationDate":"2017-02-13T17:17:48Z","ownerSlug":"theacademy","datasetSlug":"academy-awards","datasetVersionNumber":1,"size":793916,"fullPath":null,"previewUrl":null,"downloadUrl":"/theacademy/academy-awards/downloads/database.csv","fileType":".csv","validationErrors":null,"name":"database.csv","description":"Awards and recipients since first ceremony","type":"datasetVersionFile","children":[{"columns":[{"name":"Year","description":null,"order":0,"originalType":"","type":"string","isNullable":false,"isPrimaryKey":false,"info":null},{"name":"Ceremony","description":"oscars","order":1,"originalType":"Numeric","type":"numeric","isNullable":false,"isPrimaryKey":false,"info":null},{"name":"Award","description":"Actor\nActresse","order":2,"originalType":"String","type":"string","isNullable":false,"isPrimaryKey":false,"info":null},{"name":"Winner","description":null,"order":3,"originalType":"","type":"numeric","isNullable":false,"isPrimaryKey":false,"info":null},{"name":"Name","description":null,"order":4,"originalType":"","type":"string","isNullable":false,"isPrimaryKey":false,"info":null},{"name":"Film","description":null,"order":5,"originalType":"","type":"string","isNullable":false,"isPrimaryKey":false,"info":null}],"totalRows":null,"name":null,"description":null,"type":"genericTable","children":[],"collapsed":false,"info":{"metrics":null},"settings":{"csvSettings":null}}],"collapsed":false,"info":{"metrics":null},"settings":{"csvSettings":null}}],"collapsed":false,"info":{"metrics":null},"settings":{"csvSettings":null}},"isPublished":true,"owner":{"id":454,"imageUrl":"https://kaggle2.blob.core.windows.net/organizations/454/thumbnail.png%3Fr=253","isOrganization":true,"name":"Academy of Motion Picture Arts and Sciences","profileUrl":"/theacademy","slug":"theacademy","maxFileSizeBytes":10737418240}});performance && performance.mark && performance.mark("DatasetContainer.componentCouldBootstrap");</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            preferredFont: "TeX",
+            availableFonts: ["STIX", "TeX"],
+            linebreaks: {
+                automatic: true
+            },
+            EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+        },
+        tex2jax: {
+            inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+            displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+            processEscapes: true,
+            ignoreClass: "tex2jax_ignore|dno"
+        },
+        TeX: {
+            noUndefined: {
+                attributes: {
+                    mathcolor: "red",
+                    mathbackground: "#FFEEEE",
+                    mathsize: "90%"
+                }
+            }
+        },
+        Macros: {
+            href: "{}"
+        },
+        skipStartupTypeset: true,
+        messageStyle: "none"
+    });
+</script>
+
+<script type="text/javascript" async crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    </div>
+
+        <div class="site-layout__footer">
+            <footer class="site-footer">
+    <div class="site-footer__content">
+        <div class="site-footer__copyright">
+            <span>&copy; 2017 Kaggle Inc</span>
+        </div>
+        <nav class="site-footer__nav">
+            <a href="/team">Our Team</a>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact/Support</a>
+        </nav>
+        <nav class="site-footer__social">
+            <div data-component-name="SocialIcons"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push();performance && performance.mark && performance.mark("SocialIcons.componentCouldBootstrap");</script>
+        </nav>
+    </div>
+</footer>
+
+        </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var Kaggle = Kaggle || {};
+
+    Kaggle.Current = {
+        hasJupyterNotebookEditor: true,
+        hasEnvironmentVariables: false,
+        hasInteractiveScripts: false,
+        hasStandaloneKernelProxy: true,
+        antiForgeryToken: 'FNezg9X9You9zur6C26f64fjt1plOXF35MVxThzPaAXCBtMypVBwlNSjsp2krHLwfR2PoXpDIISRr7i8kCPdLwOiso01',
+        isAnonymous: true,
+        isFullScreen: false,
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+        Kaggle.Current.log = function(){};
+        Kaggle.Current.warn = function(){};
+    var decodeUserDisplayName = function () {
+        var escapedUserDisplayName = Kaggle.Current.userDisplayNameEscaped;
+        try {
+          var textVersion = new DOMParser().parseFromString(escapedUserDisplayName, "text/html").documentElement.textContent;
+          if (textVersion) {
+              return textVersion;
+          }
+        } catch(ex) {}
+        
+        return escapedUserDisplayName;
+    }
+    Kaggle.Current.userDisplayName = decodeUserDisplayName();
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    var Kaggle = Kaggle || {};
+    Kaggle.PageMessages = [{"id":null,"type":"info","message":null,"dangerousHtmlMessage":"Please \u003ca href=\u0022/account/login?returnUrl=%2Ftheacademy%2Facademy-awards\u0022\u003elogin\u003c/a\u003e to download this dataset.","isPersistent":true,"faIcon":null}];
+</script>
+
+
+<script src="/content/v/5dbea6ee9ce1/shared/js/kaggle.prism.min.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+goog_snippet_vars = function() {
+    var w = window;
+    w.google_conversion_id = 955616553;
+    w.google_conversion_label = "-SL0CM3tqXMQqZrWxwM";
+    w.google_conversion_value = 0.00;
+    w.google_conversion_currency = "USD";
+    w.google_remarketing_only = false;
+    w.google_conversion_language = "en";
+    w.google_conversion_format = "3";
+    w.google_conversion_color = "ffffff";
+}
+// DO NOT CHANGE THE CODE BELOW.
+goog_report_conversion = function(url) {
+    goog_snippet_vars();
+    window.google_conversion_format = "3";
+    var opt = new Object();
+    opt.onload_callback = function() {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    }
+    var conv_handler = window['google_trackConversion'];
+    if (typeof(conv_handler) == 'function') {
+        conv_handler(opt);
+    }
+}
+/* ]]> */
+</script>
+<script type="text/javascript"
+src="//www.googleadservices.com/pagead/conversion_async.js">
+</script>
+
+
+
+
+
+    <script src="/static/assets/app.js?v=7512e493ee80"></script>
+    
+        <script>
+            (function() {
+                if ('serviceWorker' in navigator) {
+                    
+                    navigator.serviceWorker.register("/static/assets/service-worker.js").then(function(reg) {
+                        
+                        reg.onupdatefound = function() {
+                            
+                            var installingWorker = reg.installing;
+                            installingWorker.onstatechange = function() {
+                                switch (installingWorker.state) {
+                                case 'installed':
+                                    if (navigator.serviceWorker.controller) {
+                                        
+                                        console.log('New or updated content is available.');
+                                    } else {
+                                        
+                                        console.log('Content is now available offline!');
+                                    }
+                                    break;
+                                case 'redundant':
+                                    console.error('The installing service worker became redundant.');
+                                    break;
+                                }
+                            };
+                        };
+                    }).catch(function(e) {
+                      console.error('Error during service worker registration:', e);
+                    });
+                }
+            })();
+        </script>
+</body>
+</html>

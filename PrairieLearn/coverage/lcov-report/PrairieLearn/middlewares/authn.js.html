@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/middlewares/authn.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/middlewares</a> authn.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.32% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/47</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+&nbsp;
+var config = require('../lib/config');
+var csrf = require('../lib/csrf');
+var logger = require('../lib/logger');
+var sqldb = require('../lib/sqldb');
+var sqlLoader = require('../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+module.exports = function(req, res, next) {
+    res.locals.is_administrator = false;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (req.method === 'OPTIONS') {
+        // don't authenticate for OPTIONS requests, as these are just for CORS
+<span class="cstat-no" title="statement not covered" >        next();</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (/^\/pl\/webhooks\//.test(req.path)) {
+      // Webhook callbacks should not be authenticated
+<span class="cstat-no" title="statement not covered" >      next();</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+    // bypass auth for local /pl/ serving
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (config.authType === 'none') {
+        var authUid = 'dev@illinois.edu';
+        var authName = 'Dev User';
+        var authUin = '000000000';
+&nbsp;
+        if (req.cookies.pl_test_user == 'test_student') {
+            authUid = 'student@illinois.edu';
+            authName = 'Student User';
+            authUin = '000000001';
+        }
+        let params = {
+            uid: authUid,
+            name: authName,
+            uin: authUin,
+            provider: 'dev',
+        };
+        sqldb.queryOneRow(sql.insert_user, params, (err, result) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.locals.authn_user = result.rows[0].user;
+            res.locals.is_administrator = result.rows[0].is_administrator;
+            next();
+        });
+        return;
+    }
+&nbsp;
+    // otherwise look for auth cookies
+<span class="cstat-no" title="statement not covered" >    if (req.cookies.pl_authn == null) {</span>
+<span class="cstat-no" title="statement not covered" >        logger.error('no authn cookie');</span>
+<span class="cstat-no" title="statement not covered" >        res.redirect('/');</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+    var authnData = <span class="cstat-no" title="statement not covered" >csrf.getCheckedData(req.cookies.pl_authn, config.secretKey, {maxAge: 24 * 60 * 60 * 1000});</span>
+<span class="cstat-no" title="statement not covered" >    if (authnData == null) {</span>
+        // if CSRF checking failed then clear the cookie and redirect to / to prompt re-login
+<span class="cstat-no" title="statement not covered" >        logger.error('authn cookie CSRF failure');</span>
+<span class="cstat-no" title="statement not covered" >        res.clearCookie('pl_authn');</span>
+<span class="cstat-no" title="statement not covered" >        res.redirect('/');</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+&nbsp;
+    let params = <span class="cstat-no" title="statement not covered" >{</span>
+        user_id: authnData.user_id,
+    };
+<span class="cstat-no" title="statement not covered" >    sqldb.query(sql.select_user, params, <span class="fstat-no" title="function not covered" >(e</span>rr, result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        if (result.rowCount == 0) <span class="cstat-no" title="statement not covered" >return next(new Error('user not found with user_id ' + authnData.user_id));</span></span>
+<span class="cstat-no" title="statement not covered" >        res.locals.authn_user = result.rows[0].user;</span>
+<span class="cstat-no" title="statement not covered" >        res.locals.is_administrator = result.rows[0].is_administrator;</span>
+<span class="cstat-no" title="statement not covered" >        next();</span>
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

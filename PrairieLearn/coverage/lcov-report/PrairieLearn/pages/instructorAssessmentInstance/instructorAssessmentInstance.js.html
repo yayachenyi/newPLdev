@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/pages/instructorAssessmentInstance/instructorAssessmentInstance.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">PrairieLearn/pages/instructorAssessmentInstance</a> instructorAssessmentInstance.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>50/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.88% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.92% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>50/65</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+var csvStringify = require('csv').stringify;
+var express = require('express');
+var router = express.Router();
+&nbsp;
+var error = require('../../lib/error');
+var sqldb = require('../../lib/sqldb');
+var sqlLoader = require('../../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+var logCsvFilename = function(locals) {
+    return locals.course.short_name.replace(/\s+/g, '')
+        + '_'
+        + locals.course_instance.short_name
+        + '_'
+        + locals.assessment_set.abbreviation
+        + locals.assessment.number
+        + '_'
+        + locals.instance_user.uid.replace(/[^a-z0-9]/g, '_')
+        + '_'
+        + locals.assessment_instance.number
+        + '_'
+        + 'log.csv';
+};
+&nbsp;
+router.get('/', function(req, res, next) {
+    res.locals.logCsvFilename = logCsvFilename(res.locals);
+    var params = {assessment_instance_id: res.locals.assessment_instance.id};
+    sqldb.queryOneRow(sql.select_data, params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+        res.locals.assessment_instance_duration = result.rows[0].assessment_instance_duration;
+&nbsp;
+        var params = {assessment_instance_id: res.locals.assessment_instance.id};
+        sqldb.query(sql.select_instance_questions, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.locals.instance_questions = result.rows;
+&nbsp;
+            var params = {assessment_instance_id: res.locals.assessment_instance.id};
+            sqldb.query(sql.select_log, params, function(err, result) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+                res.locals.log = result.rows;
+&nbsp;
+                res.render(__filename.replace(/\.js$/, '.ejs'), res.locals);
+            });
+        });
+    });
+});
+&nbsp;
+router.get('/:filename', <span class="fstat-no" title="function not covered" >fu</span>nction(req, res, next) {
+<span class="cstat-no" title="statement not covered" >    if (req.params.filename == logCsvFilename(res.locals)) {</span>
+        var params = <span class="cstat-no" title="statement not covered" >{assessment_instance_id: res.locals.assessment_instance.id};</span>
+<span class="cstat-no" title="statement not covered" >        sqldb.query(sql.select_log, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+            var log = <span class="cstat-no" title="statement not covered" >result.rows;</span>
+            var csvHeaders = <span class="cstat-no" title="statement not covered" >['Time', 'Auth user', 'Event', 'Question', 'Variant', 'Data'];</span>
+            var csvData = <span class="cstat-no" title="statement not covered" >_.map(log, <span class="fstat-no" title="function not covered" >fu</span>nction(row) {</span>
+<span class="cstat-no" title="statement not covered" >                return [</span>
+                    row.date_iso8601,
+                    row.auth_user_uid,
+                    row.event_name,
+                    row.qid,
+                    row.variant_number,
+                    ((row.data != null) ? JSON.stringify(row.data) : null),
+                ];
+            });
+<span class="cstat-no" title="statement not covered" >            csvData.splice(0, 0, csvHeaders);</span>
+<span class="cstat-no" title="statement not covered" >            csvStringify(csvData, <span class="fstat-no" title="function not covered" >fu</span>nction(err, csv) {</span>
+<span class="cstat-no" title="statement not covered" >                if (err) <span class="cstat-no" title="statement not covered" >throw Error('Error formatting CSV', err);</span></span>
+<span class="cstat-no" title="statement not covered" >                res.attachment(req.params.filename);</span>
+<span class="cstat-no" title="statement not covered" >                res.send(csv);</span>
+            });
+        });
+    } else {
+<span class="cstat-no" title="statement not covered" >        next(new Error('Unknown filename: ' + req.params.filename));</span>
+    }
+});
+&nbsp;
+router.post('/', function(req, res, next) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.locals.authz_data.has_instructor_edit) <span class="cstat-no" title="statement not covered" >return next();</span>
+    if (req.body.__action == 'edit_total_points') {
+        let params = [
+            req.body.assessment_instance_id,
+            req.body.points,
+            res.locals.authn_user.user_id,
+        ];
+        sqldb.call('assessment_instances_update_points', params, function(err, _result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.redirect(req.originalUrl);
+        });
+    } else if (req.body.__action == 'edit_total_score_perc') {
+        let params = [
+            req.body.assessment_instance_id,
+            req.body.score_perc,
+            res.locals.authn_user.user_id,
+        ];
+        sqldb.call('assessment_instances_update_score_perc', params, function(err, _result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.redirect(req.originalUrl);
+        });
+    } else if (req.body.__action == 'edit_question_points') {
+        let params = [
+            req.body.instance_question_id,
+            req.body.points,
+            res.locals.authn_user.user_id,
+        ];
+        sqldb.call('instance_questions_update_points', params, function(err, _result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.redirect(req.originalUrl);
+        });
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (req.body.__action == 'edit_question_score_perc') {
+        let params = [
+            req.body.instance_question_id,
+            req.body.score_perc,
+            res.locals.authn_user.user_id,
+        ];
+        sqldb.call('instance_questions_update_score_perc', params, function(err, _result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.redirect(req.originalUrl);
+        });
+    } else {
+<span class="cstat-no" title="statement not covered" >        return next(error.make(400, 'unknown __action', {locals: res.locals, body: req.body}));</span>
+    }
+});
+&nbsp;
+module.exports = router;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

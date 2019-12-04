@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/cron/sendExternalGraderStats.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/cron</a> sendExternalGraderStats.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.21% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ERR = require('async-stacktrace');
+&nbsp;
+const config = require('../lib/config');
+const logger = require('../lib/logger');
+const opsbot = require('../lib/opsbot');
+const sqldb = require('../lib/sqldb');
+&nbsp;
+module.exports = {};
+&nbsp;
+module.exports.run = <span class="fstat-no" title="function not covered" >(c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (!opsbot.canSendMessages()) <span class="cstat-no" title="statement not covered" >return callback(null);</span></span>
+<span class="cstat-no" title="statement not covered" >    sqldb.callOneRow('grading_jobs_stats_day', [], <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+        const {
+            count,
+            delta_total,
+            delta_submitted_at,
+            delta_started_at,
+            delta_finished_at,
+            delta_final,
+            max_total,
+            max_submitted_at,
+            max_started_at,
+            max_finished_at,
+            max_final,
+        } = <span class="cstat-no" title="statement not covered" >result.rows[0];</span>
+&nbsp;
+        let msg = <span class="cstat-no" title="statement not covered" >`_External grading stats, past 24 hours:_ *${config.externalGradingSqsQueueName}*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `Count: *${count}*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `Average total duration: *${Number(delta_total).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `Individual averages:\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Average time to submit: *${Number(delta_submitted_at).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Average time to queue: *${Number(delta_started_at).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Average time to execute: *${Number(delta_finished_at).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Average time to report: *${Number(delta_final).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `Maximum total duration: *${Number(max_total).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `Individual maximums:\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Maximum time to submit: *${Number(max_submitted_at).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Maximum time to queue: *${Number(max_started_at).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Maximum time to execute: *${Number(max_finished_at).toFixed(2)} s*\n`;</span>
+<span class="cstat-no" title="statement not covered" >        msg +=    `    Maximum time to report: *${Number(max_final).toFixed(2)} s*\n`;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        opsbot.sendMessage(msg, <span class="fstat-no" title="function not covered" >(e</span>rr, res, body) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            if (res.statusCode != 200) {</span>
+<span class="cstat-no" title="statement not covered" >                logger.error('Error posting external grading stats to slack [status code ${res.statusCode}]', body);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            callback(null);</span>
+        });
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

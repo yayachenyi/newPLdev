@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/pages/instructorAssessments/instructorAssessments.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">PrairieLearn/pages/instructorAssessments</a> instructorAssessments.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.72% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52.78% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+var csvStringify = require('csv').stringify;
+var express = require('express');
+var router = express.Router();
+&nbsp;
+var sqldb = require('../../lib/sqldb');
+var sqlLoader = require('../../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+var csvFilename = function(locals) {
+    return locals.course.short_name.replace(/\s+/g, '')
+        + '_'
+        + locals.course_instance.short_name.replace(/\s+/g, '')
+        + '_'
+        + 'assessment_stats.csv';
+};
+&nbsp;
+router.get('/', function(req, res, next) {
+    res.locals.csvFilename = csvFilename(res.locals);
+    var params = {
+        course_instance_id: res.locals.course_instance.id,
+        authz_data: res.locals.authz_data,
+        req_date: res.locals.req_date,
+    };
+    sqldb.query(sql.select_assessments, params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+        res.locals.rows = result.rows;
+        res.render(__filename.replace(/\.js$/, '.ejs'), res.locals);
+    });
+});
+&nbsp;
+router.get('/:filename', <span class="fstat-no" title="function not covered" >fu</span>nction(req, res, next) {
+<span class="cstat-no" title="statement not covered" >    if (req.params.filename == csvFilename(res.locals)) {</span>
+        var params = <span class="cstat-no" title="statement not covered" >{</span>
+            course_instance_id: res.locals.course_instance.id,
+            authz_data: res.locals.authz_data,
+            req_date: res.locals.req_date,
+        };
+<span class="cstat-no" title="statement not covered" >        sqldb.query(sql.select_assessments, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+            var assessmentStats = <span class="cstat-no" title="statement not covered" >result.rows;</span>
+            var csvHeaders = <span class="cstat-no" title="statement not covered" >['Course', 'Instance', 'Set', 'Number', 'Assessment', 'Title', 'TID',</span>
+                              'NStudents', 'Mean', 'Std', 'Min', 'Max', 'Median',
+                              'NZero', 'NHundred', 'NZeroPerc', 'NHundredPerc',
+                              'Hist1', 'Hist2', 'Hist3', 'Hist4', 'Hist5',
+                              'Hist6', 'Hist7', 'Hist8', 'Hist9', 'Hist10'];
+            var csvData = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >            _(assessmentStats).each(<span class="fstat-no" title="function not covered" >fu</span>nction(assessmentStat) {</span>
+                var csvRow = <span class="cstat-no" title="statement not covered" >[</span>
+                    res.locals.course.short_name,
+                    res.locals.course_instance.short_name,
+                    assessmentStat.name,
+                    assessmentStat.assessment_number,
+                    assessmentStat.label,
+                    assessmentStat.title,
+                    assessmentStat.tid,
+                    assessmentStat.number,
+                    assessmentStat.mean,
+                    assessmentStat.std,
+                    assessmentStat.min,
+                    assessmentStat.max,
+                    assessmentStat.median,
+                    assessmentStat.n_zero,
+                    assessmentStat.n_hundred,
+                    assessmentStat.n_zero_perc,
+                    assessmentStat.n_hundred_perc,
+                ];
+<span class="cstat-no" title="statement not covered" >                csvRow = csvRow.concat(assessmentStat.score_hist);</span>
+<span class="cstat-no" title="statement not covered" >                csvData.push(csvRow);</span>
+            });
+<span class="cstat-no" title="statement not covered" >            csvData.splice(0, 0, csvHeaders);</span>
+<span class="cstat-no" title="statement not covered" >            csvStringify(csvData, <span class="fstat-no" title="function not covered" >fu</span>nction(err, csv) {</span>
+<span class="cstat-no" title="statement not covered" >                if (err) <span class="cstat-no" title="statement not covered" >throw Error('Error formatting CSV', err);</span></span>
+<span class="cstat-no" title="statement not covered" >                res.attachment(req.params.filename);</span>
+<span class="cstat-no" title="statement not covered" >                res.send(csv);</span>
+            });
+        });
+    } else {
+<span class="cstat-no" title="statement not covered" >        next(new Error('Unknown filename: ' + req.params.filename));</span>
+    }
+});
+&nbsp;
+module.exports = router;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/sqldb.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> sqldb.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.14% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>166/251</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.91% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>45/92</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.92% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>40/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.1% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>155/218</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">51360x</span>
+<span class="cline-any cline-yes">51360x</span>
+<span class="cline-any cline-yes">51360x</span>
+<span class="cline-any cline-yes">51360x</span>
+<span class="cline-any cline-yes">51360x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26672x</span>
+<span class="cline-any cline-yes">26672x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26672x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18853x</span>
+<span class="cline-any cline-yes">18853x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">48101x</span>
+<span class="cline-any cline-yes">48101x</span>
+<span class="cline-any cline-yes">43483x</span>
+<span class="cline-any cline-yes">43483x</span>
+<span class="cline-any cline-yes">4192x</span>
+<span class="cline-any cline-yes">1033x</span>
+<span class="cline-any cline-yes">1033x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42450x</span>
+<span class="cline-any cline-yes">42450x</span>
+<span class="cline-any cline-yes">42450x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48101x</span>
+<span class="cline-any cline-yes">48101x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-yes">11942x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-yes">1869x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-yes">414x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">33968x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16984x</span>
+<span class="cline-any cline-yes">16983x</span>
+<span class="cline-any cline-yes">16983x</span>
+<span class="cline-any cline-yes">16983x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5162x</span>
+<span class="cline-any cline-yes">5162x</span>
+<span class="cline-any cline-yes">5162x</span>
+<span class="cline-any cline-yes">5162x</span>
+<span class="cline-any cline-yes">5162x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5141x</span>
+<span class="cline-any cline-yes">5141x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-yes">673x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">682x</span>
+<span class="cline-any cline-yes">682x</span>
+<span class="cline-any cline-yes">1257x</span>
+<span class="cline-any cline-yes">682x</span>
+<span class="cline-any cline-yes">682x</span>
+<span class="cline-any cline-yes">682x</span>
+<span class="cline-any cline-yes">681x</span>
+<span class="cline-any cline-yes">681x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">261x</span>
+<span class="cline-any cline-yes">261x</span>
+<span class="cline-any cline-yes">261x</span>
+<span class="cline-any cline-yes">261x</span>
+<span class="cline-any cline-yes">260x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">260x</span>
+<span class="cline-any cline-yes">260x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-yes">572x</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-yes">280x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-yes">4639x</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-yes">625x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+var pg = require('pg');
+var path = require('path');
+var debug = require('debug')('prairielearn:' + path.basename(__filename, '.js'));
+&nbsp;
+var error = require('./error');
+&nbsp;
+const debugString = function(s) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isString(s)) <span class="cstat-no" title="statement not covered" >return 'NOT A STRING';</span>
+    s = s.replace(/\n/g, '\\n');
+    if (s.length &gt; 78) s = s.substring(0, 75) + '...';
+    s = '"' + s + '"';
+    return s;
+};
+&nbsp;
+const debugParams = function(params) {
+    let s;
+    try {
+        s = JSON.stringify(params);
+    } catch (err) {
+<span class="cstat-no" title="statement not covered" >        s = 'CANNOT JSON STRINGIFY';</span>
+    }
+    return debugString(s);
+};
+&nbsp;
+module.exports = {
+    pool: null,
+&nbsp;
+    init: function(pgConfig, idleErrorHandler, callback) {
+        try {
+            this.pool = new pg.Pool(pgConfig);
+        } catch (err) {
+<span class="cstat-no" title="statement not covered" >            error.addData(err, {pgConfig: pgConfig});</span>
+<span class="cstat-no" title="statement not covered" >            callback(err);</span>
+        }
+        this.pool.on('error', <span class="fstat-no" title="function not covered" >fu</span>nction(err, client) {
+<span class="cstat-no" title="statement not covered" >            idleErrorHandler(err, client);</span>
+        });
+&nbsp;
+        callback(null);
+    },
+&nbsp;
+    close: function(callback) {
+        this.pool.end(function(err) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            callback(null);
+        });
+    },
+&nbsp;
+    paramsToArray: function(sql, params, callback) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isString(sql)) <span class="cstat-no" title="statement not covered" >return callback(new Error('SQL must be a string'));</span>
+        if (_.isArray(params)) return callback(null, sql, params);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isObjectLike(params)) <span class="cstat-no" title="statement not covered" >return callback(new Error('params must be array or object'));</span>
+        var re = /\$([-_a-zA-Z0-9]+)/;
+        var result;
+        var processedSql = '';
+        var remainingSql = sql;
+        var nParams = 0;
+        var map = {};
+        var paramsArray = [];
+        while ((result = re.exec(remainingSql)) !== null) {
+            var v = result[1];
+            if (!_(map).has(v)) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_(params).has(v)) <span class="cstat-no" title="statement not covered" >return callback(new Error('Missing parameter: ' + v));</span>
+                if (_.isArray(params[v])) {
+                    map[v] = 'ARRAY[' + _.map(_.range(nParams + 1, nParams + params[v].length + 1), function(n) {return '$' + n;}).join(',') + ']';
+                    nParams += params[v].length;
+                    paramsArray = paramsArray.concat(params[v]);
+                } else {
+                    nParams++;
+                    map[v] = '$' + nParams;
+                    paramsArray.push(params[v]);
+                }
+            }
+            processedSql += remainingSql.substring(0, result.index) + map[v];
+            remainingSql = remainingSql.substring(result.index + result[0].length);
+        }
+        processedSql += remainingSql;
+        remainingSql = '';
+        callback(null, processedSql, paramsArray);
+    },
+&nbsp;
+    getClient: function(callback) {
+        this.pool.connect(function(err, client, done) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                if (client) {</span>
+<span class="cstat-no" title="statement not covered" >                    done(client);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                return ERR(err, callback); </span>// unconditionally return
+            }
+            callback(null, client, done);
+        });
+    },
+&nbsp;
+    queryWithClient: function(client, sql, params, callback) {
+        debug('queryWithClient()', 'sql:', debugString(sql));
+        debug('queryWithClient()', 'params:', debugParams(params));
+        this.paramsToArray(sql, params, function(err, newSql, newParams) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >err = error.addData(err, {sql: sql, sqlParams: params});</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            client.query(newSql, newParams, function(err, result) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+                    const sqlError = <span class="cstat-no" title="statement not covered" >JSON.parse(JSON.stringify(err));</span>
+<span class="cstat-no" title="statement not covered" >                    sqlError.message = err.message;</span>
+<span class="cstat-no" title="statement not covered" >                    err = error.addData(err, {sqlError: sqlError, sql: sql, sqlParams: params, result: result});</span>
+                }
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                debug('queryWithClient() success', 'rowCount:', result.rowCount);
+                callback(null, result);
+            });
+        });
+    },
+&nbsp;
+    queryWithClientOneRow: <span class="fstat-no" title="function not covered" >fu</span>nction(client, sql, params, callback) {
+<span class="cstat-no" title="statement not covered" >        debug('queryWithClientOneRow()', 'sql:', debugString(sql));</span>
+<span class="cstat-no" title="statement not covered" >        debug('queryWithClientOneRow()', 'params:', debugParams(params));</span>
+<span class="cstat-no" title="statement not covered" >        this.queryWithClient(client, sql, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            if (result.rowCount !== 1) {</span>
+                var data = <span class="cstat-no" title="statement not covered" >{sql: sql, sqlParams: params, result: result};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+<span class="cstat-no" title="statement not covered" >            debug('queryWithClientOneRow() success', 'rowCount:', result.rowCount);</span>
+<span class="cstat-no" title="statement not covered" >            callback(null, result);</span>
+        });
+    },
+&nbsp;
+    queryWithClientZeroOrOneRow: <span class="fstat-no" title="function not covered" >fu</span>nction(client, sql, params, callback) {
+<span class="cstat-no" title="statement not covered" >        debug('queryWithClientZeroOrOneRow()', 'sql:', debugString(sql));</span>
+<span class="cstat-no" title="statement not covered" >        debug('queryWithClientZeroOrOneRow()', 'params:', debugParams(params));</span>
+<span class="cstat-no" title="statement not covered" >        this.queryWithClient(client, sql, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            if (result.rowCount &gt; 1) {</span>
+                var data = <span class="cstat-no" title="statement not covered" >{sql: sql, sqlParams: params, result: result};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+<span class="cstat-no" title="statement not covered" >            debug('queryWithClientZeroOrOneRow() success', 'rowCount:', result.rowCount);</span>
+<span class="cstat-no" title="statement not covered" >            callback(null, result);</span>
+        });
+    },
+&nbsp;
+    releaseClient: <span class="fstat-no" title="function not covered" >fu</span>nction(client, done) {
+<span class="cstat-no" title="statement not covered" >        debug('releaseClient()');</span>
+<span class="cstat-no" title="statement not covered" >        done();</span>
+    },
+&nbsp;
+    rollbackWithClient: <span class="fstat-no" title="function not covered" >fu</span>nction(client, done, callback) {
+<span class="cstat-no" title="statement not covered" >        debug('rollbackWithClient()');</span>
+        // from https://github.com/brianc/node-postgres/wiki/Transactions
+<span class="cstat-no" title="statement not covered" >        client.query('ROLLBACK;', <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+            //if there was a problem rolling back the query
+            //something is seriously messed up.  Return the error
+            //to the done function to close &amp; remove this client from
+            //the pool.  If you leave a client in the pool with an unaborted
+            //transaction weird, hard to diagnose problems might happen.
+<span class="cstat-no" title="statement not covered" >            done(err);</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            callback(null);</span>
+        });
+    },
+&nbsp;
+    // get a client and start a transaction
+    beginTransaction: function(callback) {
+        debug('beginTransaction()');
+        var that = this;
+        that.getClient(function(err, client, done) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            that.queryWithClient(client, 'START TRANSACTION;', [], function(err) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                    that.rollbackWithClient(client, done, <span class="fstat-no" title="function not covered" >fu</span>nction(rollbackErr) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(rollbackErr, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        return ERR(err, callback);</span>
+                    });
+                } else {
+                    callback(null, client, done);
+                }
+            });
+        });
+    },
+&nbsp;
+    // rollback (if err) or commit the transaction, and release the client
+    endTransaction: function(client, done, err, callback) {
+        debug('endTransaction()');
+        var that = this;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >            that.rollbackWithClient(client, done, <span class="fstat-no" title="function not covered" >fu</span>nction(rollbackErr) {</span>
+<span class="cstat-no" title="statement not covered" >                if (rollbackErr) {</span>
+<span class="cstat-no" title="statement not covered" >                    rollbackErr = error.addData(rollbackErr, {prevErr: err, rollback: 'fail'});</span>
+<span class="cstat-no" title="statement not covered" >                    return ERR(rollbackErr, callback);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                err = error.addData(err, {rollback: 'success'});</span>
+<span class="cstat-no" title="statement not covered" >                ERR(err, callback);</span>
+            });
+        } else {
+            that.queryWithClient(client, 'COMMIT', [], function(err, _result) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                    done();</span>
+<span class="cstat-no" title="statement not covered" >                    return ERR(err, callback); </span>// unconditionally return
+                }
+                done();
+                callback(null);
+            });
+        }
+    },
+&nbsp;
+    query: function(sql, params, callback) {
+        debug('query()', 'sql:', debugString(sql));
+        debug('query()', 'params:', debugParams(params));
+        var that = this;
+        that.pool.connect(function(err, client, done) {
+            var handleError = function(err) {
+                if (!err) return false;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (client) {
+                    done(client);
+                }
+                const sqlError = JSON.parse(JSON.stringify(err));
+                sqlError.message = err.message;
+                err = error.addData(err, {sqlError: sqlError, sql: sql, sqlParams: params});
+                ERR(err, callback);
+                return true;
+            };
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (handleError(err)) <span class="cstat-no" title="statement not covered" >return;</span>
+            that.paramsToArray(sql, params, function(err, newSql, newParams) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >err = error.addData(err, {sql: sql, sqlParams: params});</span>
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                client.query(newSql, newParams, function(err, result) {
+                    if (handleError(err)) return;
+                    done();
+                    debug('query() success', 'rowCount:', result.rowCount);
+                    callback(null, result);
+                });
+            });
+        });
+    },
+&nbsp;
+    queryOneRow: function(sql, params, callback) {
+        debug('queryOneRow()', 'sql:', debugString(sql));
+        debug('queryOneRow()', 'params:', debugParams(params));
+        this.query(sql, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            if (result.rowCount !== 1) {
+                var data = {sql: sql, sqlParams: params};
+                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));
+            }
+            debug('queryOneRow() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+&nbsp;
+    queryZeroOrOneRow: function(sql, params, callback) {
+        debug('queryZeroOrOneRow()', 'sql:', debugString(sql));
+        debug('queryZeroOrOneRow()', 'params:', debugParams(params));
+        this.query(sql, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount &gt; 1) {
+                var data = <span class="cstat-no" title="statement not covered" >{sql: sql, sqlParams: params};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+            debug('queryZeroOrOneRow() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+&nbsp;
+    call: function(functionName, params, callback) {
+        debug('call()', 'function:', functionName);
+        debug('call()', 'params:', debugParams(params));
+        var placeholders = _.map(_.range(1, params.length + 1), v =&gt; '$' + v).join();
+        var sql = 'SELECT * FROM ' + functionName + '(' + placeholders + ')';
+        this.query(sql, params, function(err, result) {
+            if (ERR(err, callback)) return;
+            debug('call() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+&nbsp;
+    callOneRow: function(functionName, params, callback) {
+        debug('callOneRow()', 'function:', functionName);
+        debug('callOneRow()', 'params:', debugParams(params));
+        this.call(functionName, params, function(err, result) {
+            if (ERR(err, callback)) return;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount !== 1) {
+                var data = <span class="cstat-no" title="statement not covered" >{functionName: functionName, sqlParams: params};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+            debug('callOneRow() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+&nbsp;
+    callZeroOrOneRow: <span class="fstat-no" title="function not covered" >fu</span>nction(functionName, params, callback) {
+<span class="cstat-no" title="statement not covered" >        debug('callZeroOrOneRow()', 'function:', functionName);</span>
+<span class="cstat-no" title="statement not covered" >        debug('callZeroOrOneRow()', 'params:', debugParams(params));</span>
+<span class="cstat-no" title="statement not covered" >        this.call(functionName, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            if (result.rowCount &gt; 1) {</span>
+                var data = <span class="cstat-no" title="statement not covered" >{functionName: functionName, sqlParams: params};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+<span class="cstat-no" title="statement not covered" >            debug('callZeroOrOneRow() success', 'rowCount:', result.rowCount);</span>
+<span class="cstat-no" title="statement not covered" >            callback(null, result);</span>
+        });
+    },
+&nbsp;
+    callWithClient: function(client, functionName, params, callback) {
+        debug('callWithClient()', 'function:', functionName);
+        debug('callWithClient()', 'params:', debugParams(params));
+        var placeholders = _.map(_.range(1, params.length + 1), v =&gt; '$' + v).join();
+        var sql = 'SELECT * FROM ' + functionName + '(' + placeholders + ')';
+        this.queryWithClient(client, sql, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            debug('callWithClient() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+&nbsp;
+    callWithClientOneRow: function(client, functionName, params, callback) {
+        debug('callWithClientOneRow()', 'function:', functionName);
+        debug('callWithClientOneRow()', 'params:', debugParams(params));
+        var placeholders = _.map(_.range(1, params.length + 1), v =&gt; '$' + v).join();
+        var sql = 'SELECT * FROM ' + functionName + '(' + placeholders + ')';
+        this.queryWithClient(client, sql, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount !== 1) {
+                var data = <span class="cstat-no" title="statement not covered" >{functionName: functionName, sqlParams: params};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+            debug('callWithClientOneRow() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+&nbsp;
+    callWithClientZeroOrOneRow: function(client, functionName, params, callback) {
+        debug('callWithClientZeroOrOneRow()', 'function:', functionName);
+        debug('callWithClientZeroOrOneRow()', 'params:', debugParams(params));
+        var placeholders = _.map(_.range(1, params.length + 1), v =&gt; '$' + v).join();
+        var sql = 'SELECT * FROM ' + functionName + '(' + placeholders + ')';
+        this.queryWithClient(client, sql, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount &gt; 1) {
+                var data = <span class="cstat-no" title="statement not covered" >{functionName: functionName, sqlParams: params};</span>
+<span class="cstat-no" title="statement not covered" >                return callback(error.makeWithData('Incorrect rowCount: ' + result.rowCount, data));</span>
+            }
+            debug('callWithClientZeroOrOneRow() success', 'rowCount:', result.rowCount);
+            callback(null, result);
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

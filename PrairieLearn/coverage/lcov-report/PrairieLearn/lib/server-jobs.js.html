@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/server-jobs.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> server-jobs.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">43.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>86/198</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.06% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/72</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.79% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>86/176</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">50x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+var async = require('async');
+var child_process = require('child_process');
+&nbsp;
+var logger = require('./logger');
+var socketServer = require('./socket-server');
+var sqldb = require('./sqldb');
+var sqlLoader = require('./sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+/*
+  SocketIO configuration
+&nbsp;
+  ##########################################
+  Room 'job-231' for job_id = 231 in DB.
+&nbsp;
+  Receives messages:
+  'joinJob', arguments: job_id, returns: status, stderr, stdout, output
+&nbsp;
+  Sends messages:
+  'change:stderr', arguments: job_id, stderr
+  'change:stdout', arguments: job_id, stdout
+  'change:output', arguments: job_id, output
+  'update', arguments: job_id
+&nbsp;
+  ##########################################
+  Room 'jobSequence-593' for job_sequence_id = 593 in DB.
+&nbsp;
+  Receives messages:
+  'joinJobSequence', arguments: job_sequence_id, returns: job_count
+&nbsp;
+  Sends messages:
+  'update', arguments: job_sequence_id
+&nbsp;
+  ##########################################
+&nbsp;
+  'update' events are sent for bulk changes to the object when
+  there is no specific 'change' event available.
+&nbsp;
+  For example, an 'update' will not be sent when stderr changes
+  because the more specific 'change:stderr' event will be sent
+  instead.
+*/
+&nbsp;
+module.exports = {
+    // Store currently active job information in memory. This is used
+    // to accumulate stderr/stdout, which are only written to the DB
+    // once the job is finished.
+    liveJobs: {},
+};
+&nbsp;
+/********************************************************************/
+&nbsp;
+function Job(id, options) {
+    this.id = id;
+    this.options = options;
+    this.stderr = '';
+    this.stdout = '';
+    this.output = '';
+}
+&nbsp;
+Job.prototype.addToStderr = function(text) {
+    this.stderr += text;
+    this.output += text;
+    socketServer.io.to('job-' + this.id).emit('change:stderr', {job_id: this.id, stderr: this.stderr});
+    socketServer.io.to('job-' + this.id).emit('change:output', {job_id: this.id, output: this.output});
+};
+&nbsp;
+Job.prototype.addToStdout = function(text) {
+    this.stdout += text;
+    this.output += text;
+    socketServer.io.to('job-' + this.id).emit('change:stdout', {job_id: this.id, stdout: this.stdout});
+    socketServer.io.to('job-' + this.id).emit('change:output', {job_id: this.id, output: this.output});
+};
+&nbsp;
+Job.prototype.error = <span class="fstat-no" title="function not covered" >fu</span>nction(msg) {
+<span class="cstat-no" title="statement not covered" >    this.addToStderr(msg + '\n');</span>
+};
+&nbsp;
+Job.prototype.warn = <span class="fstat-no" title="function not covered" >fu</span>nction(msg) {
+<span class="cstat-no" title="statement not covered" >    this.addToStdout(msg + '\n');</span>
+};
+&nbsp;
+Job.prototype.info = <span class="fstat-no" title="function not covered" >fu</span>nction(msg) {
+<span class="cstat-no" title="statement not covered" >    this.addToStdout(msg + '\n');</span>
+};
+&nbsp;
+Job.prototype.verbose = function(msg) {
+    this.addToStdout(msg + '\n');
+};
+&nbsp;
+Job.prototype.debug = <span class="fstat-no" title="function not covered" >fu</span>nction(_msg) {
+    // do nothing
+};
+&nbsp;
+Job.prototype.finish = function(code, signal) {
+    var that = this;
+    var params = {
+        job_id: that.id,
+        stderr: that.stderr,
+        stdout: that.stdout,
+        output: that.output,
+        exit_code: code,
+        exit_signal: signal,
+    };
+    sqldb.queryOneRow(sql.update_job_on_close, params, function(err, result) {
+        delete module.exports.liveJobs[that.id];
+        socketServer.io.to('job-' + that.id).emit('update');
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (that.options.job_sequence_id != null) {
+            socketServer.io.to('jobSequence-' + that.options.job_sequence_id).emit('update');
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, <span class="fstat-no" title="function not covered" >fu</span>nction() {})) {
+<span class="cstat-no" title="statement not covered" >            logger.error('error updating job_id ' + that.id + ' on close', err);</span>
+<span class="cstat-no" title="statement not covered" >            if (that.options.on_error) {</span>
+<span class="cstat-no" title="statement not covered" >                that.options.on_error(that.id, err);</span>
+            }
+        } else {
+            var status = result.rows[0].status;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (status == 'Success') {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (that.options.on_success) {
+<span class="cstat-no" title="statement not covered" >                    that.options.on_success(that.id);</span>
+                }
+            } else {
+<span class="cstat-no" title="statement not covered" >                if (that.options.on_error) {</span>
+<span class="cstat-no" title="statement not covered" >                    that.options.on_error(that.id, new Error('Job terminated with error'));</span>
+                }
+            }
+        }
+    });
+};
+&nbsp;
+Job.prototype.succeed = function() {
+    this.finish(0, null);
+};
+&nbsp;
+Job.prototype.fail = function(err, callback) {
+    var that = this;
+    var errMsg = err.toString();
+    that.addToStderr(errMsg);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (_.has(err, 'stack')) {
+<span class="cstat-no" title="statement not covered" >        that.addToStderr('\n' + err.stack);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (_.has(err, 'data')) {
+<span class="cstat-no" title="statement not covered" >        that.addToStderr('\n' + JSON.stringify(err.data, null, '    '));</span>
+    }
+    var params = {
+        job_id: that.id,
+        stderr: that.stderr,
+        stdout: that.stdout,
+        output: that.output,
+        error_message: errMsg,
+    };
+    sqldb.query(sql.update_job_on_error, params, function(err, _result) {
+        delete module.exports.liveJobs[that.id];
+        socketServer.io.to('job-' + that.id).emit('update');
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (that.options.job_sequence_id != null) {
+            socketServer.io.to('jobSequence-' + that.options.job_sequence_id).emit('update');
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, <span class="fstat-no" title="function not covered" >fu</span>nction() {})) {
+<span class="cstat-no" title="statement not covered" >            logger.error('error updating job_id ' + that.id + ' on error', err);</span>
+<span class="cstat-no" title="statement not covered" >            if (callback) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered" >            if (that.options.on_error) {</span>
+<span class="cstat-no" title="statement not covered" >                that.options.on_error(that.id, err);</span>
+            }
+        } else {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (callback) <span class="cstat-no" title="statement not covered" >return callback(null);</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (that.options.on_error) {
+<span class="cstat-no" title="statement not covered" >                that.options.on_error(that.id, err);</span>
+            }
+        }
+    });
+};
+&nbsp;
+/********************************************************************/
+&nbsp;
+module.exports.init = function(callback) {
+    socketServer.io.on('connection', this.connection);
+    callback(null);
+};
+&nbsp;
+module.exports.connection = <span class="fstat-no" title="function not covered" >fu</span>nction(socket) {
+<span class="cstat-no" title="statement not covered" >    socket.on('joinJob', <span class="fstat-no" title="function not covered" >fu</span>nction(msg, callback) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!_.has(msg, 'job_id')) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.error('socket.io joinJob called without job_id');</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+        // FIXME: check authn/authz with socket.request
+<span class="cstat-no" title="statement not covered" >        socket.join('job-' + msg.job_id);</span>
+        var params = <span class="cstat-no" title="statement not covered" >{</span>
+            job_id: msg.job_id,
+        };
+<span class="cstat-no" title="statement not covered" >        sqldb.queryOneRow(sql.select_job, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (err) <span class="cstat-no" title="statement not covered" >return logger.error('socket.io joinJob error selecting job_id ' + msg.job_id, err);</span></span>
+            var status = <span class="cstat-no" title="statement not covered" >result.rows[0].status;</span>
+            var stderr = <span class="cstat-no" title="statement not covered" >result.rows[0].stderr;</span>
+            var stdout = <span class="cstat-no" title="statement not covered" >result.rows[0].stdout;</span>
+            var output = <span class="cstat-no" title="statement not covered" >result.rows[0].output;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (module.exports.liveJobs[msg.job_id]) {</span>
+<span class="cstat-no" title="statement not covered" >                stderr = module.exports.liveJobs[msg.job_id].stderr;</span>
+<span class="cstat-no" title="statement not covered" >                stdout = module.exports.liveJobs[msg.job_id].stdout;</span>
+<span class="cstat-no" title="statement not covered" >                output = module.exports.liveJobs[msg.job_id].output;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            callback({status: status, stderr: stderr, stdout: stdout, output: output});</span>
+        });
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    socket.on('joinJobSequence', <span class="fstat-no" title="function not covered" >fu</span>nction(msg, callback) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!_.has(msg, 'job_sequence_id')) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.error('socket.io joinJobSequence called without job_sequence_id');</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+        // FIXME: check authn/authz with socket.request
+<span class="cstat-no" title="statement not covered" >        socket.join('jobSequence-' + msg.job_id);</span>
+        var params = <span class="cstat-no" title="statement not covered" >{</span>
+            job_sequence_id: msg.job_sequence_id,
+        };
+<span class="cstat-no" title="statement not covered" >        sqldb.queryOneRow(sql.select_job_sequence, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (err) <span class="cstat-no" title="statement not covered" >return logger.error('socket.io joinJobSequence error selecting job_sequence_id ' + msg.job_sequence_id, err);</span></span>
+            var job_count = <span class="cstat-no" title="statement not covered" >result.rows[0].job_count;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            callback({job_count: job_count});</span>
+        });
+    });
+};
+&nbsp;
+module.exports.createJob = function(options, callback) {
+    options = _.assign({
+        course_id: null,
+        course_instance_id: null,
+        assessment_id: null,
+        user_id: null,
+        authn_user_id: null,
+        job_sequence_id: null,
+        last_in_sequence: false,
+        type: null,
+        description: null,
+        command: null,
+        arguments: [],
+        working_directory: undefined,
+        on_error: undefined,
+        on_success: undefined,
+    }, options);
+&nbsp;
+    var params = {
+        course_id: options.course_id,
+        course_instance_id: options.course_instance_id,
+        assessment_id: options.assessment_id,
+        user_id: options.user_id,
+        authn_user_id: options.authn_user_id,
+        job_sequence_id: options.job_sequence_id,
+        last_in_sequence: options.last_in_sequence,
+        type: options.type,
+        description: options.description,
+        command: options.command,
+        arguments: options.arguments,
+        working_directory: options.working_directory,
+    };
+    sqldb.queryOneRow(sql.insert_job, params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+        var job_id = result.rows[0].id;
+&nbsp;
+        var job = new Job(job_id, options);
+        module.exports.liveJobs[job_id] = job;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (job.options.job_sequence_id != null) {
+            socketServer.io.to('jobSequence-' + job.options.job_sequence_id).emit('update');
+        }
+        callback(null, job);
+    });
+};
+&nbsp;
+module.exports.spawnJob = <span class="fstat-no" title="function not covered" >fu</span>nction(options, callback) {
+<span class="cstat-no" title="statement not covered" >    module.exports.createJob(options, <span class="fstat-no" title="function not covered" >fu</span>nction(err, job) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+&nbsp;
+        var spawnOptions = <span class="cstat-no" title="statement not covered" >{cwd: job.options.working_directory};</span>
+<span class="cstat-no" title="statement not covered" >        job.proc = child_process.spawn(job.options.command, job.options.arguments, spawnOptions);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        job.proc.stderr.setEncoding('utf8');</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.stdout.setEncoding('utf8');</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.stderr.on('data', <span class="fstat-no" title="function not covered" >fu</span>nction(text) {<span class="cstat-no" title="statement not covered" >job.addToStderr(text);}</span>);</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.stdout.on('data', <span class="fstat-no" title="function not covered" >fu</span>nction(text) {<span class="cstat-no" title="statement not covered" >job.addToStdout(text);}</span>);</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.stderr.on('error', <span class="fstat-no" title="function not covered" >fu</span>nction(err) {<span class="cstat-no" title="statement not covered" >job.addToStderr('ERROR: ' + err.toString() + '\n');}</span>);</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.stdout.on('error', <span class="fstat-no" title="function not covered" >fu</span>nction() {<span class="cstat-no" title="statement not covered" >job.addToStderr('ERROR: ' + err.toString() + '\n');}</span>);</span>
+&nbsp;
+        // when a process exists, first 'exit' is fired with stdio
+        // streams possibly still open, then 'close' is fired once all
+        // stdio is done
+<span class="cstat-no" title="statement not covered" >        job.proc.on('exit', <span class="fstat-no" title="function not covered" >fu</span>nction(_code, _signal) { /* do nothing */ });</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.on('close', <span class="fstat-no" title="function not covered" >fu</span>nction(code, signal) {<span class="cstat-no" title="statement not covered" >job.finish(code, signal);}</span>);</span>
+<span class="cstat-no" title="statement not covered" >        job.proc.on('error', <span class="fstat-no" title="function not covered" >fu</span>nction(err) {<span class="cstat-no" title="statement not covered" >job.fail(err);}</span>);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (callback) <span class="cstat-no" title="statement not covered" >callback(null, job);</span></span>
+    });
+};
+&nbsp;
+module.exports.killJob = <span class="fstat-no" title="function not covered" >fu</span>nction(job_id, callback) {
+    var job = <span class="cstat-no" title="statement not covered" >module.exports.liveJobs[job_id];</span>
+<span class="cstat-no" title="statement not covered" >    if (!job) <span class="cstat-no" title="statement not covered" >return callback(new Error('No such job_id: ' + job_id));</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!job.proc) <span class="cstat-no" title="statement not covered" >return callback(new Error('job_id ' + job_id + ' does not have proc to kill'));</span></span>
+<span class="cstat-no" title="statement not covered" >    job.proc.kill();</span>
+    // this will not fire the usual on_error event on job fail
+<span class="cstat-no" title="statement not covered" >    job.fail('Killed by user', <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        callback(null);</span>
+    });
+};
+&nbsp;
+module.exports.errorAbandonedJobs = <span class="fstat-no" title="function not covered" >fu</span>nction(callback) {
+<span class="cstat-no" title="statement not covered" >    sqldb.query(sql.select_running_jobs, [], <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        async.each(result.rows, <span class="fstat-no" title="function not covered" >fu</span>nction(row, callback) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!_.has(module.exports.liveJobs, row.id)) {</span>
+<span class="cstat-no" title="statement not covered" >                logger.debug('Job abandoned by server, id: ' + row.id);</span>
+                var params = <span class="cstat-no" title="statement not covered" >{</span>
+                    job_id: row.id,
+                    stderr: null,
+                    stdout: null,
+                    output: null,
+                    error_message: 'Job abandoned by server',
+                };
+<span class="cstat-no" title="statement not covered" >                sqldb.query(sql.update_job_on_error, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, _result) {</span>
+<span class="cstat-no" title="statement not covered" >                    socketServer.io.to('job-' + row.id).emit('update');</span>
+<span class="cstat-no" title="statement not covered" >                    if (row.job_sequence_id != null) {</span>
+<span class="cstat-no" title="statement not covered" >                        socketServer.io.to('jobSequence-' + row.job_sequence_id).emit('update');</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, <span class="fstat-no" title="function not covered" >fu</span>nction() {})) {</span>
+<span class="cstat-no" title="statement not covered" >                        logger.error('errorAbandonedJobs: error updating job on error', err);</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    callback(null);</span>
+                });
+            }
+        }, <span class="fstat-no" title="function not covered" >fu</span>nction(err) {
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            sqldb.query(sql.error_abandoned_job_sequences, [], <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >                if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                result.rows.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction(row) {</span>
+<span class="cstat-no" title="statement not covered" >                    socketServer.io.to('jobSequence-' + row.id).emit('update');</span>
+                });
+<span class="cstat-no" title="statement not covered" >                callback(null);</span>
+            });
+        });
+    });
+};
+&nbsp;
+module.exports.createJobSequence = function(options, callback) {
+    options = _.assign({
+        course_id: null,
+        course_instance_id: null,
+        assessment_id: null,
+        user_id: null,
+        authn_user_id: null,
+        type: null,
+        description: null,
+    }, options);
+&nbsp;
+    var params = {
+        course_id: options.course_id,
+        course_instance_id: options.course_instance_id,
+        assessment_id: options.assessment_id,
+        user_id: options.user_id,
+        authn_user_id: options.authn_user_id,
+        type: options.type,
+        description: options.description,
+    };
+    sqldb.queryOneRow(sql.insert_job_sequence, params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+        var job_sequence_id = result.rows[0].id;
+&nbsp;
+        callback(null, job_sequence_id);
+    });
+};
+&nbsp;
+module.exports.failJobSequence = <span class="fstat-no" title="function not covered" >fu</span>nction(job_sequence_id, callback) {
+    var params = <span class="cstat-no" title="statement not covered" >{</span>
+        job_sequence_id,
+    };
+<span class="cstat-no" title="statement not covered" >    sqldb.query(sql.fail_job_sequence, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, _result) {</span>
+<span class="cstat-no" title="statement not covered" >        socketServer.io.to('jobSequence-' + job_sequence_id).emit('update');</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, <span class="fstat-no" title="function not covered" >()</span> =&gt; {})) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.error('error failing job_sequence_id ' + job_sequence_id + ' with error', err);</span>
+<span class="cstat-no" title="statement not covered" >            if (callback) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            if (callback) <span class="cstat-no" title="statement not covered" >return callback(null);</span></span>
+        }
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

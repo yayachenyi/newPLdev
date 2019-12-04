@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/tests/helperQuestion.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/tests</a> helperQuestion.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.85% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>301/335</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.63% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>100/134</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>86/86</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.11% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>284/305</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-yes">171x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-yes">157x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">170x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120x</span>
+<span class="cline-any cline-yes">120x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">120x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-yes">139x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-yes">145x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-yes">141x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1397x</span>
+<span class="cline-any cline-yes">1397x</span>
+<span class="cline-any cline-yes">1397x</span>
+<span class="cline-any cline-yes">1397x</span>
+<span class="cline-any cline-yes">1397x</span>
+<span class="cline-any cline-yes">1390x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+var assert = require('chai').assert;
+var request = require('request');
+var cheerio = require('cheerio');
+&nbsp;
+var sqldb = require('../lib/sqldb');
+var sqlLoader = require('../lib/sql-loader');
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+var page, elemList;
+&nbsp;
+module.exports = {
+    getInstanceQuestion(locals) {
+        describe('GET to instance_question URL', function() {
+            it('should load successfully', function(callback) {
+                var questionUrl = locals.questionBaseUrl + '/' + locals.question.id;
+                request(questionUrl, function (error, response, body) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >                        return callback(error);</span>
+                    }
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode != 200) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('bad status: ' + response.statusCode + '\n' + body));</span>
+                    }
+                    page = body;
+                    callback(null);
+                });
+            });
+            it('should parse', function() {
+                locals.$ = cheerio.load(page);
+            });
+            it('should contain question-data if Calculation', function() {
+                if (locals.question.type != 'Calculation') return;
+                elemList = locals.$('.question-data');
+                assert.lengthOf(elemList, 1);
+            });
+            it('question-data should contain base64 data if Calculation', function() {
+                if (locals.question.type != 'Calculation') return;
+                assert.deepProperty(elemList[0], 'children.0.data');
+                assert.lengthOf(elemList[0].children, 1);
+                assert.property(elemList[0].children[0], 'data');
+            });
+            it('base64 data should parse to JSON if Calculation', function() {
+                if (locals.question.type != 'Calculation') return;
+                locals.questionData = JSON.parse(decodeURIComponent(new Buffer(elemList[0].children[0].data, 'base64').toString()));
+            });
+            it('should have a variant_id in the questionData if Calculation', function() {
+                if (locals.question.type != 'Calculation') return;
+                assert.deepProperty(locals.questionData, 'variant.id');
+                locals.variant_id = locals.questionData.variant.id;
+            });
+            it('should have a variant_id input if Freeform with grade or save buttons', function() {
+                if (locals.question.type != 'Freeform') return;
+                if (!locals.shouldHaveButtons.includes('grade') &amp;&amp; !locals.shouldHaveButtons.includes('save')) return;
+                elemList = locals.$('.question-form input[name="__variant_id"]');
+                assert.lengthOf(elemList, 1);
+                assert.deepProperty(elemList[0], 'attribs.value');
+                locals.variant_id = elemList[0].attribs.value;
+                locals.variant_id = Number.parseInt(locals.variant_id);
+            });
+            it('should have the variant in the DB if has grade or save button', function(callback) {
+                if (!locals.shouldHaveButtons.includes('grade') &amp;&amp; !locals.shouldHaveButtons.includes('save')) return callback(null);
+                var params = {
+                    variant_id: locals.variant_id,
+                };
+                sqldb.queryOneRow(sql.select_variant, params, function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    locals.variant = result.rows[0];
+                    callback(null);
+                });
+            });
+            it('should have the correct variant.instance_question.id if has grade or save button and is student page', function() {
+                if (!locals.shouldHaveButtons.includes('grade') &amp;&amp; !locals.shouldHaveButtons.includes('save')) return;
+                if (!locals.isStudentPage) return;
+                assert.equal(locals.variant.instance_question_id, locals.question.id);
+            });
+            it('should have the correct variant.question.id if has grade or save button and is instructor page', function() {
+                if (!locals.shouldHaveButtons.includes('grade') &amp;&amp; !locals.shouldHaveButtons.includes('save')) return;
+                if (locals.isStudentPage) return;
+                assert.equal(locals.variant.question_id, locals.question.id);
+            });
+            it('should not be a broken variant if Freeform with grade or save button', function() {
+                if (locals.question.type != 'Freeform') return;
+                if (!locals.shouldHaveButtons.includes('grade') &amp;&amp; !locals.shouldHaveButtons.includes('save')) return;
+                assert.equal(locals.variant.broken, false);
+            });
+            it('should have a CSRF token if has grade or save button', function() {
+                if (!locals.shouldHaveButtons.includes('grade') &amp;&amp; !locals.shouldHaveButtons.includes('save')) return;
+                elemList = locals.$('.question-form input[name="__csrf_token"]');
+                assert.lengthOf(elemList, 1);
+                assert.deepProperty(elemList[0], 'attribs.value');
+                locals.__csrf_token = elemList[0].attribs.value;
+                assert.isString(locals.__csrf_token);
+            });
+            it('should have or not have grade button', function() {
+                if (locals.question.type == 'Freeform') {
+                    elemList = locals.$('button[name="__action"][value="grade"]');
+                    if (locals.shouldHaveButtons.includes('grade')) {
+                        assert.lengthOf(elemList, 1);
+                    } else {
+                        assert.lengthOf(elemList, 0);
+                    }
+                } else {
+                    elemList = locals.$('button.question-grade');
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (locals.shouldHaveButtons.includes('grade')) {
+                        assert.lengthOf(elemList, 1);
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        assert.lengthOf(elemList, 0);</span>
+                    }
+                }
+            });
+            it('should have or not have save button', function() {
+                if (locals.question.type == 'Freeform') {
+                    elemList = locals.$('button[name="__action"][value="save"]');
+                    if (locals.shouldHaveButtons.includes('save')) {
+                        assert.lengthOf(elemList, 1);
+                    } else {
+                        assert.lengthOf(elemList, 0);
+                    }
+                } else {
+                    elemList = locals.$('button.question-save');
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (locals.shouldHaveButtons.includes('save')) {
+                        assert.lengthOf(elemList, 1);
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        assert.lengthOf(elemList, 0);</span>
+                    }
+                }
+            });
+            it('should have or not have newVariant button', function() {
+                elemList = locals.$('a:contains(New variant)');
+                if (locals.shouldHaveButtons.includes('newVariant')) {
+                    assert.lengthOf(elemList, 1);
+                } else {
+                    assert.lengthOf(elemList, 0);
+                }
+            });
+            it('should have or not have tryAgain button', function() {
+                elemList = locals.$('a:contains(Try question again)');
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (locals.shouldHaveButtons.includes('tryAgain')) {
+<span class="cstat-no" title="statement not covered" >                    assert.lengthOf(elemList, 1);</span>
+                } else {
+                    assert.lengthOf(elemList, 0);
+                }
+            });
+        });
+    },
+&nbsp;
+    postInstanceQuestion(locals) {
+        describe('POST to instance_question URL', function() {
+            it('should generate the submittedAnswer', function() {
+                locals.submittedAnswer = locals.getSubmittedAnswer(locals.variant);
+            });
+            it('should load successfully', function(callback) {
+                let form;
+                if (locals.question.type == 'Calculation') {
+                    form = {
+                        __action: locals.postAction,
+                        __csrf_token: locals.__csrf_token,
+                        postData: JSON.stringify({variant: locals.variant, submittedAnswer: locals.submittedAnswer}),
+                    };
+                } else <span class="missing-if-branch" title="else path not taken" >E</span>if (locals.question.type == 'Freeform') {
+                    form = {
+                        __action: locals.postAction,
+                        __csrf_token: locals.__csrf_token,
+                        __variant_id: locals.variant.id,
+                    };
+                    _.assign(form, locals.submittedAnswer);
+                } else {
+<span class="cstat-no" title="statement not covered" >                    throw Error('bad question.type:' + locals.question.type);</span>
+                }
+                var questionUrl = locals.questionBaseUrl + '/' + locals.question.id;
+                locals.preEndTime = Date.now();
+                request.post({url: questionUrl, form: form, followAllRedirects: true}, function (error, response, body) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >                        return callback(error);</span>
+                    }
+                    locals.postEndTime = Date.now();
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode != 200) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('bad status: ' + response.statusCode + '\n' + body));</span>
+                    }
+                    page = body;
+                    callback(null);
+                });
+            });
+            it('should parse', function() {
+                locals.$ = cheerio.load(page);
+            });
+            it('should create a submission', function(callback) {
+                var params = {variant_id: locals.variant.id};
+                sqldb.query(sql.select_last_submission, params, function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount != 1) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('expected one submission, got: ' + result.rowCount));</span>
+                    }
+                    locals.submission = result.rows[0];
+                    callback(null);
+                });
+            });
+            it('should have the correct submission.variant_id', function() {
+                assert.equal(locals.submission.variant_id, locals.variant.id);
+            });
+            it('should not be broken if Freeform', function() {
+                if (locals.question.type != 'Freeform') return;
+                assert.equal(locals.submission.broken, false);
+            });
+            it('should select the assessment_instance duration from the DB if student page', function(callback) {
+                if (!locals.isStudentPage) return callback(null);
+                sqldb.query(sql.select_assessment_instance_durations, [], function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount != 1) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('expected one row, got: ' + result.rowCount));</span>
+                    }
+                    locals.assessment_instance_duration = result.rows[0].duration;
+                    callback(null);
+                });
+            });
+            it('should have the correct assessment_instance duration if student page', function() {
+                if (!locals.isStudentPage) return;
+                var min_duration = (locals.preEndTime - locals.postStartTime) / 1000;
+                var max_duration = (locals.postEndTime - locals.preStartTime) / 1000;
+                assert.isAbove(locals.assessment_instance_duration, min_duration);
+                assert.isBelow(locals.assessment_instance_duration, max_duration);
+            });
+        });
+    },
+&nbsp;
+    postInstanceQuestionAndFail(locals) {
+        describe('POST to instance_question URL', function() {
+            it('should generate the submittedAnswer', function() {
+                locals.submittedAnswer = locals.getSubmittedAnswer(locals.variant);
+            });
+            it('should error', function(callback) {
+                let form;
+                if (locals.question.type == 'Calculation') {
+                    form = {
+                        __action: locals.postAction,
+                        __csrf_token: locals.__csrf_token,
+                        postData: JSON.stringify({variant: locals.variant, submittedAnswer: locals.submittedAnswer}),
+                    };
+                } else <span class="missing-if-branch" title="else path not taken" >E</span>if (locals.question.type == 'Freeform') {
+                    form = {
+                        __action: locals.postAction,
+                        __csrf_token: locals.__csrf_token,
+                        variant_id: locals.variant.id,
+                    };
+                    _.assign(form, locals.submittedAnswer);
+                } else {
+<span class="cstat-no" title="statement not covered" >                    throw Error('bad question.type:' + locals.question.type);</span>
+                }
+                var questionUrl = locals.questionBaseUrl + '/' + locals.question.id;
+                request.post({url: questionUrl, form: form, followAllRedirects: true}, function (error, response, body) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >                        return callback(error);</span>
+                    }
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode != 400 &amp;&amp; response.statusCode != 500) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('bad status (expected 400 or 500): ' + response.statusCode));</span>
+                    }
+                    page = body;
+                    callback(null);
+                });
+            });
+        });
+    },
+&nbsp;
+    checkSubmissionScore(locals) {
+        describe('check submission score', function() {
+            it('should have the submission', function(callback) {
+                var params = {
+                    question_id: locals.question.id,
+                };
+                sqldb.queryOneRow(sql.select_last_submission_for_question, params, function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    locals.submission = result.rows[0];
+                    callback(null);
+                });
+            });
+            it('should be graded with expected score', function() {
+                assert.equal(locals.submission.score, locals.expectedResult.submission_score);
+            });
+            it('should be graded with expected correctness', function() {
+                assert.equal(locals.submission.correct, locals.expectedResult.submission_correct);
+            });
+        });
+    },
+&nbsp;
+    checkQuestionScore(locals) {
+        describe('check question score', function() {
+            it('should have the submission', function(callback) {
+                var params = {
+                    instance_question_id: locals.question.id,
+                };
+                sqldb.queryOneRow(sql.select_last_submission_for_instance_question, params, function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    locals.submission = result.rows[0];
+                    callback(null);
+                });
+            });
+            it('should be graded with expected score', function() {
+                assert.equal(locals.submission.score, locals.expectedResult.submission_score);
+            });
+            it('should be graded with expected correctness', function() {
+                assert.equal(locals.submission.correct, locals.expectedResult.submission_correct);
+            });
+            it('should still have the instance_question', function(callback) {
+                var params = {
+                    instance_question_id: locals.question.id,
+                };
+                sqldb.queryOneRow(sql.select_instance_question, params, function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    locals.instance_question = result.rows[0];
+                    callback(null);
+                });
+            });
+            it('should have the correct instance_question points', function() {
+                assert.approximately(locals.instance_question.points, locals.expectedResult.instance_question_points, 1e-6);
+            });
+            it('should have the correct instance_question score_perc', function() {
+                assert.approximately(locals.instance_question.score_perc, locals.expectedResult.instance_question_score_perc, 1e-6);
+            });
+        });
+    },
+&nbsp;
+    checkAssessmentScore(locals) {
+        describe('check assessment score', function() {
+            it('should still have the assessment_instance', function(callback) {
+                var params = {
+                    assessment_instance_id: locals.assessment_instance.id,
+                };
+                sqldb.queryOneRow(sql.select_assessment_instance, params, function(err, result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    locals.assessment_instance = result.rows[0];
+                    callback(null);
+                });
+            });
+            it('should have the correct assessment_instance points', function() {
+                assert.approximately(locals.assessment_instance.points, locals.expectedResult.assessment_instance_points, 1e-6);
+            });
+            it('should have the correct assessment_instance score_perc', function() {
+                assert.approximately(locals.assessment_instance.score_perc, locals.expectedResult.assessment_instance_score_perc, 1e-6);
+            });
+        });
+    },
+&nbsp;
+    regradeAssessment(locals) {
+        describe('GET to instructorAssessment URL', function() {
+            it('should succeed', function(callback) {
+                locals.instructorAssessmentUrl = locals.courseInstanceBaseUrl + '/instructor/assessment/' + locals.assessment_id + '/';
+                request({url: locals.instructorAssessmentUrl}, function (error, response, body) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >                        return callback(error);</span>
+                    }
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode != 200) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('bad status: ' + response.statusCode + '\n' + body));</span>
+                    }
+                    page = body;
+                    callback(null);
+                });
+            });
+            it('should parse', function() {
+                locals.$ = cheerio.load(page);
+            });
+            it('should have a CSRF token', function() {
+                elemList = locals.$('form[name="regrade-all-form"] input[name="__csrf_token"]');
+                assert.lengthOf(elemList, 1);
+                assert.deepProperty(elemList[0], 'attribs.value');
+                locals.__csrf_token = elemList[0].attribs.value;
+                assert.isString(locals.__csrf_token);
+            });
+        });
+        describe('POST to instructorAssessment URL for regrading', function() {
+            it('should succeed', function(callback) {
+                var form = {
+                    __action: 'regrade_all',
+                    assessment_id: locals.assessment_id,
+                    __csrf_token: locals.__csrf_token,
+                };
+                request.post({url: locals.instructorAssessmentUrl, form: form, followAllRedirects: true}, function (error, response, body) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >                        return callback(error);</span>
+                    }
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode != 200) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error('bad status: ' + response.statusCode + '\n' + body));</span>
+                    }
+                    callback(null);
+                });
+            });
+        });
+        describe('The regrading job sequence', function() {
+            it('should have an id', function(callback) {
+                sqldb.queryOneRow(sql.select_last_job_sequence, [], (err, result) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    locals.job_sequence_id = result.rows[0].id;
+                    callback(null);
+                });
+            });
+            it('should complete', function(callback) {
+                var checkComplete = function() {
+                    var params = {job_sequence_id: locals.job_sequence_id};
+                    sqldb.queryOneRow(sql.select_job_sequence, params, (err, result) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        locals.job_sequence_status = result.rows[0].status;
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (locals.job_sequence_status == 'Running') {
+<span class="cstat-no" title="statement not covered" >                            setTimeout(checkComplete, 10);</span>
+                        } else {
+                            callback(null);
+                        }
+                    });
+                };
+                setTimeout(checkComplete, 10);
+            });
+            it('should be successful', function() {
+                assert.equal(locals.job_sequence_status, 'Success');
+            });
+        });
+    },
+&nbsp;
+    autoTestQuestion(locals, qid) {
+        describe('auto-testing question ' + qid, function() {
+            describe('the setup', function() {
+                it('should find the question in the database', function(callback) {
+                    sqldb.queryZeroOrOneRow(sql.select_question_by_qid, {qid}, function(err, result) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount == 0) {
+<span class="cstat-no" title="statement not covered" >                            return callback(new Error(`QID "${qid}" not found in the database`));</span>
+                        }
+                        locals.question = result.rows[0];
+                        callback(null);
+                    });
+                });
+                it('should be a Freeform question', function() {
+                    assert.equal(locals.question.type, 'Freeform');
+                });
+                it('should have submission data', function() {
+                    locals.shouldHaveButtons = ['grade', 'save', 'newVariant'];
+                    locals.postAction = 'grade';
+                });
+            });
+            module.exports.getInstanceQuestion(locals);
+            describe('the test job sequence', function() {
+                it('should start with POST to instructorAssessment URL for test_once', function(callback) {
+                    const form = {
+                        __action: 'test_once',
+                        __csrf_token: locals.__csrf_token,
+                    };
+                    var questionUrl = locals.questionBaseUrl + '/' + locals.question.id;
+                    request.post({url: questionUrl, form: form, followAllRedirects: true}, function (error, response, body) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >                            return callback(error);</span>
+                        }
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (response.statusCode != 200) {
+<span class="cstat-no" title="statement not covered" >                            return callback(new Error('bad status: ' + response.statusCode + '\n' + body));</span>
+                        }
+                        callback(null);
+                    });
+                });
+                it('should have an id', function(callback) {
+                    sqldb.queryOneRow(sql.select_last_job_sequence, [], (err, result) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        locals.job_sequence_id = result.rows[0].id;
+                        callback(null);
+                    });
+                });
+                it('should complete', function(callback) {
+                    var checkComplete = function() {
+                        var params = {job_sequence_id: locals.job_sequence_id};
+                        sqldb.queryOneRow(sql.select_job_sequence, params, (err, result) =&gt; {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                            locals.job_sequence_status = result.rows[0].status;
+                            if (locals.job_sequence_status == 'Running') {
+                                setTimeout(checkComplete, 10);
+                            } else {
+                                callback(null);
+                            }
+                        });
+                    };
+                    setTimeout(checkComplete, 10);
+                });
+                it('should be successful', function() {
+                    assert.equal(locals.job_sequence_status, 'Success');
+                });
+                it('should produce no issues', function(callback) {
+                    sqldb.query(sql.select_issues_for_last_variant, [], (err, result) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        if (result.rowCount &gt; 0) {
+                            callback(new Error(`found ${result.rowCount} issues (expected zero issues):\n`
+                                               + JSON.stringify(result.rows, null, '    ')));
+                            return;
+                        }
+                        callback(null);
+                    });
+                });
+            });
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

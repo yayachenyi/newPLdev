@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/middlewares/logResponse.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/middlewares</a> logResponse.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.83% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>55/58</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/7</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">626x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var logger = require('../lib/logger');
+&nbsp;
+module.exports = function(req, res, next) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (req.method !== 'OPTIONS') {
+        res.on('finish', function() {
+            var access = {
+                response_id: res.locals.response_id,
+                timestamp: (new Date()).toISOString(),
+                ip: req.ip,
+                forwardedIP: req.headers['x-forwarded-for'],
+                method: req.method,
+                path: req.path,
+                params: req.params,
+                body: req.body,
+                authn_user_id: (res.locals &amp;&amp; res.locals.authn_user) ? res.locals.authn_user.user_id : <span class="branch-1 cbranch-no" title="branch not covered" >null,</span>
+                authn_user_uid: (res.locals &amp;&amp; res.locals.authn_user) ? res.locals.authn_user.uid : <span class="branch-1 cbranch-no" title="branch not covered" >null,</span>
+                user_id: (res.locals &amp;&amp; res.locals.user) ? res.locals.user.user_id : null,
+                user_uid: (res.locals &amp;&amp; res.locals.user) ? res.locals.user.uid : null,
+                course_id: (res.locals &amp;&amp; res.locals.course) ? res.locals.course.id : null,
+                course_short_name: (res.locals &amp;&amp; res.locals.course) ? res.locals.course.short_name : null,
+                course_instance_id: (res.locals &amp;&amp; res.locals.course_instance) ? res.locals.course_instance.id : null,
+                course_instance_short_name: (res.locals &amp;&amp; res.locals.course_instance) ? res.locals.course_instance.short_name : null,
+                assessment_id: (res.locals &amp;&amp; res.locals.assessment) ? res.locals.assessment.id : null,
+                assessment_directory: (res.locals &amp;&amp; res.locals.assessment) ? res.locals.assessment.tid : null,
+                assessment_instance_id: (res.locals &amp;&amp; res.locals.assessment_instance) ? res.locals.assessment_instance.id : null,
+                question_id: (res.locals &amp;&amp; res.locals.question) ? res.locals.question.id : null,
+                question_directory: (res.locals &amp;&amp; res.locals.question) ? res.locals.question.directory : null,
+                instance_question_id: (res.locals &amp;&amp; res.locals.instance_question) ? res.locals.instance_question.id : null,
+            };
+            logger.verbose('response', access);
+        });
+    }
+    next();
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

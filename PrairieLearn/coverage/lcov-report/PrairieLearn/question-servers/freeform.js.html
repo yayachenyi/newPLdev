@@ -1,0 +1,2897 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/question-servers/freeform.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/question-servers</a> freeform.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.72% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>421/587</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.83% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>212/327</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.78% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>90/97</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">79.07% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>389/492</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-yes">272x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2407x</span>
+<span class="cline-any cline-yes">2407x</span>
+<span class="cline-any cline-yes">2407x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">311x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2102x</span>
+<span class="cline-any cline-yes">2100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">311x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">311x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">291x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1014x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">271x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">271x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1161x</span>
+<span class="cline-any cline-yes">1161x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">968x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">193x</span>
+<span class="cline-any cline-yes">193x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">61040x</span>
+<span class="cline-any cline-yes">42124x</span>
+<span class="cline-any cline-yes">42124x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37764x</span>
+<span class="cline-any cline-yes">2825x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34939x</span>
+<span class="cline-any cline-yes">2241x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32698x</span>
+<span class="cline-any cline-yes">3501x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29197x</span>
+<span class="cline-any cline-yes">29197x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42124x</span>
+<span class="cline-any cline-yes">36134x</span>
+<span class="cline-any cline-yes">36134x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42124x</span>
+<span class="cline-any cline-yes">42124x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4360x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">18688x</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">1545x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">2413x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2411x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2411x</span>
+<span class="cline-any cline-yes">1545x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1545x</span>
+<span class="cline-any cline-yes">866x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">846x</span>
+<span class="cline-any cline-yes">846x</span>
+<span class="cline-any cline-yes">846x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2411x</span>
+<span class="cline-any cline-yes">2411x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18688x</span>
+<span class="cline-any cline-yes">18686x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">117x</span>
+<span class="cline-any cline-yes">113x</span>
+<span class="cline-any cline-yes">113x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">113x</span>
+<span class="cline-any cline-yes">113x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">464x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">460x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1207x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1209x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1100x</span>
+<span class="cline-any cline-yes">1098x</span>
+<span class="cline-any cline-yes">1098x</span>
+<span class="cline-any cline-yes">1098x</span>
+<span class="cline-any cline-yes">1098x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">109x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">747x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">380x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-yes">380x</span>
+<span class="cline-any cline-yes">380x</span>
+<span class="cline-any cline-yes">380x</span>
+<span class="cline-any cline-yes">380x</span>
+<span class="cline-any cline-yes">380x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">557x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">557x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">557x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">558x</span>
+<span class="cline-any cline-yes">4464x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-yes">277x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">127x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-yes">1486x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var async = require('async');
+var _ = require('lodash');
+var fs = require('fs-extra');
+var path = require('path');
+var mustache = require('mustache');
+var cheerio = require('cheerio');
+&nbsp;
+var logger = require('../lib/logger');
+var codeCaller = require('../lib/code-caller');
+var jsonLoader = require('../lib/json-load');
+&nbsp;
+// Maps core element names to element info
+let coreElementsCache = {};
+// Maps course IDs to course element info
+const courseElementsCache = {};
+&nbsp;
+module.exports = {
+&nbsp;
+    init: function(callback) {
+        // Populate the list of PrairieLearn elements
+        module.exports.loadElements(path.join(__dirname, '..', 'elements'), 'core', (err, results) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            coreElementsCache = results;
+            return callback(null);
+        });
+    },
+&nbsp;
+    /**
+     * Takes a directory containing element directories and returns an object
+     * mapping element names to that element's controller, dependencies, etc.
+     * @param  {String}   sourceDir Absolute path to the directory of elements
+     * @param  {Function} callback  Called with any errors and the results
+     */
+    loadElements: function(sourceDir, elementType, callback) {
+        let elementSchema;
+        async.waterfall([
+            (callback) =&gt; {
+                // Load the element schema
+                let schemaName;
+                switch (elementType) {
+                    case 'core':
+                        schemaName = 'infoElementCore.json';
+                        break;
+                    case 'course':
+                        schemaName = 'infoElementCourse.json';
+                        break;
+<span class="branch-2 cbranch-no" title="branch not covered" >                    default:</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error(`Unknown element type ${elementType}`));</span>
+                }
+                jsonLoader.readJSON(path.join(__dirname, '..', 'schemas', schemaName), (err, schema) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    elementSchema = schema;
+                    callback(null);
+                });
+            },
+            (callback) =&gt; {
+                // Read all files in the given path
+                fs.readdir(sourceDir, (err, files) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >err.code === 'ENOENT')</span> {
+                        // Directory doesn't exist, most likely a course with not elements
+                        // Proceed with an empty array
+<span class="cstat-no" title="statement not covered" >                        return callback(null, []);</span>
+                    }
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    return callback(null, files);
+                });
+            },
+            (files, callback) =&gt; {
+                // Filter out any non-directories
+                async.filter(files, (file, callback) =&gt; fs.lstat(path.join(sourceDir, file), (err, stats) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    callback(null, stats.isDirectory());
+                }), (err, results) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    return callback(null, results);
+                });
+            },
+            (elementNames, callback) =&gt; {
+                const elements = {};
+                async.each(elementNames, (elementName, callback) =&gt; {
+                    const elementInfoPath = path.join(sourceDir, elementName, 'info.json');
+                    fs.readJson(elementInfoPath, (err, info) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >err.code === 'ENOENT')</span> {
+                            // This must not be an element directory, skip it
+<span class="cstat-no" title="statement not covered" >                            logger.verbose(`${elementInfoPath} not found, skipping...`);</span>
+<span class="cstat-no" title="statement not covered" >                            return callback(null);</span>
+                        }
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        jsonLoader.validateJSON(info, elementSchema, (err) =&gt; {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                            elements[elementName] = info;
+                            callback(null);
+                        });
+                    });
+                }, (err) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    return callback(null, elements);
+                });
+            },
+        ], (err, elements) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            return callback(null, elements);
+        });
+    },
+&nbsp;
+    loadElementsForCourse(course, callback) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (courseElementsCache[course.id] !== undefined) {
+            return callback(null, courseElementsCache[course.id]);
+        }
+<span class="cstat-no" title="statement not covered" >        module.exports.loadElements(path.join(course.path, 'elements'), 'course', <span class="fstat-no" title="function not covered" >(e</span>rr, elements) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            courseElementsCache[course.id] = elements;</span>
+<span class="cstat-no" title="statement not covered" >            callback(null, courseElementsCache[course.id]);</span>
+        });
+    },
+&nbsp;
+    // Skips the cache; used when syncing course from GitHub/disk
+    reloadElementsForCourse(course, callback) {
+        module.exports.loadElements(path.join(course.path, 'elements'), 'course', (err, elements) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            courseElementsCache[course.courseId] = elements;
+            callback(null, courseElementsCache[course.courseId]);
+        });
+    },
+&nbsp;
+    getElementFilename: function(elementName, context) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (context.course_elements[elementName]) {
+            const element = <span class="cstat-no" title="statement not covered" >context.course_elements[elementName];</span>
+<span class="cstat-no" title="statement not covered" >            return path.join(context.course.path, 'elements', elementName, element.controller);</span>
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (coreElementsCache[elementName]) {
+            const element = coreElementsCache[elementName];
+            return path.join(__dirname, '..', 'elements', elementName, element.controller);
+        } else {
+<span class="cstat-no" title="statement not covered" >            return 'No such element: "' + elementName + '"';</span>
+        }
+    },
+&nbsp;
+    elementFunction: function(pc, fcn, elementName, $, element, index, data, context, callback) {
+        let controller, cwd;
+        if (_.has(context.course_elements, elementName)) {
+            cwd = path.join(context.course.path, 'elements', elementName);
+            controller = context.course_elements[elementName].controller;
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (_.has(coreElementsCache, elementName)) {
+            cwd = path.join(__dirname, '..', 'elements', elementName);
+            controller = coreElementsCache[elementName].controller;
+        } else {
+<span class="cstat-no" title="statement not covered" >            return callback(new Error('Invalid element name: ' + elementName), null);</span>
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (_.isString(controller)) {
+            // python module
+            const elementHtml = $(element).clone().wrap('&lt;container/&gt;').parent().html();
+            const pythonArgs = [elementHtml, index, data];
+            const pythonFile = controller.replace(/\.[pP][yY]$/, '');
+            const opts = {
+                cwd,
+                paths: [path.join(__dirname, 'freeformPythonLib')],
+            };
+            pc.call(pythonFile, fcn, pythonArgs, opts, (err, ret, consoleLog) =&gt; {
+                if (err instanceof codeCaller.FunctionMissingError) {
+                    // function wasn't present in server
+                    return callback(null, module.exports.defaultElementFunctionRet(fcn, data), '');
+                }
+                if (ERR(err, callback)) return;
+                callback(null, ret, consoleLog);
+            });
+        } else {
+            // JS module
+            const jsArgs = <span class="cstat-no" title="statement not covered" >[$, element, index, data];</span>
+<span class="cstat-no" title="statement not covered" >            controller[fcn](...jsArgs, <span class="fstat-no" title="function not covered" >(e</span>rr, ret) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                callback(null, ret, '');</span>
+            });
+        }
+    },
+&nbsp;
+    defaultElementFunctionRet: function(phase, data) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (phase == 'render') {
+<span class="cstat-no" title="statement not covered" >            return '';</span>
+        } else if (phase == 'file') {
+            return '';
+        } else {
+            return data;
+        }
+    },
+&nbsp;
+    defaultServerRet: function(phase, data, html, _context) {
+        if (phase == 'render') {
+            return html;
+        } else <span class="missing-if-branch" title="if path not taken" >I</span>if (phase == 'file') {
+<span class="cstat-no" title="statement not covered" >            return '';</span>
+        } else {
+            return data;
+        }
+    },
+&nbsp;
+    execPythonServer: function(pc, phase, data, html, context, callback) {
+        const pythonFile = 'server';
+        const pythonFunction = phase;
+        const pythonArgs = [data];
+        if (phase == 'render') pythonArgs.push(html);
+        const opts = {
+            cwd: context.question_dir,
+            paths: [path.join(__dirname, 'freeformPythonLib'), path.join(context.course_dir, 'serverFilesCourse')],
+        };
+        const fullFilename = path.join(context.question_dir, 'server.py');
+        fs.access(fullFilename, fs.constants.R_OK, (err) =&gt; {
+            if (err) {
+                // server.py does not exist
+                return callback(null, module.exports.defaultServerRet(phase, data, html, context), '');
+            }
+&nbsp;
+            pc.call(pythonFile, pythonFunction, pythonArgs, opts, (err, ret, consoleLog) =&gt; {
+                if (err instanceof codeCaller.FunctionMissingError) {
+                    // function wasn't present in server
+                    return callback(null, module.exports.defaultServerRet(phase, data, html, context), '');
+                }
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null, ret, consoleLog);
+            });
+        });
+    },
+&nbsp;
+    execTemplate: function(htmlFilename, data, callback) {
+        fs.readFile(htmlFilename, {encoding: 'utf8'}, (err, raw_file) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            let html;
+            err = null;
+            try {
+                html = mustache.render(raw_file, data);
+            } catch (e) {
+<span class="cstat-no" title="statement not covered" >                err = e;</span>
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            let $;
+            try {
+                $ = cheerio.load(html, {
+                    recognizeSelfClosing: true,
+                });
+            } catch (e) {
+<span class="cstat-no" title="statement not covered" >                err = e;</span>
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            callback(null, html, $);
+        });
+    },
+&nbsp;
+    checkData: function(data, origData, phase) {
+        const checked = [];
+        const checkProp = (prop, type, presentPhases, editPhases) =&gt; {
+            if (!presentPhases.includes(phase)) return null;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.has(data, prop)) <span class="cstat-no" title="statement not covered" >return '"' + prop + '" is missing from "data"';</span>
+            if (type == 'integer') {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isInteger(data[prop])) {
+<span class="cstat-no" title="statement not covered" >                    return 'data.' + prop + ' is not an integer: ' + String(data[prop]);</span>
+                }
+            } else if (type == 'number') {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isFinite(data[prop])) {
+<span class="cstat-no" title="statement not covered" >                    return 'data.' + prop + ' is not a number: ' + String(data[prop]);</span>
+                }
+            } else if (type == 'string') {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isString(data[prop])) {
+<span class="cstat-no" title="statement not covered" >                    return 'data.' + prop + ' is not a string: ' + String(data[prop]);</span>
+                }
+            } else if (type == 'boolean') {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isBoolean(data[prop])) {
+<span class="cstat-no" title="statement not covered" >                    return 'data.' + prop + ' is not a boolean: ' + String(data[prop]);</span>
+                }
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (type == 'object') {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isObject(data[prop])) {
+<span class="cstat-no" title="statement not covered" >                    return 'data.' + prop + ' is not an object: ' + String(data[prop]);</span>
+                }
+            } else {
+<span class="cstat-no" title="statement not covered" >                return 'invalid type: ' + String(type);</span>
+            }
+            if (!editPhases.includes(phase)) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.has(origData, prop)) <span class="cstat-no" title="statement not covered" >return '"' + prop + '" is missing from "origData"';</span>
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isEqual(data[prop], origData[prop])) {
+<span class="cstat-no" title="statement not covered" >                    return `data.${prop} has been illegally modified, new value: "${data[prop]}", original value: "${origData[prop]}"`;</span>
+                }
+            }
+            checked.push(prop);
+            return null;
+        };
+&nbsp;
+        let err;
+        let allPhases = ['generate', 'prepare', 'render', 'parse', 'grade', 'test', 'file'];
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!allPhases.includes(phase)) <span class="cstat-no" title="statement not covered" >return `unknown phase: ${phase}`;</span>
+&nbsp;
+        /**************************************************************************************************************************************/
+        //              property                 type       presentPhases                         changePhases
+        /**************************************************************************************************************************************/
+        err = checkProp('params',                'object',  allPhases,                            ['generate', 'prepare']);    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('correct_answers',       'object',  allPhases,                            ['generate', 'prepare']);    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('variant_seed',          'integer', allPhases,                            []);                         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('options',               'object',  allPhases,                            []);                         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('submitted_answers',     'object',  ['render', 'parse', 'grade'],         ['parse', 'grade']);         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('format_errors',         'object',  ['render', 'parse', 'grade', 'test'], ['parse', 'grade', 'test']); <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('raw_submitted_answers', 'object',  ['render', 'parse', 'grade', 'test'], ['test']);                   <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('partial_scores',        'object',  ['render', 'grade', 'test'],          ['grade', 'test']);          <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('score',                 'number',  ['render', 'grade', 'test'],          ['grade', 'test']);          <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('feedback',              'object',  ['render', 'grade', 'test'],          ['grade', 'feedback']);      <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('editable',              'boolean', ['render'],                           []);                         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('panel',                 'string',  ['render'],                           []);                         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('gradable',              'boolean', ['parse', 'grade', 'test'],           []);                         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        err = checkProp('filename',              'string',  ['file'],                             []);                         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return err;</span>
+        const extraProps = _.difference(_.keys(data), checked);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (extraProps.length &gt; 0) <span class="cstat-no" title="statement not covered" >return '"data" has invalid extra keys: ' + extraProps.join(', ');</span>
+&nbsp;
+        return null;
+    },
+&nbsp;
+    processQuestionHtml: function(phase, pc, data, context, callback) {
+        const courseIssues = [];
+        const origData = JSON.parse(JSON.stringify(data));
+        const renderedElementNames = [];
+&nbsp;
+        var fileData = Buffer.from('');
+&nbsp;
+        const checkErr = module.exports.checkData(data, origData, phase);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (checkErr) {
+            const courseIssue = <span class="cstat-no" title="statement not covered" >new Error('Invalid state before ' + phase + ': ' + checkErr);</span>
+<span class="cstat-no" title="statement not covered" >            courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >            courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >            return callback(null, courseIssues, data, '', fileData);</span>
+        }
+&nbsp;
+        const htmlFilename = path.join(context.question_dir, 'question.html');
+        this.execTemplate(htmlFilename, data, (err, html, $) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+                const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(htmlFilename + ': ' + err.toString());</span>
+<span class="cstat-no" title="statement not covered" >                courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                return callback(null, courseIssues, data, '', fileData);</span>
+            }
+&nbsp;
+            const questionElements = new Set([..._.keys(coreElementsCache), ..._.keys(context.course_elements)]).values();
+&nbsp;
+            let index = 0;
+            async.eachSeries(questionElements, (elementName, callback) =&gt; {
+                async.eachSeries($(elementName).toArray(), (element, callback) =&gt; {
+                    if (phase === 'render' &amp;&amp; !_.includes(renderedElementNames, element)) {
+                        renderedElementNames.push(elementName);
+                    }
+&nbsp;
+                    this.elementFunction(pc, phase, elementName, $, element, index, data, context, (err, ret_val, consoleLog) =&gt; {
+                        if (err) {
+                            const elementFile = module.exports.getElementFilename(elementName, context);
+                            const courseIssue = new Error(elementFile + ': Error calling ' + phase + '(): ' + err.toString());
+                            courseIssue.data = err.data;
+                            courseIssue.fatal = true;
+                            courseIssues.push(courseIssue);
+                            return callback(courseIssue);
+                        }
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (_.isString(consoleLog) &amp;&amp; consoleLog.length &gt; 0) {
+                            const elementFile = <span class="cstat-no" title="statement not covered" >module.exports.getElementFilename(elementName, context);</span>
+                            const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(elementFile + ': output logged on console during ' + phase + '()');</span>
+<span class="cstat-no" title="statement not covered" >                            courseIssue.data = {outputBoth: consoleLog};</span>
+<span class="cstat-no" title="statement not covered" >                            courseIssue.fatal = false;</span>
+<span class="cstat-no" title="statement not covered" >                            courseIssues.push(courseIssue);</span>
+                        }
+&nbsp;
+                        if (phase == 'render') {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isString(ret_val)) {
+                                const elementFile = <span class="cstat-no" title="statement not covered" >module.exports.getElementFilename(elementName, context);</span>
+                                const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(elementFile + ': Error calling ' + phase + '(): return value is not a string');</span>
+<span class="cstat-no" title="statement not covered" >                                courseIssue.data = {ret_val};</span>
+<span class="cstat-no" title="statement not covered" >                                courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                                courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                                return callback(courseIssue);</span>
+                            }
+                            $(element).replaceWith(ret_val);
+                        } else if (phase == 'file') {
+                            // Convert ret_val from base64 back to buffer (this always works,
+                            // whether or not ret_val is valid base64)
+                            var buf = Buffer.from(ret_val, 'base64');
+&nbsp;
+                            // If the buffer has non-zero length...
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (buf.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >                                if (fileData.length &gt; 0) {</span>
+                                    // If fileData already has non-zero length, throw an error
+                                    const elementFile = <span class="cstat-no" title="statement not covered" >module.exports.getElementFilename(elementName, context);</span>
+                                    const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(elementFile + ': Error calling ' + phase + '(): attempting to overwrite non-empty fileData');</span>
+<span class="cstat-no" title="statement not covered" >                                    courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                                    courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                                    return callback(courseIssue);</span>
+                                } else {
+                                    // If not, replace fileData with buffer
+<span class="cstat-no" title="statement not covered" >                                    fileData = buf;</span>
+                                }
+                            }
+                        } else {
+                            data = ret_val;
+                            const checkErr = module.exports.checkData(data, origData, phase);
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (checkErr) {
+                                const elementFile = <span class="cstat-no" title="statement not covered" >module.exports.getElementFilename(elementName, context);</span>
+                                const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(elementFile + ': Invalid state after ' + phase + '(): ' + checkErr);</span>
+<span class="cstat-no" title="statement not covered" >                                courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                                courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                                return callback(courseIssue);</span>
+                            }
+                        }
+&nbsp;
+                        index++;
+                        callback(null);
+                    });
+                }, (err) =&gt; {
+                    if (ERR(err, callback)) return;
+                    callback(null);
+                });
+            }, (err) =&gt; {
+                ERR(err, () =&gt; {});
+&nbsp;
+                if (phase == 'grade' || phase == 'test') {
+                    if (context.question.partial_credit) {
+                        let total_weight = 0, total_weight_score = 0;
+                        _.each(data.partial_scores, value =&gt; {
+                            const score = _.get(value, 'score', 0);
+                            const weight = _.get(value, 'weight', 1);
+                            total_weight += weight;
+                            total_weight_score += weight * score;
+                        });
+                        data.score = total_weight_score / (total_weight == 0 ? 1 : total_weight);
+                        data.feedback = {};
+                    } else {
+                        let score = 0;
+                        if (_.size(data.partial_scores) &gt; 0 &amp;&amp; _.every(data.partial_scores, value =&gt; _.get(value, 'score', 0) &gt;= 1)) {
+                            score = 1;
+                        }
+                        data.score = score;
+                        data.feedback = {};
+                    }
+                }
+&nbsp;
+                callback(null, courseIssues, data, $.html(), fileData, renderedElementNames);
+            });
+        });
+    },
+&nbsp;
+    processQuestionServer: function(phase, pc, data, html, fileData, context, callback) {
+        const courseIssues = [];
+        const origData = JSON.parse(JSON.stringify(data));
+&nbsp;
+        const checkErr = module.exports.checkData(data, origData, phase);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (checkErr) {
+            const courseIssue = <span class="cstat-no" title="statement not covered" >new Error('Invalid state before calling server.' + phase + '(): ' + checkErr);</span>
+<span class="cstat-no" title="statement not covered" >            courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >            courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >            return callback(null, courseIssues, data, '');</span>
+        }
+&nbsp;
+        this.execPythonServer(pc, phase, data, html, context, (err, ret_val, consoleLog) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+                const serverFile = <span class="cstat-no" title="statement not covered" >path.join(context.question_dir, 'server.py');</span>
+                const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(serverFile + ': Error calling ' + phase + '(): ' + err.toString());</span>
+<span class="cstat-no" title="statement not covered" >                courseIssue.data = err.data;</span>
+<span class="cstat-no" title="statement not covered" >                courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                return callback(null, courseIssues, data);</span>
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (_.isString(consoleLog) &amp;&amp; consoleLog.length &gt; 0) {
+                const serverFile = <span class="cstat-no" title="statement not covered" >path.join(context.question_dir, 'server.py');</span>
+                const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(serverFile + ': output logged on console');</span>
+<span class="cstat-no" title="statement not covered" >                courseIssue.data = {outputBoth: consoleLog};</span>
+<span class="cstat-no" title="statement not covered" >                courseIssue.fatal = false;</span>
+<span class="cstat-no" title="statement not covered" >                courseIssues.push(courseIssue);</span>
+            }
+&nbsp;
+            if (phase == 'render') {
+                html = ret_val;
+            } else if (phase == 'file') {
+                // Convert ret_val from base64 back to buffer (this always works,
+                // whether or not ret_val is valid base64)
+                var buf = Buffer.from(ret_val, 'base64');
+&nbsp;
+                // If the buffer has non-zero length...
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (buf.length &gt; 0) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (fileData.length &gt; 0) {
+                        // If fileData already has non-zero length, throw an error
+                        const serverFile = <span class="cstat-no" title="statement not covered" >path.join(context.question_dir, 'server.py');</span>
+                        const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(serverFile + ': Error calling ' + phase + '(): attempting to overwrite non-empty fileData');</span>
+<span class="cstat-no" title="statement not covered" >                        courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                        courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(null, courseIssues, data);</span>
+                    } else {
+                        // If not, replace fileData with a copy of buffer
+                        fileData = Buffer.from(buf);
+                    }
+                }
+            } else {
+                data = ret_val;
+            }
+            const checkErr = module.exports.checkData(data, origData, phase);
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (checkErr) {
+                const serverFile = <span class="cstat-no" title="statement not covered" >path.join(context.question_dir, 'server.py');</span>
+                const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(serverFile + ': Invalid state after ' + phase + '(): ' + checkErr);</span>
+<span class="cstat-no" title="statement not covered" >                courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                courseIssues.push(courseIssue);</span>
+<span class="cstat-no" title="statement not covered" >                return callback(null, courseIssues, data);</span>
+            }
+&nbsp;
+            callback(null, courseIssues, data, html, fileData);
+        });
+    },
+&nbsp;
+    processQuestion: function(phase, pc, data, context, callback) {
+        if (phase == 'generate') {
+            module.exports.processQuestionServer(phase, pc, data, '', Buffer.from(''), context, (err, courseIssues, data, html, fileData) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null, courseIssues, data, html, fileData);
+            });
+        } else {
+            module.exports.processQuestionHtml(phase, pc, data, context, (err, courseIssues, data, html, fileData, renderedElementNames) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                const hasFatalError = _.some(_.map(courseIssues, 'fatal'));
+                if (hasFatalError) return callback(null, courseIssues, data, html, fileData);
+                module.exports.processQuestionServer(phase, pc, data, html, fileData, context, (err, ret_courseIssues, data, html, fileData) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    courseIssues.push(...ret_courseIssues);
+                    callback(null, courseIssues, data, html, fileData, renderedElementNames);
+                });
+            });
+        }
+    },
+&nbsp;
+    generate: function(question, course, variant_seed, callback) {
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+            const data = {
+                params: {},
+                correct_answers: {},
+                variant_seed: parseInt(variant_seed, 36),
+                options: _.defaults({}, course.options, question.options),
+            };
+            const pc = new codeCaller.PythonCaller();
+            module.exports.processQuestion('generate', pc, data, context, (err, courseIssues, data, _html, _fileData, _renderedElementNames) =&gt; {
+                pc.done();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                const ret_vals = {
+                    params: data.params,
+                    true_answer: data.correct_answers,
+                };
+                callback(null, courseIssues, ret_vals);
+            });
+        });
+    },
+&nbsp;
+    prepare: function(question, course, variant, callback) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (variant.broken) <span class="cstat-no" title="statement not covered" >return callback(new Error('attemped to prepare broken variant'));</span>
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+&nbsp;
+            const data = {
+                params: _.get(variant, 'params', {}),
+                correct_answers: _.get(variant, 'true_answer', {}),
+                variant_seed: parseInt(variant.variant_seed, 36),
+                options: _.get(variant, 'options', {}),
+            };
+            const pc = new codeCaller.PythonCaller();
+            module.exports.processQuestion('prepare', pc, data, context, (err, courseIssues, data, _html, _fileData, _renderedElementNames) =&gt; {
+                pc.done();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                const ret_vals = {
+                    params: data.params,
+                    true_answer: data.correct_answers,
+                };
+                callback(null, courseIssues, ret_vals);
+            });
+        });
+    },
+&nbsp;
+    renderPanel: function(panel, pc, variant, question, submission, course, locals, callback) {
+        // broken variant kills all rendering
+        if (variant.broken) return callback(null, [], 'Broken question due to error in question code');
+&nbsp;
+        // broken submission kills the submission panel, but we can
+        // proceed with other panels, treating the submission as
+        // missing
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (submission &amp;&amp; submission.broken) {
+<span class="cstat-no" title="statement not covered" >            if (panel == 'submission') {</span>
+<span class="cstat-no" title="statement not covered" >                return callback(null, [], 'Broken submission due to error in question code');</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                submission = null;</span>
+            }
+        }
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+&nbsp;
+            const data = {
+                params: _.get(variant, 'params', {}),
+                correct_answers: _.get(variant, 'true_answer', {}),
+                submitted_answers: submission ? _.get(submission, 'submitted_answer', {}) : {},
+                format_errors: submission ? _.get(submission, 'format_errors', {}) : {},
+                partial_scores: (!submission || submission.partial_scores == null) ? {} : submission.partial_scores,
+                score: (!submission || submission.score == null) ? 0 : submission.score,
+                feedback: (!submission || submission.feedback == null) ? {} : submission.feedback,
+                variant_seed: parseInt(variant.variant_seed, 36),
+                options: _.get(variant, 'options', {}),
+                raw_submitted_answers: submission ? _.get(submission, 'raw_submitted_answer', {}) : {},
+                editable: !!locals.allowAnswerEditing,
+                panel: panel,
+            };
+&nbsp;
+            // Put base URLs in data.options for access by question code
+            data.options.client_files_question_url = locals.clientFilesQuestionUrl;
+            data.options.client_files_course_url = locals.clientFilesCourseUrl;
+            data.options.client_files_question_dynamic_url = locals.clientFilesQuestionGeneratedFileUrl;
+&nbsp;
+            // Put key paths in data.options
+            data.options.question_path = context.question_dir;
+            data.options.client_files_question_path = path.join(context.question_dir, 'clientFilesQuestion');
+&nbsp;
+            module.exports.processQuestion('render', pc, data, context, (err, courseIssues, _data, html, _fileData, renderedElementNames) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null, courseIssues, html, renderedElementNames);
+            });
+        });
+    },
+&nbsp;
+    render: function(renderSelection, variant, question, submission, submissions, course, course_instance, locals, callback) {
+        const htmls = {
+            extraHeadersHtml: '',
+            questionHtml: '',
+            submissionHtmls: _.map(submissions, () =&gt; ''),
+            answerHtml: '',
+        };
+        let allRenderedElementNames = [];
+        const courseIssues = [];
+        const pc = new codeCaller.PythonCaller();
+        async.series([
+            // FIXME: suppprt 'header'
+            (callback) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!renderSelection.question) <span class="cstat-no" title="statement not covered" >return callback(null);</span>
+                module.exports.renderPanel('question', pc, variant, question, submission, course, locals, (err, ret_courseIssues, html, renderedElementNames) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    courseIssues.push(...ret_courseIssues);
+                    htmls.questionHtml = html;
+                    allRenderedElementNames = _.union(allRenderedElementNames, renderedElementNames);
+                    callback(null);
+                });
+            },
+            (callback) =&gt; {
+                if (!renderSelection.submissions) return callback(null);
+                async.mapSeries(submissions, (submission, callback) =&gt; {
+                    module.exports.renderPanel('submission', pc, variant, question, submission, course, locals, (err, ret_courseIssues, html, renderedElementNames) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        courseIssues.push(...ret_courseIssues);
+                        allRenderedElementNames = _.union(allRenderedElementNames, renderedElementNames);
+                        callback(null, html);
+                    });
+                }, (err, submissionHtmls) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    htmls.submissionHtmls = submissionHtmls;
+                    callback(null);
+                });
+            },
+            (callback) =&gt; {
+                if (!renderSelection.answer) return callback(null);
+                module.exports.renderPanel('answer', pc, variant, question, submission, course, locals, (err, ret_courseIssues, html, renderedElementNames) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    courseIssues.push(...ret_courseIssues);
+                    htmls.answerHtml = html;
+                    allRenderedElementNames = _.union(allRenderedElementNames, renderedElementNames);
+                    callback(null);
+                });
+            },
+            (callback) =&gt; {
+                module.exports.getContext(question, course, (err, context) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                        return callback(new Error(`Error generating options: ${err}`));</span>
+                    }
+&nbsp;
+                    const dependencies = {
+                        coreStyles: [],
+                        coreScripts: [],
+                        coreElementStyles: [],
+                        coreElementScripts: [],
+                        courseElementStyles: [],
+                        courseElementScripts: [],
+                        clientFilesCourseStyles: [],
+                        clientFilesCourseScripts: [],
+                    };
+&nbsp;
+                    // Gather dependencies for all rendered elements
+                    allRenderedElementNames.forEach((elementName) =&gt; {
+                        let elementDependencies;
+                        let isCourseElement = false;
+                        if (_.has(context.course_elements, elementName)) {
+                            elementDependencies = context.course_elements[elementName].dependencies || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+                            isCourseElement = true;
+                        } else {
+                            elementDependencies = coreElementsCache[elementName].dependencies || {};
+                        }
+&nbsp;
+                        elementDependencies = _.cloneDeep(elementDependencies);
+&nbsp;
+                        // Transform non-global dependencies to be prefixed by the element name,
+                        // since they'll be served from their element's directory
+                        if (_.has(elementDependencies, 'elementStyles')) {
+                            elementDependencies.elementStyles = elementDependencies.elementStyles.map(dep =&gt; `${elementName}/${dep}`);
+                        }
+                        if (_.has(elementDependencies, 'elementScripts')) {
+                            elementDependencies.elementScripts = elementDependencies.elementScripts.map(dep =&gt; `${elementName}/${dep}`);
+                        }
+&nbsp;
+                        // Rename properties so we can track core and course
+                        // element dependencies separately
+                        if (isCourseElement) {
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (_.has(elementDependencies, 'elementStyles')) {
+                                elementDependencies.courseElementStyles = elementDependencies.elementStyles;
+                                delete elementDependencies.elementStyles;
+                            }
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (_.has(elementDependencies, 'elementScripts')) {
+                                elementDependencies.courseElementScripts = elementDependencies.elementScripts;
+                                delete elementDependencies.elementScripts;
+                            }
+                        } else {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (_.has(elementDependencies, 'elementStyles')) {
+<span class="cstat-no" title="statement not covered" >                                elementDependencies.coreElementStyles = elementDependencies.elementStyles;</span>
+<span class="cstat-no" title="statement not covered" >                                delete elementDependencies.elementStyles;</span>
+                            }
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (_.has(elementDependencies, 'elementScripts')) {
+<span class="cstat-no" title="statement not covered" >                                elementDependencies.coreElementScripts = elementDependencies.elementScripts;</span>
+<span class="cstat-no" title="statement not covered" >                                delete elementDependencies.elementScripts;</span>
+                            }
+                        }
+&nbsp;
+                        let depdendencyTypes = [
+                            'coreStyles',
+                            'coreScripts',
+                            'clientFilesCourseStyles',
+                            'clientFilesCourseScripts',
+                            'coreElementStyles',
+                            'coreElementScripts',
+                            'courseElementStyles',
+                            'courseElementScripts',
+                        ];
+                        for (const type of depdendencyTypes) {
+                            if (_.has(elementDependencies, type)) {
+                                <span class="missing-if-branch" title="else path not taken" >E</span>if (_.isArray(elementDependencies[type])) {
+                                    for (const dep of elementDependencies[type]) {
+                                        <span class="missing-if-branch" title="else path not taken" >E</span>if (!_.includes(dependencies[type], dep)) {
+                                            dependencies[type].push(dep);
+                                        }
+                                    }
+                                } else {
+                                    const courseIssue = <span class="cstat-no" title="statement not covered" >new Error(`Error getting dependencies for ${elementName}: "${type}" is not an array`);</span>
+<span class="cstat-no" title="statement not covered" >                                    courseIssue.data = {elementDependencies};</span>
+<span class="cstat-no" title="statement not covered" >                                    courseIssue.fatal = true;</span>
+<span class="cstat-no" title="statement not covered" >                                    courseIssues.push(courseIssue);</span>
+                                }
+                            }
+                        }
+                    });
+&nbsp;
+                    // Transform dependency list into style/link tags
+                    const coreScriptUrls = [];
+                    const scriptUrls = [];
+                    const styleUrls = [];
+                    dependencies.coreStyles.forEach(<span class="fstat-no" title="function not covered" >(f</span>ile) =&gt; <span class="cstat-no" title="statement not covered" >styleUrls.push(`/stylesheets/${file}`))</span>;
+                    dependencies.coreScripts.forEach(<span class="fstat-no" title="function not covered" >(f</span>ile) =&gt; <span class="cstat-no" title="statement not covered" >coreScriptUrls.push(`/javascripts/${file}`))</span>;
+                    dependencies.clientFilesCourseStyles.forEach((file) =&gt; styleUrls.push(`/pl/course_instance/${course_instance.id}/clientFilesCourse/${file}`));
+                    dependencies.clientFilesCourseScripts.forEach((file) =&gt; scriptUrls.push(`/pl/course_instance/${course_instance.id}/clientFilesCourse/${file}`));
+                    dependencies.coreElementStyles.forEach(<span class="fstat-no" title="function not covered" >(f</span>ile) =&gt; <span class="cstat-no" title="statement not covered" >styleUrls.push(`/pl/static/elements/${file}`))</span>;
+                    dependencies.coreElementScripts.forEach(<span class="fstat-no" title="function not covered" >(f</span>ile) =&gt; <span class="cstat-no" title="statement not covered" >scriptUrls.push(`/pl/static/elements/${file}`))</span>;
+                    dependencies.courseElementStyles.forEach((file) =&gt; styleUrls.push(`/pl/course_instance/${course_instance.id}/elements/${file}`));
+                    dependencies.courseElementScripts.forEach((file) =&gt; scriptUrls.push(`/pl/course_instance/${course_instance.id}/elements/${file}`));
+                    const headerHtmls = [
+                        ...styleUrls.map((url) =&gt; `&lt;link href="${url}" rel="stylesheet" /&gt;`),
+                        // It's important that any library-style scripts come first
+                        ...coreScriptUrls.map(<span class="fstat-no" title="function not covered" >(u</span>rl) =&gt; <span class="cstat-no" title="statement not covered" >`&lt;script type="text/javascript" src="${url}"&gt;&lt;/script&gt;`)</span>,
+                        ...scriptUrls.map((url) =&gt; `&lt;script type="text/javascript" src="${url}"&gt;&lt;/script&gt;`),
+                    ];
+                    htmls.extraHeadersHtml = headerHtmls.join('\n');
+                    callback(null);
+                });
+            },
+        ], (err) =&gt; {
+            pc.done();
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            callback(null, courseIssues, htmls);
+        });
+    },
+&nbsp;
+    file: function(filename, variant, question, course, callback) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (variant.broken) <span class="cstat-no" title="statement not covered" >return callback(new Error('attemped to get a file for a broken variant'));</span>
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+&nbsp;
+            const data = {
+                params: _.get(variant, 'params', {}),
+                correct_answers: _.get(variant, 'true_answer', {}),
+                variant_seed: parseInt(variant.variant_seed, 36),
+                options: _.get(variant, 'options', {}),
+                filename: filename,
+            };
+            const pc = new codeCaller.PythonCaller();
+            module.exports.processQuestion('file', pc, data, context, (err, courseIssues, _data, _html, fileData) =&gt; {
+                pc.done();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null, courseIssues, fileData);
+            });
+        });
+    },
+&nbsp;
+    parse: function(submission, variant, question, course, callback) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (variant.broken) <span class="cstat-no" title="statement not covered" >return callback(new Error('attemped to parse broken variant'));</span>
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+&nbsp;
+            const data = {
+                params: _.get(variant, 'params', {}),
+                correct_answers: _.get(variant, 'true_answer', {}),
+                submitted_answers: _.get(submission, 'submitted_answer', {}),
+                format_errors: _.get(submission, 'format_errors', {}),
+                variant_seed: parseInt(variant.variant_seed, 36),
+                options: _.get(variant, 'options', {}),
+                raw_submitted_answers: _.get(submission, 'raw_submitted_answer', {}),
+                gradable: _.get(submission, 'gradable', true),
+            };
+            const pc = new codeCaller.PythonCaller();
+            module.exports.processQuestion('parse', pc, data, context, (err, courseIssues, data, _html, _fileData) =&gt; {
+                pc.done();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                if (_.size(data.format_errors) &gt; 0) data.gradable = false;
+                const ret_vals = {
+                    params: data.params,
+                    true_answer: data.correct_answers,
+                    submitted_answer: data.submitted_answers,
+                    raw_submitted_answer: data.raw_submitted_answers,
+                    format_errors: data.format_errors,
+                    gradable: data.gradable,
+                };
+                callback(null, courseIssues, ret_vals);
+            });
+        });
+    },
+&nbsp;
+    grade: function(submission, variant, question, course, callback) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (variant.broken) <span class="cstat-no" title="statement not covered" >return callback(new Error('attemped to grade broken variant'));</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (submission.broken) <span class="cstat-no" title="statement not covered" >return callback(new Error('attemped to grade broken submission'));</span>
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+&nbsp;
+            let data = {
+                params: variant.params,
+                correct_answers: variant.true_answer,
+                submitted_answers: submission.submitted_answer,
+                format_errors: submission.format_errors,
+                partial_scores: (submission.partial_scores == null) ? {} : <span class="branch-1 cbranch-no" title="branch not covered" >submission.partial_scores,</span>
+                score: (submission.score == null) ? 0 : <span class="branch-1 cbranch-no" title="branch not covered" >submission.score,</span>
+                feedback: (submission.feedback == null) ? {} : <span class="branch-1 cbranch-no" title="branch not covered" >submission.feedback,</span>
+                variant_seed: parseInt(variant.variant_seed, 36),
+                options: _.get(variant, 'options', {}),
+                raw_submitted_answers: submission.raw_submitted_answer,
+                gradable: submission.gradable,
+            };
+            const pc = new codeCaller.PythonCaller();
+            module.exports.processQuestion('grade', pc, data, context, (err, courseIssues, data, _html, _fileData) =&gt; {
+                pc.done();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (_.size(data.format_errors) &gt; 0) <span class="cstat-no" title="statement not covered" >data.gradable = false;</span>
+                const ret_vals = {
+                    params: data.params,
+                    true_answer: data.correct_answers,
+                    submitted_answer: data.submitted_answers,
+                    format_errors: data.format_errors,
+                    raw_submitted_answer: data.raw_submitted_answers,
+                    partial_scores: data.partial_scores,
+                    score: data.score,
+                    feedback: data.feedback,
+                    gradable: data.gradable,
+                };
+                callback(null, courseIssues, ret_vals);
+            });
+        });
+    },
+&nbsp;
+    test: function(variant, question, course, callback) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (variant.broken) <span class="cstat-no" title="statement not covered" >return callback(new Error('attemped to test broken variant'));</span>
+        module.exports.getContext(question, course, (err, context) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                return callback(new Error(`Error generating options: ${err}`));</span>
+            }
+&nbsp;
+            let data = {
+                params: variant.params,
+                correct_answers: variant.true_answer,
+                format_errors: {},
+                partial_scores: {},
+                score: 0,
+                feedback: {},
+                variant_seed: parseInt(variant.variant_seed, 36),
+                options: _.get(variant, 'options', {}),
+                raw_submitted_answers: {},
+                gradable: true,
+            };
+            const pc = new codeCaller.PythonCaller();
+            module.exports.processQuestion('test', pc, data, context, (err, courseIssues, data, _html, _fileData) =&gt; {
+                pc.done();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (_.size(data.format_errors) &gt; 0) <span class="cstat-no" title="statement not covered" >data.gradable = false;</span>
+                const ret_vals = {
+                    params: data.params,
+                    true_answer: data.correct_answers,
+                    format_errors: data.format_errors,
+                    raw_submitted_answer: data.raw_submitted_answers,
+                    partial_scores: data.partial_scores,
+                    score: data.score,
+                    gradable: data.gradable,
+                };
+                callback(null, courseIssues, ret_vals);
+            });
+        });
+    },
+&nbsp;
+    getContext(question, course, callback) {
+        const context = {
+            question,
+            course,
+            course_dir: course.path,
+            question_dir: path.join(course.path, 'questions', question.directory),
+            course_elements_dir: path.join(course.path, 'elements'),
+        };
+        module.exports.loadElementsForCourse(course, (err, elements) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            context.course_elements = elements;
+            callback(null, context);
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/pages/studentAssessmentInstanceExam/studentAssessmentInstanceExam.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">PrairieLearn/pages/studentAssessmentInstanceExam</a> studentAssessmentInstanceExam.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.86% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.32% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/47</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var express = require('express');
+var router = express.Router();
+&nbsp;
+var error = require('../../lib/error');
+var assessment = require('../../lib/assessment');
+var sqldb = require('../../lib/sqldb');
+var sqlLoader = require('../../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+router.post('/', <span class="fstat-no" title="function not covered" >fu</span>nction(req, res, next) {
+<span class="cstat-no" title="statement not covered" >    if (res.locals.assessment.type !== 'Exam') <span class="cstat-no" title="statement not covered" >return next();</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!res.locals.authz_result.authorized_edit) <span class="cstat-no" title="statement not covered" >return next(error.make(403, 'Not authorized', res.locals));</span></span>
+&nbsp;
+    var closeExam;
+<span class="cstat-no" title="statement not covered" >    if (req.body.__action == 'grade') {</span>
+<span class="cstat-no" title="statement not covered" >        closeExam = false;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (req.body.__action == 'finish') {</span>
+<span class="cstat-no" title="statement not covered" >        closeExam = true;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (req.body.__action == 'timeLimitFinish') {</span>
+<span class="cstat-no" title="statement not covered" >        closeExam = true;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >        return next(error.make(400, 'unknown __action', {locals: res.locals, body: req.body}));</span>
+    }
+<span class="cstat-no" title="statement not covered" >    assessment.gradeAssessmentInstance(res.locals.assessment_instance.id, res.locals.authn_user.user_id, closeExam, <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        if (req.body.__action == 'timeLimitFinish') {</span>
+<span class="cstat-no" title="statement not covered" >            res.redirect(req.originalUrl + '?timeLimitExpired=true');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            res.redirect(req.originalUrl);</span>
+        }
+    });
+});
+&nbsp;
+// FIXME: delete this
+var tmp_upgrade = function(locals, callback) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (locals.assessment_instance.tmp_upgraded_iq_status) {
+        return callback(null);
+    } else {
+        var params = <span class="cstat-no" title="statement not covered" >{assessment_instance_id: locals.assessment_instance.id};</span>
+<span class="cstat-no" title="statement not covered" >        sqldb.query(sql.tmp_upgrade_iq_status, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, _result) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+&nbsp;
+            var params = <span class="cstat-no" title="statement not covered" >{assessment_instance_id: locals.assessment_instance.id};</span>
+<span class="cstat-no" title="statement not covered" >            sqldb.query(sql.tmp_set_upgraded, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, _result) {</span>
+<span class="cstat-no" title="statement not covered" >                if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                return callback(null);</span>
+            });
+        });
+    }
+};
+&nbsp;
+router.get('/', function(req, res, next) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (res.locals.assessment.type !== 'Exam') <span class="cstat-no" title="statement not covered" >return next();</span>
+&nbsp;
+    tmp_upgrade(res.locals, function(err) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+        var params = {assessment_instance_id: res.locals.assessment_instance.id};
+        sqldb.query(sql.select_instance_questions, params, function(err, result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+            res.locals.instance_questions = result.rows;
+&nbsp;
+            assessment.renderText(res.locals.assessment, res.locals.urlPrefix, function(err, assessment_text_templated) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+                res.locals.assessment_text_templated = assessment_text_templated;
+&nbsp;
+                res.locals.showTimeLimitExpiredModal = (req.query.timeLimitExpired == 'true');
+&nbsp;
+                res.render(__filename.replace(/\.js$/, '.ejs'), res.locals);
+            });
+        });
+    });
+});
+&nbsp;
+module.exports = router;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

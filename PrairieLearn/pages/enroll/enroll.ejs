@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <script>
+      $(function () {
+          $('[data-toggle="popover"]').popover({sanitize: false})
+      });
+    </script>
+    <%- include('../partials/navbar', {navPage: 'enroll'}); %>
+    <div id="content" class="container">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">Courses</div>
+        <table class="table table-sm table-hover table-striped">
+          <tbody>
+            <% course_instances.forEach(function(course_instance) { %>
+            <tr>
+              <td class="align-middle">
+                <%= course_instance.label %>
+              </td>
+              <td>
+                <% if (!course_instance.enrolled) { %>
+                <a tabindex="0" class="btn btn-sm btn-info" role="button"
+                   data-toggle="popover" data-trigger="focus" data-container="body"
+                   data-html="true" data-placement="auto" title="Confirm add"
+                   data-content="
+                                 <form name=&quot;enroll-form&quot; method=&quot;POST&quot;>
+                                   <input type=&quot;hidden&quot; name=&quot;__action&quot; value=&quot;enroll&quot;>
+                                   <input type=&quot;hidden&quot; name=&quot;__csrf_token&quot; value=&quot;<%= __csrf_token %>&quot;>
+                                   <input type=&quot;hidden&quot; name=&quot;course_instance_id&quot;
+                                          value=&quot;<%= course_instance.course_instance_id %>&quot;>
+                                   <button type=&quot;submit&quot; class=&quot;btn btn-info&quot;>
+                                     Add <%= course_instance.short_label %>
+                                   </button>
+                                 </form>
+                                 ">
+                  Add course
+                </a>
+                <% } %>
+              </td>
+              <td>
+                <% if (course_instance.enrolled) { %>
+                <a tabindex="0" class="btn btn-sm btn-danger" role="button"
+                   data-toggle="popover" data-trigger="focus" data-container="body"
+                   data-html="true" data-placement="auto" title="Confirm remove"
+                   data-content="
+                                 <form name=&quot;unenroll-form&quot; method=&quot;POST&quot;>
+                                   <input type=&quot;hidden&quot; name=&quot;__action&quot; value=&quot;unenroll&quot;>
+                                   <input type=&quot;hidden&quot; name=&quot;__csrf_token&quot; value=&quot;<%= __csrf_token %>&quot;>
+                                   <input type=&quot;hidden&quot; name=&quot;course_instance_id&quot;
+                                          value=&quot;<%= course_instance.course_instance_id %>&quot;>
+                                   <button type=&quot;submit&quot; class=&quot;btn btn-danger&quot;>
+                                     Remove <%= course_instance.short_label %>
+                                   </button>
+                                 </form>
+                                 ">
+                  Remove course
+                </a>
+                <% } %>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

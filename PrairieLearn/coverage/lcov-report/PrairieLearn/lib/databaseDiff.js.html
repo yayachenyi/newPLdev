@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/databaseDiff.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> databaseDiff.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.22% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>99/139</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.07% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>36/58</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.58% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>31/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.4% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>98/125</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">86x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">86x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ERR = require('async-stacktrace');
+const async = require('async');
+const fs = require('fs-extra');
+const path = require('path');
+const colors = require('colors');
+const _ = require('lodash');
+const jsdiff = require('diff');
+&nbsp;
+const describe = require('./databaseDescribe');
+&nbsp;
+module.exports = {};
+&nbsp;
+function diff(db1, db2, options, callback) {
+    function formatText(text, formatter) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (options.coloredOutput &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >formatter)</span> {
+<span class="cstat-no" title="statement not covered" >            return formatter(text);</span>
+        }
+        return text;
+    }
+&nbsp;
+    let db2Name = db2.type === 'database' ? db2.name : <span class="branch-1 cbranch-no" title="branch not covered" >db2.path;</span>
+&nbsp;
+    let description1, description2;
+    let result = '';
+&nbsp;
+    async.series([
+        (callback) =&gt; {
+            loadDescription(db1, (err, description) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                description1 = description;
+                callback(null);
+            });
+        },
+        (callback) =&gt; {
+            loadDescription(db2, (err, description) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                description2 = description;
+                callback(null);
+            });
+        },
+        (callback) =&gt; {
+            // Determine if both databases have the same tables
+            let missingFrom1 = _.difference(_.keys(description2.tables), _.keys(description1.tables));
+            let missingFrom2 = _.difference(_.keys(description1.tables), _.keys(description2.tables));
+            let db2NameBold = formatText(db2Name, colors.bold);
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (missingFrom1.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >                result += formatText(`Tables added to ${db2NameBold} (${db2.type})\n`, colors.underline);</span>
+<span class="cstat-no" title="statement not covered" >                result += formatText(missingFrom1.map(<span class="fstat-no" title="function not covered" >ta</span>ble =&gt; <span class="cstat-no" title="statement not covered" >`+ ${table}`)</span>.join('\n') + '\n\n', colors.green);</span>
+            }
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (missingFrom2.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >                result += formatText(`Tables missing from ${db2NameBold} (${db2.type})\n`, colors.underline);</span>
+<span class="cstat-no" title="statement not covered" >                result += formatText(missingFrom2.map(<span class="fstat-no" title="function not covered" >ta</span>ble =&gt; <span class="cstat-no" title="statement not covered" >`- ${table}`)</span>.join('\n') + '\n\n', colors.red);</span>
+            }
+&nbsp;
+            callback(null);
+        },
+        (callback) =&gt; {
+            // Determine if both databases have the same enums
+            let missingFrom1 = _.difference(_.keys(description2.enums), _.keys(description1.enums));
+            let missingFrom2 = _.difference(_.keys(description1.enums), _.keys(description2.enums));
+&nbsp;
+            let db2NameBold = formatText(db2Name, colors.bold);
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (missingFrom1.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >                result += formatText(`Enums added to ${db2NameBold} (${db1.type})\n`, colors.underline);</span>
+<span class="cstat-no" title="statement not covered" >                result += formatText(missingFrom1.map(<span class="fstat-no" title="function not covered" >en</span>umName =&gt; <span class="cstat-no" title="statement not covered" >`+ ${enumName}`)</span>.join('\n') + '\n\n', colors.green);</span>
+            }
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (missingFrom2.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >                result += formatText(`Enums missing from ${db2NameBold} (${db2.type})\n`, colors.underline);</span>
+<span class="cstat-no" title="statement not covered" >                result += formatText(missingFrom2.map(<span class="fstat-no" title="function not covered" >en</span>umName =&gt; <span class="cstat-no" title="statement not covered" >`- ${enumName}`)</span>.join('\n') + '\n\n', colors.red);</span>
+            }
+&nbsp;
+            callback(null);
+        },
+        (callback) =&gt; {
+            // Determine if the columns of any table differ
+            let intersection = _.intersection(_.keys(description1.tables), _.keys(description2.tables));
+            _.forEach(intersection, (table) =&gt; {
+                // We normalize each blob to end with a newline to make diffs print cleaner
+                const diff = jsdiff.diffLines(description1.tables[table].trim() + '\n', description2.tables[table].trim() + '\n');
+                if (diff.length == 1) return;
+&nbsp;
+                const boldTable = formatText(table, colors.bold);
+                result += formatText(`Differences in ${boldTable} table\n`, colors.underline);
+&nbsp;
+                // Shift around the newlines so that we can cleanly show +/- symbols
+                for (let i = 1; i &lt; diff.length; i++) {
+                    let prev = diff[i - 1].value;
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (prev[prev.length - 1] == '\n') {
+                        diff[i - 1].value = prev.slice(0, -1);
+                        diff[i].value = '\n' + diff[i].value;
+                    }
+                }
+&nbsp;
+                _.forEach(diff, (part, index) =&gt; {
+                    if (index == 0) {
+                        part.value = '\n' + part.value;
+                    }
+                    const mark = part.added ? '+ ' : part.removed ? '- ' : '  ';
+                    let change = part.value.split('\n').join(`\n${mark}`);
+                    if (index == 0) {
+                        change = change.slice(1, change.length);
+                    }
+                    result += formatText(change, part.added ? colors.green : part.removed ? colors.red : null);
+                });
+                result += '\n\n';
+            });
+            callback(null);
+        },
+        (callback) =&gt; {
+            // Determine if the values of any enums differ
+            let intersection = _.intersection(_.keys(description1.enums), _.keys(description2.enums));
+            _.forEach(intersection, (enumName) =&gt; {
+                // We don't need to do a particularly fancy diff here, since
+                // enums are just represented here as strings
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (description1.enums[enumName].trim() !== description2.enums[enumName].trim()) {
+                    const boldEnum = <span class="cstat-no" title="statement not covered" >formatText(enumName, colors.bold);</span>
+<span class="cstat-no" title="statement not covered" >                    result += formatText(`Differences in ${boldEnum} enum\n`);</span>
+<span class="cstat-no" title="statement not covered" >                    result += formatText(`- ${description1.enums[enumName].trim()}\n`, colors.red);</span>
+<span class="cstat-no" title="statement not covered" >                    result += formatText(`+ ${description2.enums[enumName].trim()}\n`, colors.green);</span>
+<span class="cstat-no" title="statement not covered" >                    result += '\n\n';</span>
+                }
+            });
+            callback(null);
+        },
+    ], (err) =&gt; {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+        callback(null, result);
+    });
+}
+&nbsp;
+function loadDescriptionFromDisk(dirPath, callback) {
+    const description = {
+        tables: {},
+        enums: {},
+    };
+&nbsp;
+    async.waterfall([
+        (callback) =&gt; {
+            fs.readdir(path.join(dirPath, 'tables'), (err, entries) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null, entries);
+            });
+        },
+        (entries, callback) =&gt; {
+            async.each(entries, (entry, callback) =&gt; {
+                fs.readFile(path.join(dirPath, 'tables', entry), 'utf8', (err, data) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    description.tables[entry.replace('.pg', '')] = data;
+                    callback(null);
+                });
+            }, (err) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null);
+            });
+        },
+        (callback) =&gt; {
+            fs.readdir(path.join(dirPath, 'enums'), (err, entries) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                    if (err.code == 'ENOENT') {</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(null);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        return ERR(err, callback);</span>
+                    }
+                }
+                callback(null, entries);
+            });
+        },
+        (entries, callback) =&gt; {
+            async.each(entries, (entry, callback) =&gt; {
+                fs.readFile(path.join(dirPath, 'enums', entry), 'utf8', (err, data) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    description.enums[entry.replace('.pg', '')] = data;
+                    callback(null);
+                });
+            }, (err) =&gt; {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                callback(null);
+            });
+        },
+    ], (err) =&gt; {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+        callback(null, description);
+    });
+}
+&nbsp;
+function loadDescriptionFromDatabase(name, callback) {
+    const options = {
+        databaseName: name,
+        outputFormat: 'string',
+        coloredOutput: false,
+    };
+&nbsp;
+    return describe.describe(options, callback);
+}
+&nbsp;
+function loadDescription(db, callback) {
+    if (db.type === 'database') {
+        return loadDescriptionFromDatabase(db.name, callback);
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (db.type == 'directory') {
+        return loadDescriptionFromDisk(db.path, callback);
+    } else {
+<span class="cstat-no" title="statement not covered" >        return callback(new Error('Invalid database type'));</span>
+    }
+}
+&nbsp;
+module.exports.diffDatabases = <span class="fstat-no" title="function not covered" >fu</span>nction(datbase1, database2, options, callback) {
+    const db1 = <span class="cstat-no" title="statement not covered" >{</span>
+        type: 'database',
+        name: datbase1,
+    };
+&nbsp;
+    const db2 = <span class="cstat-no" title="statement not covered" >{</span>
+        type: 'database',
+        name: database2,
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    diff(db1, db2, options, callback);</span>
+};
+&nbsp;
+module.exports.diffDatabaseAndDirectory = <span class="fstat-no" title="function not covered" >fu</span>nction(database, directory, options, callback) {
+    const db1 = <span class="cstat-no" title="statement not covered" >{</span>
+        type: 'database',
+        name: database,
+    };
+&nbsp;
+    const db2 = <span class="cstat-no" title="statement not covered" >{</span>
+        type: 'directory',
+        path: directory,
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    diff(db1, db2, options, callback);</span>
+};
+&nbsp;
+module.exports.diffDirectoryAndDatabase = function(directory, database, options, callback) {
+    const db1 = {
+        type: 'directory',
+        path: directory,
+    };
+&nbsp;
+    const db2 = {
+        type: 'database',
+        name: database,
+    };
+&nbsp;
+    diff(db1, db2, options, callback);
+};
+&nbsp;
+module.exports.diffDirectories = <span class="fstat-no" title="function not covered" >fu</span>nction(directory1, directory2, options, callback) {
+    const db1 = <span class="cstat-no" title="statement not covered" >{</span>
+        type: 'directory',
+        path: directory1,
+    };
+&nbsp;
+    const db2 = <span class="cstat-no" title="statement not covered" >{</span>
+        type: 'directory',
+        path: directory2,
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    diff(db1, db2, options, callback);</span>
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

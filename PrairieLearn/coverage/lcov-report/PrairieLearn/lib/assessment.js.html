@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/assessment.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> assessment.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.44% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>75/181</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.62% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>19/84</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44.68% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>21/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>70/150</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ERR = require('async-stacktrace');
+const _ = require('lodash');
+const async = require('async');
+const ejs = require('ejs');
+const path = require('path');
+const debug = require('debug')('prairielearn:' + path.basename(__filename, '.js'));
+&nbsp;
+const error = require('../lib/error');
+const logger = require('../lib/logger');
+const sqldb = require('../lib/sqldb');
+const question = require('../lib/question');
+const externalGrader = require('./externalGrader');
+const externalGradingSocket = require('../lib/external-grading-socket');
+&nbsp;
+/**
+ * Assessment module.
+ * @module assessment
+ */
+&nbsp;
+module.exports = {
+&nbsp;
+    /**
+     * Render the "text" property of an assessment.
+     *
+     * @param {Object} assessment - The assessment to render the text for.
+     * @param {string} urlPrefix - The current server urlPrefix.
+     * @param {function} callback - A callback(err, html) function.
+     */
+    renderText(assessment, urlPrefix, callback) {
+        if (!assessment.text) return callback(null, null);
+&nbsp;
+        var context = {
+            clientFilesCourse: urlPrefix + '/clientFilesCourse',
+            clientFilesCourseInstance: urlPrefix + '/clientFilesCourseInstance',
+            clientFilesAssessment: urlPrefix + '/assessment/' + assessment.id + '/clientFilesAssessment',
+        };
+        var assessment_text_templated;
+        try {
+            assessment_text_templated = ejs.render(assessment.text, context);
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >            return ERR(e, callback);</span>
+        }
+        callback(null, assessment_text_templated);
+    },
+&nbsp;
+    /*
+     * Create a new assessment instance and all the questions in it.
+     *
+     * @param {number} assessment_id - The assessment to create the assessment instance for.
+     * @param {number} user_id - The user who will own the new assessment instance.
+     * @param {number} authn_user_id - The current authenticated user.
+     * @param {string} mode - The mode for the new assessment instance.
+     * @param {?number} time_limit_min - The time limit for the new assessment instance.
+     * @param {Date} date - The date of creation for the new assessment instance.
+     * @param {Object} course - The course for the new assessment instance.
+     * @param {function} callback - A callback(err, assessment_instance_id) function.
+     */
+    makeAssessmentInstance(assessment_id, user_id, authn_user_id, mode, time_limit_min, date, course, callback) {
+        let brokenVariants = [];
+&nbsp;
+        sqldb.beginTransaction((err, client, done) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+            var assessment_instance_id, new_instance_question_ids;
+            async.series([
+                (callback) =&gt; {
+                    var params = [
+                        assessment_id,
+                        user_id,
+                        authn_user_id,
+                        mode,
+                        time_limit_min,
+                        date,
+                    ];
+                    sqldb.callWithClientOneRow(client, 'assessment_instances_insert', params, (err, result) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        assessment_instance_id = result.rows[0].assessment_instance_id;
+                        // new_instance_question_ids is empty for Homework, non-empty for Exam
+                        new_instance_question_ids = result.rows[0].new_instance_question_ids;
+                        callback(null);
+                    });
+                },
+                (callback) =&gt; {
+                    async.each(new_instance_question_ids, (instance_question_id, callback) =&gt; {
+                        const question_id = null; // use instance_question_id to determine the question
+                        const options = {};
+                        const require_open = true;
+                        question._ensureVariantWithClient(client, question_id, instance_question_id, user_id, authn_user_id, course, options, require_open, (err, variant) =&gt; {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (variant.broken) {
+<span class="cstat-no" title="statement not covered" >                                brokenVariants.push(variant);</span>
+                            }
+                            callback(null);
+                        });
+                    }, (err) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        callback(null);
+                    });
+                },
+                (callback) =&gt; {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (brokenVariants.length == 0) return callback(null);
+                    // At least one variant is broken; unlink the
+                    // broken variants so they will persist in the DB
+                    // even after we delete the assessment_instance
+<span class="cstat-no" title="statement not covered" >                    async.eachSeries(brokenVariants, <span class="fstat-no" title="function not covered" >(v</span>ariant, callback) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        sqldb.callWithClient(client, 'variants_unlink', [variant.id], <span class="fstat-no" title="function not covered" >(e</span>rr, _result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                            callback(null);</span>
+                        });
+                    }, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    });
+                },
+                (callback) =&gt; {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (brokenVariants.length == 0) return callback(null);
+                    // At least one variant is broken, so delete the assessment instance
+                    var params = <span class="cstat-no" title="statement not covered" >[</span>
+                        assessment_instance_id,
+                        authn_user_id,
+                    ];
+<span class="cstat-no" title="statement not covered" >                    sqldb.callWithClientOneRow(client, 'assessment_instances_delete', params, <span class="fstat-no" title="function not covered" >(e</span>rr, _result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    });
+                },
+                (callback) =&gt; {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (brokenVariants.length == 0) return callback(null);
+                    // At least one variant is broken, so log an issue
+                    const params = <span class="cstat-no" title="statement not covered" >[</span>
+                        assessment_id,
+                        'Unable to generate exam due to a broken question', // student_message
+                        'Unable to generate exam due to a broken question', // instructor_message
+                        true, // course_caused
+                        {brokenVariants, mode, time_limit_min, course}, // course_data
+                        null, // system_data
+                        user_id,
+                        authn_user_id,
+                    ];
+<span class="cstat-no" title="statement not covered" >                    sqldb.call('issues_insert_for_assessment', params, <span class="fstat-no" title="function not covered" >(e</span>rr, _result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    });
+                },
+            ], (err) =&gt; {
+                sqldb.endTransaction(client, done, err, (err) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (brokenVariants.length &gt; 0) {
+                        // At least one variant is broken, so return an error
+<span class="cstat-no" title="statement not covered" >                        callback(error.makeWithData('unable to generate exam due to a broken question', {assessment_id, brokenVariants}));</span>
+                    } else {
+                        callback(null, assessment_instance_id);
+                    }
+                });
+            });
+        });
+    },
+&nbsp;
+    /*
+     * Add new questions to the assessment instance and regrade it if necessary.
+     *
+     * @param {number} assessment_instance_id - The assessment instance to grade.
+     * @param {number} authn_user_id - The current authenticated user.
+     * @param {function} callback - A callback(err, updated) function.
+     */
+    update(assessment_instance_id, authn_user_id, callback) {
+        debug('update()');
+        let updated;
+        sqldb.beginTransaction((err, client, done) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            debug('inside transaction');
+            async.series([
+                (callback) =&gt; {
+                    sqldb.callWithClient(client, 'assessment_instances_lock', [assessment_instance_id], (err) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        debug('locked');
+                        callback(null);
+                    });
+                },
+                (callback) =&gt; {
+                    const params = [
+                        assessment_instance_id,
+                        authn_user_id,
+                    ];
+                    sqldb.callWithClientOneRow(client, 'assessment_instances_update', params, (err, result) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        updated = result.rows[0].updated;
+                        debug('updated:', updated);
+                        callback(null);
+                    });
+                },
+                (callback) =&gt; {
+                    if (!updated) return callback(null); // skip if not updated
+&nbsp;
+                    // if updated, regrade to pick up max_points changes, etc.
+                    const params = [
+                        assessment_instance_id,
+                        authn_user_id,
+                        null, // credit
+                        true, // only_log_if_score_updated
+                    ];
+                    sqldb.callWithClientOneRow(client, 'assessment_instances_grade', params, (err, _result) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                        debug('graded');
+                        callback(null);
+                    });
+                },
+            ], (err) =&gt; {
+                sqldb.endTransaction(client, done, err, (err) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    debug('transaction ended');
+                    callback(null, updated);
+                });
+            });
+        });
+    },
+&nbsp;
+    /*
+     * Internal worker for gradeVariant(). Do not call directly.
+     * @protected
+     *
+     * @param {Object} client - SQL client that must be inside a locked transaction.
+     * @param {number} assessment_instance_id - The assessment instance to grade.
+     * @param {number} authn_user_id - The current authenticated user.
+     * @param {boolean} close - Whether to close the assessment instance after grading.
+     * @param {function} callback - A callback(err) function.
+     */
+    _gradeAssessmentInstanceWithClient(client, assessment_instance_id, authn_user_id, close, callback) {
+<span class="cstat-no" title="statement not covered" >        debug('_gradeAssessmentInstanceWithClient()');</span>
+        let rows;
+        // We may have to submit grading jobs to the external grader after this
+        // grading transaction has been accepted; collect those job ids here.
+        let grading_job_ids = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        async.series([</span>
+<span class="fstat-no" title="function not covered" >            (c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                sqldb.callWithClient(client, 'variants_select_for_assessment_instance_grading', [assessment_instance_id], <span class="fstat-no" title="function not covered" >(e</span>rr, result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                    rows = result.rows;</span>
+<span class="cstat-no" title="statement not covered" >                    debug('_gradeAssessmentInstanceWithClient()', 'selected variants', 'count:', rows.length);</span>
+<span class="cstat-no" title="statement not covered" >                    callback(null);</span>
+                });
+            },
+<span class="fstat-no" title="function not covered" >            (c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                async.eachSeries(rows, <span class="fstat-no" title="function not covered" >(r</span>ow, callback) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    debug('_gradeAssessmentInstanceWithClient()', 'loop', 'variant.id:', row.variant.id);</span>
+                    const check_submission_id = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >                    question._gradeVariantWithClient(client, row.variant, check_submission_id, row.question, row.course, authn_user_id, <span class="fstat-no" title="function not covered" >(e</span>rr, grading_job_id) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        if (grading_job_id !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                            grading_job_ids.push(grading_job_id);</span>
+                        }
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    });
+                }, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                    debug('_gradeAssessmentInstanceWithClient()', 'finished grading');</span>
+<span class="cstat-no" title="statement not covered" >                    callback(null);</span>
+                });
+            },
+<span class="fstat-no" title="function not covered" >            (c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (!close) <span class="cstat-no" title="statement not covered" >return callback(null);</span></span>
+<span class="cstat-no" title="statement not covered" >                sqldb.callWithClient(client, 'assessment_instances_close', [assessment_instance_id, authn_user_id], <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                    callback(null);</span>
+                });
+            },
+        ], <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            debug('_gradeAssessmentInstanceWithClient()', 'success');</span>
+<span class="cstat-no" title="statement not covered" >            callback(null, grading_job_ids);</span>
+        });
+    },
+&nbsp;
+    /**
+     * Grade all questions in an assessment instance and (optionally) close it.
+     *
+     * @param {number} assessment_instance_id - The assessment instance to grade.
+     * @param {number} authn_user_id - The current authenticated user.
+     * @param {boolean} close - Whether to close the assessment instance after grading.
+     * @param {function} callback - A callback(err) function.
+     */
+    gradeAssessmentInstance(assessment_instance_id, authn_user_id, close, callback) {
+<span class="cstat-no" title="statement not covered" >        debug('gradeAssessmentInstance()');</span>
+        let grading_job_ids;
+<span class="cstat-no" title="statement not covered" >        sqldb.beginTransaction(<span class="fstat-no" title="function not covered" >(e</span>rr, client, done) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >            async.series([</span>
+<span class="fstat-no" title="function not covered" >                (c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    sqldb.callWithClient(client, 'assessment_instances_lock', [assessment_instance_id], <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        debug('gradeAssessmentInstance()', 'locked');</span>
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    });
+                },
+<span class="fstat-no" title="function not covered" >                (c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    this._gradeAssessmentInstanceWithClient(client, assessment_instance_id, authn_user_id, close, <span class="fstat-no" title="function not covered" >(e</span>rr, ret_grading_job_ids) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        grading_job_ids = ret_grading_job_ids;</span>
+<span class="cstat-no" title="statement not covered" >                        debug('gradeAssessmentInstance()', 'finished _gradeAssessmentInstanceWithClient()');</span>
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    });
+                },
+            ], <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >                sqldb.endTransaction(client, done, err, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                    debug('gradeAssessmentInstance()', 'success');</span>
+<span class="cstat-no" title="statement not covered" >                    if (grading_job_ids.length &gt; 0) {</span>
+                        // We need to submit these grading jobs to be graded
+<span class="cstat-no" title="statement not covered" >                        externalGrader.beginGradingJobs(grading_job_ids, <span class="fstat-no" title="function not covered" >(e</span>rr, callback) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                            callback(null);</span>
+                        });
+                    } else {
+                        // We're done!
+<span class="cstat-no" title="statement not covered" >                        callback(null);</span>
+                    }
+                });
+            });
+        });
+    },
+&nbsp;
+    /**
+     * Process the result of an external grading job.
+     *
+     * @param {Obect} content - The grading job data to process.
+     */
+    processGradingResult(content) {
+<span class="cstat-no" title="statement not covered" >        async.series([</span>
+<span class="fstat-no" title="function not covered" >            (c</span>allback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (!_(content.grading).isObject()) {</span>
+<span class="cstat-no" title="statement not covered" >                    return callback(error.makeWithData('invalid grading', {content: content}));</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (!_(content.grading.score).isNumber()) {</span>
+<span class="cstat-no" title="statement not covered" >                    return callback(error.makeWithData('invalid grading.score', {content: content}));</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (content.grading.score &lt; 0 || content.grading.score &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >                    return callback(error.makeWithData('grading.score out of range', {content: content}));</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (_(content.grading).has('feedback') &amp;&amp; !_(content.grading.feedback).isObject()) {</span>
+<span class="cstat-no" title="statement not covered" >                    return callback(error.makeWithData('invalid grading.feedback', {content: content}));</span>
+                }
+                const params = <span class="cstat-no" title="statement not covered" >[</span>
+                    content.gradingId,
+                    content.grading.score,
+                    content.grading.feedback,
+                    content.grading.receivedTime,
+                    content.grading.startTime,
+                    content.grading.endTime,
+                ];
+<span class="cstat-no" title="statement not covered" >                sqldb.call('grading_jobs_process_external', params, <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                    callback(null);</span>
+                });
+            },
+        ], <span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, <span class="fstat-no" title="function not covered" >()</span> =&gt; {})) {</span>
+                // FIXME: call sprocs/errors_insert here
+<span class="cstat-no" title="statement not covered" >                logger.error('processGradingResult: error',</span>
+                             {message: err.message, stack: err.stack, data: JSON.stringify(err.data)});
+            }
+<span class="cstat-no" title="statement not covered" >            externalGradingSocket.gradingLogStatusUpdated(content.gradingId);</span>
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

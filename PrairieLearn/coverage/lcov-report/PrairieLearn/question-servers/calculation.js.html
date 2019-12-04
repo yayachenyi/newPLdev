@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/question-servers/calculation.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/question-servers</a> calculation.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.22% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>45/69</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.16% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.31% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>45/64</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var path = require('path');
+var _ = require('lodash');
+&nbsp;
+var error = require('../lib/error');
+var filePaths = require('../lib/file-paths');
+var requireFrontend = require('../lib/require-frontend');
+&nbsp;
+module.exports = {
+    loadServer: function(question, course, callback) {
+        filePaths.questionFilePath('server.js', question.directory, course.path, question, function(err, questionServerPath) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            var configRequire = requireFrontend.config({
+                paths: {
+                    clientFilesCourse: path.join(course.path, 'clientFilesCourse'),
+                    serverFilesCourse: path.join(course.path, 'serverFilesCourse'),
+                    clientCode: path.join(course.path, 'clientFilesCourse'),
+                    serverCode: path.join(course.path, 'serverFilesCourse'),
+                },
+            });
+            configRequire([questionServerPath], function(server) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (server === undefined) <span class="cstat-no" title="statement not covered" >return callback('Unable to load "server.js" for qid: ' + question.qid);</span>
+                setTimeout(function() {
+                    // use a setTimeout() to get out of requireJS error handling
+                    return callback(null, server);
+                }, 0);
+            });
+        });
+    },
+&nbsp;
+    render: function(renderSelection, variant, question, submission, submissions, course, course_instance, locals, callback) {
+        const htmls = {
+            extraHeadersHtml: '',
+            questionHtml: '',
+            submissionHtmls: _.map(submissions, () =&gt; ''),
+            answerHtml: '',
+        };
+        callback(null, [], htmls);
+    },
+&nbsp;
+    generate: function(question, course, variant_seed, callback) {
+        var questionDir = path.join(course.path, 'questions', question.directory);
+        module.exports.loadServer(question, course, function(err, server) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            var options = question.options || {};
+            try {
+                var vid = variant_seed;
+                var questionData = server.getData(vid, options, questionDir);
+            } catch (err) {
+                let data = <span class="cstat-no" title="statement not covered" >{</span>
+                    variant_seed: variant_seed,
+                    question: question,
+                    course: course,
+                };
+<span class="cstat-no" title="statement not covered" >                err.status = 500;</span>
+<span class="cstat-no" title="statement not covered" >                return ERR(error.addData(err, data), callback);</span>
+            }
+            let data = {
+                params: questionData.params,
+                true_answer: questionData.trueAnswer,
+                options: questionData.options || question.options || <span class="branch-2 cbranch-no" title="branch not covered" >{},</span>
+            };
+            callback(null, [], data);
+        });
+    },
+&nbsp;
+    prepare: function(question, course, variant, callback) {
+        const data = {
+            params: variant.params,
+            true_answer: variant.true_answer,
+            options: variant.options,
+        };
+        callback(null, [], data);
+    },
+&nbsp;
+    getFile: <span class="fstat-no" title="function not covered" >fu</span>nction(filename, variant, question, course, callback) {
+<span class="cstat-no" title="statement not covered" >        module.exports.loadServer(question, course, <span class="fstat-no" title="function not covered" >fu</span>nction(err, server) {</span>
+<span class="cstat-no" title="statement not covered" >            if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+            var fileData;
+<span class="cstat-no" title="statement not covered" >            try {</span>
+                var vid = <span class="cstat-no" title="statement not covered" >variant.variant_seed;</span>
+                var params = <span class="cstat-no" title="statement not covered" >variant.params;</span>
+                var trueAnswer = <span class="cstat-no" title="statement not covered" >variant.true_answer;</span>
+                var options = <span class="cstat-no" title="statement not covered" >variant.options;</span>
+                var questionDir = <span class="cstat-no" title="statement not covered" >path.join(course.path, 'questions', question.directory);</span>
+<span class="cstat-no" title="statement not covered" >                fileData = server.getFile(filename, vid, params, trueAnswer, options, questionDir);</span>
+            } catch (err) {
+                var data = <span class="cstat-no" title="statement not covered" >{</span>
+                    variant: variant,
+                    question: question,
+                    course: course,
+                };
+<span class="cstat-no" title="statement not covered" >                err.status = 500;</span>
+<span class="cstat-no" title="statement not covered" >                return ERR(error.addData(err, data), callback);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            callback(null, fileData);</span>
+        });
+    },
+&nbsp;
+    parse: function(submission, variant, question, course, callback) {
+        const data = {
+            params: variant.params,
+            true_answer: variant.true_answer,
+            submitted_answer: submission.submitted_answer,
+            raw_submitted_answer: submission.raw_submitted_answer,
+            format_errors: {},
+            gradable: true,
+        };
+        callback(null, [], data);
+    },
+&nbsp;
+    grade: function(submission, variant, question, course, callback) {
+        module.exports.loadServer(question, course, function(err, server) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            var grading;
+            try {
+                var vid = variant.variant_seed;
+                var params = variant.params;
+                var trueAnswer = variant.true_answer;
+                var submittedAnswer = submission.submitted_answer;
+                var options = variant.options;
+                var questionDir = path.join(course.path, 'questions', question.directory);
+                grading = server.gradeAnswer(vid, params, trueAnswer, submittedAnswer, options, questionDir);
+            } catch (err) {
+                const data = <span class="cstat-no" title="statement not covered" >{</span>
+                    submission: submission,
+                    variant: variant,
+                    question: question,
+                    course: course,
+                };
+<span class="cstat-no" title="statement not covered" >                err.status = 500;</span>
+<span class="cstat-no" title="statement not covered" >                return ERR(error.addData(err, data), callback);</span>
+            }
+&nbsp;
+            let score = grading.score;
+            if (!question.partial_credit) {
+                // legacy Calculation questions round the score to 0 or 1 (with 0.5 rounding up)
+                score = (grading.score &gt;= 0.5) ? 1 : 0;
+            }
+            const data = {
+                score: score,
+                v2_score: grading.score,
+                feedback: grading.feedback,
+                partial_scores: {},
+                submitted_answer: submission.submitted_answer,
+                format_errors: {},
+                gradable: true,
+                params: variant.params,
+                true_answer: variant.true_answer,
+            };
+            callback(null, [], data);
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

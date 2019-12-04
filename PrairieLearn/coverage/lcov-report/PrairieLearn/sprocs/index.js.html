@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/sprocs/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/sprocs</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>20/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>20/20</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-yes">1700x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var fs = require('fs');
+var path = require('path');
+var async = require('async');
+&nbsp;
+var error = require('../lib/error');
+var logger = require('../lib/logger');
+var sqldb = require('../lib/sqldb');
+&nbsp;
+module.exports = {
+    init: function(callback) {
+        logger.verbose('Starting DB stored procedure initialization');
+        async.eachSeries([
+            'histogram.sql',
+            'array_histogram.sql',
+            'format_interval.sql',
+            'format_interval_short.sql',
+            'format_date_iso8601.sql',
+            'format_date_short.sql',
+            'format_date_full.sql',
+            'format_date_full_compact.sql',
+            'format_date_full_compact_ms.sql',
+            'input_date.sql',
+            'interval_hist_thresholds.sql',
+            'check_course_instance_access_rule.sql',
+            'check_course_instance_access.sql',
+            'check_assessment_access_rule.sql',
+            'check_assessment_access.sql',
+            'assessment_instances_lock.sql',
+            'assessment_instances_insert.sql',
+            'assessment_instances_duration.sql',
+            'assessment_instances_update_points.sql',
+            'assessment_instances_update_score_perc.sql',
+            'assessments_duration_stats.sql',
+            'assessments_stats.sql',
+            'assessments_format.sql',
+            'assessments_format_for_question.sql',
+            'tags_for_question.sql',
+            'assessment_instances_points.sql',
+            'random_unique.sql',
+            'question_order.sql',
+            'exam_question_status.sql',
+            'authz_assessment.sql',
+            'authz_assessment_instance.sql',
+            'select_assessment_questions.sql',
+            'course_instances_with_uuid_elsewhere.sql',
+            'questions_with_uuid_elsewhere.sql',
+            'questions_select.sql',
+            'assessments_with_uuid_elsewhere.sql',
+            'assessment_instance_label.sql',
+            'assessment_label.sql',
+            'admin_assessment_question_number.sql',
+            'course_permissions_insert_by_user_uid.sql',
+            'course_permissions_update_role.sql',
+            'course_permissions_delete.sql',
+            'authz_course.sql',
+            'authz_course_instance.sql',
+            'administrators_insert_by_user_uid.sql',
+            'administrators_delete_by_user_id.sql',
+            'courses_insert.sql',
+            'courses_update_column.sql',
+            'courses_delete.sql',
+            'select_or_insert_course_by_path.sql',
+            'assessment_instances_delete.sql',
+            'assessment_instances_delete_all.sql',
+            'assessment_instances_grade.sql',
+            'assessment_instances_regrade.sql',
+            'assessment_instances_select_for_auto_close.sql',
+            'assessment_instances_ensure_open.sql',
+            'instance_questions_points_homework.sql',
+            'instance_questions_points_exam.sql',
+            'instance_questions_points.sql',
+            'instance_questions_grade.sql',
+            'instance_questions_select_question.sql',
+            'instance_questions_lock.sql',
+            'instance_questions_ensure_open.sql',
+            'instance_questions_select_variant.sql',
+            'instance_questions_update_points.sql',
+            'instance_questions_update_score_perc.sql',
+            'submissions_lock.sql',
+            'submissions_select.sql',
+            'submissions_insert.sql',
+            'submissions_update_parsing.sql',
+            'assessment_instances_update.sql',
+            'instance_questions_update_in_grading.sql',
+            'assessment_instances_close.sql',
+            'grading_job_status.sql',
+            'grading_jobs_lock.sql',
+            'grading_jobs_insert.sql',
+            'grading_jobs_insert_external_manual.sql',
+            'grading_jobs_insert_internal.sql',
+            'grading_jobs_process_external.sql',
+            'ip_to_mode.sql',
+            'config_select.sql',
+            'users_select_or_insert.sql',
+            'dump_to_csv.sql',
+            'grading_jobs_stats_day.sql',
+            'issues_generate_display_id.sql',
+            'issues_insert_for_variant.sql',
+            'issues_insert_for_assessment.sql',
+            'issues_update_open.sql',
+            'issues_update_open_all.sql',
+            'variants_lock.sql',
+            'variants_select.sql',
+            'variants_ensure_instance_question.sql',
+            'variants_ensure_question.sql',
+            'variants_insert.sql',
+            'variants_select_submission_for_grading.sql',
+            'variants_select_for_assessment_instance_grading.sql',
+            'variants_update_after_grading.sql',
+            'variants_ensure_open.sql',
+            'variants_unlink.sql',
+            'grader_loads_current.sql',
+        ], function(filename, callback) {
+            logger.verbose('Loading ' + filename);
+            fs.readFile(path.join(__dirname, filename), 'utf8', function(err, sql) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                sqldb.query(sql, [], function(err, _result) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >error.addData(err, {sqlFile: filename});</span>
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+                    callback(null);
+                });
+            });
+        }, function(err) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span>
+            logger.verbose('Successfully completed DB stored procedure initialization');
+            callback(null);
+        });
+    },
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/file-paths.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> file-paths.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>25/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">35% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.52% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/42</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-yes">53x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var fs = require('fs');
+var path = require('path');
+&nbsp;
+var error = require('./error');
+var config = require('./config');
+var sqldb = require('./sqldb');
+var sqlLoader = require('./sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+module.exports = {};
+&nbsp;
+/* returns (fullPath, effectiveFilename, rootPath)
+&nbsp;
+   fullPath is the full path (including filename) of the file to load
+&nbsp;
+   (effectiveFilename, rootPath) are equivalent data broken out so that
+       fullPath = effectiveFilename + '/' + rootPath
+   These can by used like:
+       res.sendFile(effectiveFilename, {root: rootPath});
+   for safety.
+*/
+module.exports.questionFilePath = function(filename, questionDirectory, coursePath, question, callback, nTemplates) {
+    nTemplates = (nTemplates === undefined) ? 0 : <span class="branch-1 cbranch-no" title="branch not covered" >nTemplates;</span>
+    var rootPath = path.join(coursePath, 'questions', questionDirectory);
+    var fullPath = path.join(rootPath, filename);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (nTemplates &gt; 10) {
+<span class="cstat-no" title="statement not covered" >        return callback(new Error('Too-long template recursion: ' + rootPath));</span>
+    }
+    fs.stat(fullPath, function(err, _stat) {
+        if (err) {
+            // couldn't find the file
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (question.template_directory) {
+                // have a template, try it
+                var params = <span class="cstat-no" title="statement not covered" >{</span>
+                    course_id: question.course_id,
+                    directory: question.template_directory,
+                };
+<span class="cstat-no" title="statement not covered" >                sqldb.queryZeroOrOneRow(sql.select_question, params, <span class="fstat-no" title="function not covered" >fu</span>nction(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (result.rowCount == 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(error.make(500, 'Could not find template question "'</span>
+                                                   + question.template_directory
+                                                   + '" from question "'
+                                                   + question.directory + '"', {sql: sql.select_question, params: params}));
+                    }
+                    var templateQuestion = <span class="cstat-no" title="statement not covered" >result.rows[0];</span>
+<span class="cstat-no" title="statement not covered" >                    return module.exports.questionFilePath(filename, templateQuestion.directory, coursePath, templateQuestion, <span class="fstat-no" title="function not covered" >fu</span>nction(err, fullPath, effectiveFilename, rootPath) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (ERR(err, callback)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >                        callback(null, fullPath, effectiveFilename, rootPath);</span>
+                    }, nTemplates + 1);
+                });
+            } else {
+                // no template, try default files
+                var filenameToSuffix = {
+                    'client.js': 'Client.js',
+                    'server.js': 'Server.js',
+                };
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (filenameToSuffix[filename] === undefined) {
+                    // no default for this file type, so try clientFilesCourse
+                    let rootPathCourse = <span class="cstat-no" title="statement not covered" >path.join(coursePath, 'clientFilesCourse');</span>
+                    let fullPathCourse = <span class="cstat-no" title="statement not covered" >path.join(rootPathCourse, filename);</span>
+<span class="cstat-no" title="statement not covered" >                    fs.stat(fullPathCourse, <span class="fstat-no" title="function not covered" >fu</span>nction(err, _stat) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (err) {</span>
+                            // file also wasn't in clientFilesCourse, give up
+<span class="cstat-no" title="statement not covered" >                            return callback(new Error('file not found at: ' + fullPath + ' or: ' + fullPathCourse));</span>
+                        } else {
+                            // found the file in clientFilesCourse
+<span class="cstat-no" title="statement not covered" >                            return callback(null, fullPathCourse, filename, rootPathCourse);</span>
+                        }
+                    });
+                } else {
+                    var defaultFilename = question.type + filenameToSuffix[filename];
+                    var fullDefaultFilePath = path.join(config.questionDefaultsDir, defaultFilename);
+                    fs.stat(fullDefaultFilePath, function(err, _stat) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+                            // no default file, give up
+<span class="cstat-no" title="statement not covered" >                            return callback(error.makeWithData('file not found', {fullPath, fullDefaultFilePath}));</span>
+                        } else {
+                            // found a default file
+                            return callback(null, fullDefaultFilePath, defaultFilename, config.questionDefaultsDir);
+                        }
+                    });
+                }
+            }
+        } else {
+            // found the file
+            return callback(null, fullPath, filename, rootPath);
+        }
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

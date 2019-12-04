@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/middlewares/authzCourseInstance.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/middlewares</a> authzCourseInstance.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.64% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>39/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>22/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>39/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">621x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">593x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var ERR = require('async-stacktrace');
+var _ = require('lodash');
+&nbsp;
+var logger = require('../lib/logger');
+var config = require('../lib/config');
+var error = require('../lib/error');
+var sqldb = require('../lib/sqldb');
+var sqlLoader = require('../lib/sql-loader');
+&nbsp;
+var sql = sqlLoader.loadSqlEquiv(__filename);
+&nbsp;
+module.exports = function(req, res, next) {
+    var params = {
+        authn_user_id: res.locals.authn_user.user_id,
+        course_instance_id: req.params.course_instance_id,
+        is_administrator: res.locals.is_administrator,
+        req_date: res.locals.req_date,
+        ip: req.headers['x-forwarded-for'] || req.ip,
+        force_mode: (config.authType == 'none' &amp;&amp; req.cookies.pl_requested_mode) ? req.cookies.pl_requested_mode : null,
+    };
+    sqldb.queryZeroOrOneRow(sql.select_authz_data, params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount == 0) <span class="cstat-no" title="statement not covered" >return next(error.make(403, 'Access denied'));</span>
+&nbsp;
+        var authn_mode = result.rows[0].mode;
+        res.locals.course = result.rows[0].course;
+        res.locals.course_instance = result.rows[0].course_instance;
+&nbsp;
+        var permissions_course_instance = result.rows[0].permissions_course_instance;
+        var permissions_course = result.rows[0].permissions_course;
+&nbsp;
+        // effective user data defaults to auth user data
+        res.locals.authz_data = {
+            authn_user: _.cloneDeep(res.locals.authn_user),
+            authn_role: permissions_course_instance.role,
+            authn_mode: authn_mode,
+            authn_has_instructor_view: permissions_course_instance.has_instructor_view,
+            authn_has_instructor_edit: permissions_course_instance.has_instructor_edit,
+            authn_course_role: permissions_course.course_role,
+            authn_has_course_permission_view: permissions_course.has_course_permission_view,
+            authn_has_course_permission_edit: permissions_course.has_course_permission_edit,
+            authn_has_course_permission_own: permissions_course.has_course_permission_own,
+            user: _.cloneDeep(res.locals.authn_user),
+            role: permissions_course_instance.role,
+            mode: authn_mode,
+            has_instructor_view: permissions_course_instance.has_instructor_view,
+            has_instructor_edit: permissions_course_instance.has_instructor_edit,
+            course_role: permissions_course.course_role,
+            has_course_permission_view: permissions_course.has_course_permission_view,
+            has_course_permission_edit: permissions_course.has_course_permission_edit,
+            has_course_permission_own: permissions_course.has_course_permission_own,
+        };
+        res.locals.user = res.locals.authz_data.user;
+        // FIXME: debugging for #422
+        logger.debug('Preliminary authz_data', res.locals.authz_data);
+&nbsp;
+        // check whether we are requesting user data override
+        if (!req.cookies.pl_requested_uid &amp;&amp; !req.cookies.pl_requested_role &amp;&amp; !req.cookies.pl_requested_mode &amp;&amp; !req.cookies.pl_requested_date) {
+            // no user data override, just continue
+            return next();
+        }
+&nbsp;
+        // We are trying to override the user data.
+        // Ensure we are enrolled in this course (we are already authorized, so this must be ok).
+        var params = {
+            course_instance_id: res.locals.course_instance.id,
+            user_id: res.locals.authn_user.user_id,
+            role: res.locals.authz_data.authn_role,
+        };
+        sqldb.query(sql.ensure_enrollment, params, function(err, _result) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+&nbsp;
+            // now do the actual override
+            var params = {
+                authn_user_id: res.locals.authn_user.user_id,
+                authn_role: res.locals.authz_data.authn_role,
+                server_mode: res.locals.authz_data.authn_mode,
+                req_date: res.locals.req_date,
+                course_instance_id: req.params.course_instance_id,
+                requested_uid: (req.cookies.pl_requested_uid ? <span class="branch-0 cbranch-no" title="branch not covered" >req.cookies.pl_requested_uid </span>: res.locals.authz_data.user.uid),
+                requested_role: (req.cookies.pl_requested_role ? <span class="branch-0 cbranch-no" title="branch not covered" >req.cookies.pl_requested_role </span>: res.locals.authz_data.role),
+                requested_mode: (req.cookies.pl_requested_mode ? req.cookies.pl_requested_mode : <span class="branch-1 cbranch-no" title="branch not covered" >res.locals.authz_data.mode)</span>,
+                requested_date: (req.cookies.pl_requested_date ? req.cookies.pl_requested_date : res.locals.req_date),
+            };
+            sqldb.queryZeroOrOneRow(sql.select_effective_authz_data, params, function(err, result) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (ERR(err, next)) <span class="cstat-no" title="statement not covered" >return;</span>
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (result.rowCount == 0) <span class="cstat-no" title="statement not covered" >return next(error.make(403, 'Access denied'));</span>
+&nbsp;
+                _.assign(res.locals.authz_data, result.rows[0]);
+                res.locals.req_date = result.rows[0].req_date;
+                // remove all course permissions if we are emulating another user
+                res.locals.authz_data.course_role = 'None';
+                res.locals.authz_data.has_course_permission_view = false;
+                res.locals.authz_data.has_course_permission_edit = false;
+                res.locals.authz_data.has_course_permission_own = false;
+                // FIXME: debugging for #422
+                logger.debug('Overridden authz_data', res.locals.authz_data);
+                res.locals.user = res.locals.authz_data.user;
+                next();
+            });
+        });
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

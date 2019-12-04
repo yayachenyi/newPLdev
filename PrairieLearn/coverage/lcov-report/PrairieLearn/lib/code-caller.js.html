@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for PrairieLearn/lib/code-caller.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">PrairieLearn/lib</a> code-caller.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.04% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>154/208</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.07% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>55/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.47% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.27% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>153/198</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1279x</span>
+<span class="cline-any cline-yes">1279x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">732x</span>
+<span class="cline-any cline-yes">732x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-yes">743x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3577x</span>
+<span class="cline-any cline-yes">3577x</span>
+<span class="cline-any cline-yes">3577x</span>
+<span class="cline-any cline-yes">3577x</span>
+<span class="cline-any cline-yes">3577x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3577x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">732x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">732x</span>
+<span class="cline-any cline-yes">732x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">734x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-yes">3574x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-yes">2293x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1279x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3572x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1281x</span>
+<span class="cline-any cline-yes">1281x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">2220x</span>
+<span class="cline-any cline-yes">2220x</span>
+<span class="cline-any cline-yes">2220x</span>
+<span class="cline-any cline-yes">16510x</span>
+<span class="cline-any cline-yes">4306x</span>
+<span class="cline-any cline-yes">4306x</span>
+<span class="cline-any cline-yes">4306x</span>
+<span class="cline-any cline-yes">12204x</span>
+<span class="cline-any cline-yes">10727x</span>
+<span class="cline-any cline-yes">10727x</span>
+<span class="cline-any cline-yes">10727x</span>
+<span class="cline-any cline-yes">1477x</span>
+<span class="cline-any cline-yes">1464x</span>
+<span class="cline-any cline-yes">1464x</span>
+<span class="cline-any cline-yes">1464x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18730x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const _ = require('lodash');
+const path = require('path');
+const child_process = require('child_process');
+const debug = require('debug')('code-caller');
+&nbsp;
+const logger = require('../lib/logger');
+&nbsp;
+const CREATED = Symbol('CREATED');
+const WAITING = Symbol('WAITING');
+const IN_CALL = Symbol('IN_CALL');
+const EXITING = Symbol('EXITING');
+const EXITED  = Symbol('EXITED');
+&nbsp;
+class FunctionMissingError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'FunctionMissingError';
+  }
+}
+&nbsp;
+/*
+  Usage
+  =====
+&nbsp;
+  Create a new PythonCaller object, then do call() repeatedly and wait
+  for each call to finish, then do done() to finish.
+&nbsp;
+&nbsp;
+  Public Methods
+  ==============
+&nbsp;
+  constructor(): make a new PythonCaller object but do not do any work
+&nbsp;
+  call(file, fcn, args, options, callback): run file.fcn(args)
+    callback should take (err, data, output):
+      err is an Error() or null
+      data is the returned value from the function
+      output is a string containing STDOUT and STDERR together
+&nbsp;
+  done(): clean up the running python process (if any)
+&nbsp;
+&nbsp;
+  Example
+  =======
+&nbsp;
+  const pc = PythonCaller()
+  pc.call('myfile.py', 'add', [34, 21], {}, (err, result, consoleLog) =&gt; {
+      if (err) ...;
+      console.log('the sum is', result.val);
+      console.log('the caller STDOUT+STDERR is', consoleLog);
+&nbsp;
+      pc.call('otherfile.py', 'concat', ['abc', 'def'], {}, (err, result, consoleLog) =&gt; {
+          if (err) ...;
+          console.log('the concatenation is', result.valstring);
+          console.log('the caller STDOUT+STDERR is', consoleLog);
+&nbsp;
+          pc.done();
+      });
+  });
+&nbsp;
+&nbsp;
+  Notes
+  =====
+&nbsp;
+  - PythonCaller uses a lazy-start model where the child process isn't
+    started until the first call(), so it's cheap to create a
+    PythonCaller object and never use it.
+&nbsp;
+  - It is safe to call done() even if call() was never called.
+&nbsp;
+&nbsp;
+  Internal state machine
+  ======================
+&nbsp;
+  The list of internal states and the possible transitions are:
+&nbsp;
+  CREATED: Child process is not yet started.
+    -&gt; WAITING, EXITED
+&nbsp;
+  WAITING: Child process is running but no call is active, everything is healthy.
+    -&gt; IN_CALL, EXITING, EXITED
+&nbsp;
+  IN_CALL: A call is currently running.
+    -&gt; WAITING, EXITING, EXITED
+&nbsp;
+  EXITING: The child process is being terminated.
+    -&gt; EXITED
+&nbsp;
+  EXITED: The child process has exited.
+    -&gt; none
+&nbsp;
+*/
+class PythonCaller {
+    constructor() {
+        debug('enter constructor()');
+        this.child = null;
+        this.callback = null;
+        this.timeoutID = null;
+&nbsp;
+        // variables to accumulate child output
+        this.outputStdout = '';
+        this.outputStderr = '';
+        this.outputBoth = '';
+        this.outputData = '';
+&nbsp;
+        // for error logging
+        this.lastCallData = null;
+&nbsp;
+        this.state = CREATED;
+        this._checkState();
+        debug('exit constructor(), state: ' + String(this.state));
+    }
+&nbsp;
+    call(file, fcn, args, options, callback) {
+        debug('enter call(), state: ' + String(this.state));
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (![CREATED, WAITING].includes(this.state)) <span class="cstat-no" title="statement not covered" >return callback(new Error('invalid internal PythonCaller state for call()'));</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!this._checkState([CREATED, WAITING])) <span class="cstat-no" title="statement not covered" >return callback(new Error('invalid PythonCaller state'));</span>
+&nbsp;
+        if (this.state == CREATED) {
+            this._startChild();
+        }
+&nbsp;
+        const localOptions = _.defaults(options, {
+            cwd: __dirname,
+            paths: [],
+            timeout: 20000, // FIXME: this number (equivalent to 20 seconds) should not have to be this high
+        });
+        const callData = {
+            file, fcn, args,
+            cwd: localOptions.cwd,
+            paths: localOptions.paths,
+        };
+        const callDataString = JSON.stringify(callData);
+        this.callback = callback;
+        this.timeoutID = setTimeout(this._timeout.bind(this), localOptions.timeout);
+&nbsp;
+        this.outputStdout = '';
+        this.outputStderr = '';
+        this.outputBoth = '';
+        this.outputData = '';
+&nbsp;
+        this.lastCallData = callData;
+&nbsp;
+        this.child.stdin.write(callDataString);
+        this.child.stdin.write('\n');
+&nbsp;
+        this.state = IN_CALL;
+        this._checkState();
+        debug('exit call(), state: ' + String(this.state));
+    }
+&nbsp;
+    done() {
+        debug('enter done(), state: ' + String(this.state));
+        this._checkState([CREATED, WAITING, EXITING, EXITED]);
+&nbsp;
+        if (this.state == CREATED) {
+            this.state = EXITED;
+        } else if (this.state == WAITING) {
+            this.child.kill();
+            this.state = EXITING;
+        }
+        this._checkState();
+        debug('exit done(), state: ' + String(this.state));
+    }
+&nbsp;
+    _startChild() {
+        debug('enter _startChild(), state: ' + String(this.state));
+        this._checkState([CREATED]);
+&nbsp;
+        const cmd = 'python3';
+        const pythonTrampoline = path.join(__dirname, 'python-caller-trampoline.py');
+        const args = ['-B', pythonTrampoline];
+        const options = {
+            cwd: __dirname,
+            stdio: ['pipe', 'pipe', 'pipe', 'pipe'], // stdin, stdout, stderr, and an extra one for data
+        };
+        this.child = child_process.spawn(cmd, args, options);
+&nbsp;
+        this.child.stderr.setEncoding('utf8');
+        this.child.stdout.setEncoding('utf8');
+        this.child.stdio[3].setEncoding('utf8');
+&nbsp;
+        this.child.stderr.on('data', this._handleStderrData.bind(this));
+        this.child.stdout.on('data', this._handleStdoutData.bind(this));
+        this.child.stdio[3].on('data', this._handleStdio3Data.bind(this));
+&nbsp;
+        this.child.on('exit', this._handleChildExit.bind(this));
+        this.child.on('error', this._handleChildError.bind(this));
+&nbsp;
+        this.state = WAITING;
+        this._checkState();
+        debug('exit _startChild(), state: ' + String(this.state));
+    }
+&nbsp;
+    _handleStderrData(data) {
+        debug('enter _handleStderrData(), state: ' + String(this.state));
+        this._checkState([IN_CALL, EXITING]);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.state == IN_CALL) {
+            this.outputStderr += data;
+            this.outputBoth += data;
+        }
+        debug('exit _handleStderrData(), state: ' + String(this.state));
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    _h</span>andleStdoutData(data) {
+<span class="cstat-no" title="statement not covered" >        debug('enter _handleStdoutData(), state: ' + String(this.state));</span>
+<span class="cstat-no" title="statement not covered" >        this._checkState([IN_CALL, EXITING]);</span>
+<span class="cstat-no" title="statement not covered" >        if (this.state == IN_CALL) {</span>
+<span class="cstat-no" title="statement not covered" >            this.outputStdout += data;</span>
+<span class="cstat-no" title="statement not covered" >            this.outputBoth += data;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        debug('exit _handleStdoutData(), state: ' + String(this.state));</span>
+    }
+&nbsp;
+    _handleStdio3Data(data) {
+        debug('enter _handleStdio3Data(), state: ' + String(this.state));
+        this._checkState([IN_CALL, EXITING]);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.state == IN_CALL) {
+            this.outputData += data;
+            if (this.outputData.indexOf('\n') &gt;= 0) {
+                this._callIsFinished();
+            }
+        }
+        debug('exit _handleStdio3Data(), state: ' + String(this.state));
+    }
+&nbsp;
+    _handleChildExit(code, signal) {
+        debug('enter _handleChildExit(), state: ' + String(this.state));
+        this._checkState([WAITING, IN_CALL, EXITING]);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.state == WAITING) {
+<span class="cstat-no" title="statement not covered" >            this._logError('PythonCaller child process exited while in state = WAITING, code = ' + String(code) + ', signal = ' + String(signal));</span>
+<span class="cstat-no" title="statement not covered" >            this.child = null;</span>
+<span class="cstat-no" title="statement not covered" >            this.state = EXITED;</span>
+        } else if (this.state == IN_CALL) {
+            this._clearTimeout();
+            this.child = null;
+            this.state = EXITED;
+            this._callCallback(new Error('PythonCaller child process exited unexpectedly, code = ' + String(code) + ', signal = ' + String(signal)));
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (this.state == EXITING) {
+            // no error, this is the good case
+            this.child = null;
+            this.state = EXITED;
+        }
+        debug('exit _handleChildExit(), state: ' + String(this.state));
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    _h</span>andleChildError(error) {
+<span class="cstat-no" title="statement not covered" >        debug('enter _handleChildError(), state: ' + String(this.state));</span>
+<span class="cstat-no" title="statement not covered" >        this._checkState([WAITING, IN_CALL, EXITING]);</span>
+<span class="cstat-no" title="statement not covered" >        if (this.state == WAITING) {</span>
+<span class="cstat-no" title="statement not covered" >            this._logError('PythonCaller child process raised error while in state = WAITING, message = ' + String(error));</span>
+<span class="cstat-no" title="statement not covered" >            this.state = EXITING;</span>
+<span class="cstat-no" title="statement not covered" >            this.child.kill('SIGKILL');</span>
+        } else <span class="cstat-no" title="statement not covered" >if (this.state == IN_CALL) {</span>
+<span class="cstat-no" title="statement not covered" >            this._logError('PythonCaller child process raised error while in state = IN_CALL, message = ' + String(error));</span>
+<span class="cstat-no" title="statement not covered" >            this._clearTimeout();</span>
+<span class="cstat-no" title="statement not covered" >            this.state = EXITING;</span>
+<span class="cstat-no" title="statement not covered" >            this.child.kill('SIGKILL');</span>
+            const err = <span class="cstat-no" title="statement not covered" >new Error('PythonCaller child process error: ' + String(error));</span>
+<span class="cstat-no" title="statement not covered" >            this._callCallback(err);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (this.state == EXITING) {</span>
+<span class="cstat-no" title="statement not covered" >            this._logError('PythonCaller child process raised error while in state = EXITING, message = ' + String(error));</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this._checkState();</span>
+<span class="cstat-no" title="statement not covered" >        debug('exit _handleChildError(), state: ' + String(this.state));</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    _t</span>imeout() {
+<span class="cstat-no" title="statement not covered" >        debug('enter _timeout(), state: ' + String(this.state));</span>
+<span class="cstat-no" title="statement not covered" >        this._checkState([IN_CALL]);</span>
+<span class="cstat-no" title="statement not covered" >        this.timeoutID = null;</span>
+        const err = <span class="cstat-no" title="statement not covered" >new Error('timeout exceeded, killing PythonCaller child');</span>
+<span class="cstat-no" title="statement not covered" >        this.child.kill('SIGKILL');</span>
+<span class="cstat-no" title="statement not covered" >        this.state = EXITING;</span>
+<span class="cstat-no" title="statement not covered" >        this._callCallback(err);</span>
+<span class="cstat-no" title="statement not covered" >        debug('exit _timeout(), state: ' + String(this.state));</span>
+    }
+&nbsp;
+    _clearTimeout() {
+        debug('enter _clearTimeout(), state: ' + String(this.state));
+        clearTimeout(this.timeoutID);
+        this.timeoutID = null;
+        debug('exit _clearTimeout(), state: ' + String(this.state));
+    }
+&nbsp;
+    _callCallback(err, data, output) {
+        debug('enter _callCallback(), state: ' + String(this.state));
+        if (err) err.data = this._errorData();
+        const c = this.callback;
+        this.callback = null;
+        c(err, data, output);
+        debug('exit _callCallback(), state: ' + String(this.state));
+    }
+&nbsp;
+    _callIsFinished() {
+        debug('enter _callIsFinished(), state: ' + String(this.state));
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!this._checkState([IN_CALL])) <span class="cstat-no" title="statement not covered" >return;</span>
+        this._clearTimeout();
+        let data, err = null;
+        try {
+            data = JSON.parse(this.outputData);
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >            err = new Error('Error decoding PythonCaller JSON: ' + e.message);</span>
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >            this.state = EXITING;</span>
+<span class="cstat-no" title="statement not covered" >            this.child.kill('SIGKILL');</span>
+<span class="cstat-no" title="statement not covered" >            this._callCallback(err);</span>
+        } else {
+            this.state = WAITING;
+            if (data.present) {
+                this._callCallback(null, data.val, this.outputBoth);
+            } else {
+                this._callCallback(new FunctionMissingError('Function not found in module'));
+            }
+        }
+        debug('exit _callIsFinished(), state: ' + String(this.state));
+    }
+&nbsp;
+    _errorData() {
+        const errForStack = new Error();
+        return {
+            state: this.state,
+            childIsNull: (this.child == null),
+            callbackIsNull: (this.callback == null),
+            timeoutIDIsNull: (this.timeoutID == null),
+            outputStdout: this.outputStdout,
+            outputStderr: this.outputStderr,
+            outputBoth: this.outputBoth,
+            outputData: this.outputData,
+            stack: errForStack.stack,
+            lastCallData: this.lastCallData,
+        };
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    _l</span>ogError(msg) {
+<span class="cstat-no" title="statement not covered" >        debug('enter _logError(), state: ' + String(this.state));</span>
+        const errData = <span class="cstat-no" title="statement not covered" >this._errorData();</span>
+<span class="cstat-no" title="statement not covered" >        logger.error(msg, errData);</span>
+<span class="cstat-no" title="statement not covered" >        debug('exit _logError(), state: ' + String(this.state));</span>
+    }
+&nbsp;
+    _checkState(allowedStates) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (allowedStates &amp;&amp; !allowedStates.includes(this.state)) {
+            const allowedStatesList = <span class="cstat-no" title="statement not covered" >'[' + _.map(allowedStates, String).join(',') + ']';</span>
+<span class="cstat-no" title="statement not covered" >            return this._logError('Expected PythonCaller states ' + allowedStatesList + ' but actually have state ' + String(this.state));</span>
+        }
+&nbsp;
+        let childNull, callbackNull, timeoutIDNull;
+        if (this.state == CREATED) {
+            childNull = true;
+            callbackNull = true;
+            timeoutIDNull = true;
+        } else if (this.state == WAITING) {
+            childNull = false;
+            callbackNull = true;
+            timeoutIDNull = true;
+        } else if (this.state == IN_CALL) {
+            childNull = false;
+            callbackNull = false;
+            timeoutIDNull = false;
+        } else if (this.state == EXITING) {
+            childNull = false;
+            callbackNull = true;
+            timeoutIDNull = true;
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (this.state == EXITED) {
+            childNull = true;
+            callbackNull = true;
+            timeoutIDNull = true;
+        } else {
+<span class="cstat-no" title="statement not covered" >            return this._logError('Invalid PythonCaller state: ' + String(this.state));</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (childNull != null) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (childNull &amp;&amp; this.child != null) <span class="cstat-no" title="statement not covered" >return this._logError('PythonCaller state "' + String(this.state) + '": child should be null');</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!childNull &amp;&amp; this.child == null) <span class="cstat-no" title="statement not covered" >return this._logError('PythonCaller state "' + String(this.state) + '": child should not be null');</span>
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (callbackNull != null) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (callbackNull &amp;&amp; this.callback != null) <span class="cstat-no" title="statement not covered" >return this._logError('PythonCaller state "' + String(this.state) + '": callback should be null');</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!callbackNull &amp;&amp; this.callback == null) <span class="cstat-no" title="statement not covered" >return this._logError('PythonCaller state "' + String(this.state) + '": callback should not be null');</span>
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (timeoutIDNull != null) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (timeoutIDNull &amp;&amp; this.timeoutID != null) <span class="cstat-no" title="statement not covered" >return this._logError('PythonCaller state "' + String(this.state) + '": timeoutID should be null');</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!timeoutIDNull &amp;&amp; this.timeoutID == null) <span class="cstat-no" title="statement not covered" >return this._logError('PythonCaller state "' + String(this.state) + '": timeoutID should not be null');</span>
+        }
+&nbsp;
+        return true;
+    }
+}
+&nbsp;
+module.exports.FunctionMissingError = FunctionMissingError;
+module.exports.PythonCaller = PythonCaller;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 14 2017 10:42:16 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
